@@ -1,0 +1,37 @@
+# Unreal Engine
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# IDE
+.idea/
+.vs/
+.vscode/
+
+# Visual Studio / Rider
+*.sln
+*.suo
+*.user
+*.userprefs
+*.VC.db
+*.VC.opendb
+*.DotSettings.user
+.vsconfig
+
+# Temporary files
+*.log
+*.tmp
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Local notes and documentation
+BUILD_FIXES_APPLIED.md
+IDO_PHYSICS_SETUP.md
+NEXT_STEPS.md
+Ultimate StampIT Collection for UE.pdf
