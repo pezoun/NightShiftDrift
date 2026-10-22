@@ -164,6 +164,10 @@ struct FDriftHandlingTuning
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Input")
 	float HandbrakeDeadzone = 0.5f;
 
+	// Additional yaw torque is disabled until the handling is tested in PIE.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Input", meta=(ClampMin="0.0"))
+	float HandbrakeDragTorque = 0.0f;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Assist")
 	float DriftSustainForceMultiplier = 90.0f;
 

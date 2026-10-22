@@ -6,7 +6,6 @@
 
 class UImage;
 
-/**
 UCLASS(BlueprintType, Blueprintable)
 class MATURITA_API UDriftCarUIWidget : public UUserWidget
 {

@@ -5,7 +5,6 @@
 #include "ChaosVehicleWheel.h"
 #include "DriftFrontWheel.generated.h"
 
-/**
 UCLASS()
 class MATURITA_API UDriftFrontWheel : public UChaosVehicleWheel
 {

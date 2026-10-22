@@ -206,7 +206,8 @@ void UDriftHandlingComponent::ApplyWheelSpinForce(float DeltaTime)
 	const FVector LateralImpulse = Right * SteeringSign * SideStrength * CurrentPowerOversteerAlpha * DeltaTime;
 	VehicleMesh->AddImpulseAtLocation(LateralImpulse, RearAxle, NAME_None);
 
-	const float YawImpulse = SteeringSign
+	// Provisional power-oversteer assist; validate handling in PIE.
+	const float YawImpulse = SteeringSign * SideStrength * CurrentPowerOversteerAlpha * DeltaTime;
 	VehicleMesh->AddAngularImpulseInDegrees(FVector(0.0f, 0.0f, YawImpulse), NAME_None, true);
 }
 
@@ -256,10 +257,12 @@ void UDriftHandlingComponent::ApplyDriftSustainForce(float DeltaTime)
 	const float SideVelocity = FVector::DotProduct(Velocity, Right);
 
 	const float SustainStrength = HandlingTuning.DriftSustainForceMultiplier
+		* SlipAlpha * ThrottleAlpha * SpeedFade * GearScale * CurrentDriftAssistAlpha;
 
 	VehicleMesh->AddForce(Forward * SustainStrength, NAME_None, true);
 
-	const FVector SideDampingForce = -Right
+	const FVector SideDampingForce = -Right * SideVelocity
+		* HandlingTuning.DriftSustainSideDamping * CurrentDriftAssistAlpha;
 	VehicleMesh->AddForce(SideDampingForce, NAME_None, true);
 }
 

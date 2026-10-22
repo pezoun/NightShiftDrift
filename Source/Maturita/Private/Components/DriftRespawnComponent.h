@@ -7,7 +7,6 @@
 class USplineComponent;
 class UChaosVehicleMovementComponent;
 
-/**
 UCLASS(ClassGroup=(Custom), BlueprintType, Blueprintable, meta=(BlueprintSpawnableComponent))
 class MATURITA_API UDriftRespawnComponent : public UActorComponent
 {

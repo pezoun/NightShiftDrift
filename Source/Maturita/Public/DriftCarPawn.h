@@ -143,13 +143,10 @@ protected:
     const UChaosVehicleMovementComponent* GetChaosVehicleMovement() const;
 
 
-    /**
     float ProcessThrottleInput(float RawThrottle);
 
-    /**
     float ProcessSteeringInput(float RawSteering, float SpeedKmH);
 
-    /**
     void ApplyHandbrake(float HandbrakeInput);
 
     float CachedThrottleInput = 0.0f;
