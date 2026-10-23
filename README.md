@@ -19,7 +19,7 @@ Automobilová hra v Unreal Engine zaměřená na volnou jízdu, drift, závody a
 
 Projekt obsahuje C++ základ vozidla využívající Chaos Vehicles, komponenty ovládání, kamery, převodovky, telemetrie, respawnu a zvuku a základ HUD. Přítomnost implementace byla ověřena čtením zdrojů; kompletní funkčnost musí potvrdit herní test.
 
-Závodní systém s odměnami, garáž se třemi vozy, pět kategorií vylepšení a ukládání postupu jsou plánované části. Nová horská mapa zatím není vytvořená. Obsah `TougePrototype/Development` je experiment, nikoli dokončená herní mapa.
+Závodní systém s odměnami, garáž se třemi vozy, pět kategorií vylepšení a ukládání postupu jsou plánované části. První topografie horské oblasti a síť cest jsou v mapě `/Game/NightshiftDrift/Maps/L_Touge_Region`. [Popis mapy a skutečné výsledky jízdní zkoušky](docs/mapa-a-test-vozidla.md). Obsah `TougePrototype/Development` je starší experiment.
 
 ## Otevření projektu
 

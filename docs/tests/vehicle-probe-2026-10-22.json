@@ -1,0 +1,5350 @@
+{
+  "samples": [
+    {
+      "time_s": 0.195,
+      "phase": "settle",
+      "speed_kmh": 0.0,
+      "signed_speed_kmh": 0.0,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.73,
+      "slip_deg": 0,
+      "road_distance_m": 0.11,
+      "location_cm": [
+        -94989.0003641608,
+        -125000.84935251295,
+        6662.706828180512
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 0.298,
+      "phase": "settle",
+      "speed_kmh": 0.879,
+      "signed_speed_kmh": 0.879,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.89,
+      "slip_deg": 0,
+      "road_distance_m": 0.17,
+      "location_cm": [
+        -94983.32550986967,
+        -125003.52987252125,
+        6665.369855746442
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 0.403,
+      "phase": "settle",
+      "speed_kmh": 1.826,
+      "signed_speed_kmh": -1.826,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.93,
+      "slip_deg": 0,
+      "road_distance_m": 0.225,
+      "location_cm": [
+        -94978.31230252047,
+        -125005.93544238537,
+        6656.481869802696
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 0.509,
+      "phase": "settle",
+      "speed_kmh": 0.893,
+      "signed_speed_kmh": 0.893,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -4.27,
+      "slip_deg": 0,
+      "road_distance_m": 0.318,
+      "location_cm": [
+        -94969.44093570797,
+        -125008.87989578368,
+        6644.962002690217
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 0.611,
+      "phase": "settle",
+      "speed_kmh": 0.741,
+      "signed_speed_kmh": 0.741,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -4.16,
+      "slip_deg": 0,
+      "road_distance_m": 0.436,
+      "location_cm": [
+        -94957.69302681962,
+        -125010.68272665785,
+        6630.754410168666
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 0.711,
+      "phase": "settle",
+      "speed_kmh": 0.516,
+      "signed_speed_kmh": 0.516,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.6,
+      "slip_deg": 0,
+      "road_distance_m": 0.559,
+      "location_cm": [
+        -94945.33403554244,
+        -125011.83363593974,
+        6611.033162836687
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 0.811,
+      "phase": "settle",
+      "speed_kmh": 0.615,
+      "signed_speed_kmh": 0.615,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.48,
+      "slip_deg": 0,
+      "road_distance_m": 0.674,
+      "location_cm": [
+        -94933.73406109946,
+        -125012.56168040616,
+        6584.831074203739
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 0.911,
+      "phase": "settle",
+      "speed_kmh": 1.172,
+      "signed_speed_kmh": 1.172,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.25,
+      "slip_deg": 0,
+      "road_distance_m": 0.775,
+      "location_cm": [
+        -94923.5291304193,
+        -125012.81841144516,
+        6552.275656324272
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.011,
+      "phase": "settle",
+      "speed_kmh": 3.046,
+      "signed_speed_kmh": 3.046,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.92,
+      "slip_deg": 1.67,
+      "road_distance_m": 0.851,
+      "location_cm": [
+        -94915.86964355758,
+        -125012.85977677154,
+        6514.907718526944
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.111,
+      "phase": "settle",
+      "speed_kmh": 0.04,
+      "signed_speed_kmh": -0.04,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.85,
+      "slip_deg": 0,
+      "road_distance_m": 0.898,
+      "location_cm": [
+        -94911.06876567675,
+        -125012.19350173042,
+        6496.488256442197
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.212,
+      "phase": "settle",
+      "speed_kmh": 0.0,
+      "signed_speed_kmh": -0.0,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.7,
+      "slip_deg": 0,
+      "road_distance_m": 0.9,
+      "location_cm": [
+        -94910.93582630863,
+        -125012.69409970715,
+        6503.314077202359
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.312,
+      "phase": "settle",
+      "speed_kmh": 0.009,
+      "signed_speed_kmh": -0.009,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.29,
+      "slip_deg": 0,
+      "road_distance_m": 0.897,
+      "location_cm": [
+        -94911.25910119215,
+        -125013.04556007095,
+        6504.502395457058
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.412,
+      "phase": "settle",
+      "speed_kmh": 0.0,
+      "signed_speed_kmh": -0.0,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.06,
+      "slip_deg": 0,
+      "road_distance_m": 0.896,
+      "location_cm": [
+        -94911.3885682933,
+        -125013.11365032035,
+        6502.221740199633
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.512,
+      "phase": "settle",
+      "speed_kmh": 0.002,
+      "signed_speed_kmh": 0.002,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.04,
+      "slip_deg": 0,
+      "road_distance_m": 0.897,
+      "location_cm": [
+        -94911.21652613062,
+        -125013.05812391444,
+        6500.297267153405
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.612,
+      "phase": "settle",
+      "speed_kmh": 0.003,
+      "signed_speed_kmh": 0.003,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.09,
+      "slip_deg": 0,
+      "road_distance_m": 0.899,
+      "location_cm": [
+        -94911.05381727725,
+        -125013.01391603348,
+        6500.019126341185
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.712,
+      "phase": "settle",
+      "speed_kmh": 0.0,
+      "signed_speed_kmh": 0.0,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.12,
+      "slip_deg": 0,
+      "road_distance_m": 0.899,
+      "location_cm": [
+        -94911.07253913129,
+        -125013.0113326792,
+        6500.675601872354
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.812,
+      "phase": "settle",
+      "speed_kmh": 0.001,
+      "signed_speed_kmh": -0.001,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.12,
+      "slip_deg": 0,
+      "road_distance_m": 0.898,
+      "location_cm": [
+        -94911.17319811007,
+        -125013.02723965551,
+        6501.2609330940095
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 1.912,
+      "phase": "settle",
+      "speed_kmh": 0.001,
+      "signed_speed_kmh": -0.001,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.11,
+      "slip_deg": 0,
+      "road_distance_m": 0.897,
+      "location_cm": [
+        -94911.22541779393,
+        -125013.03907713076,
+        6501.376346089871
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.012,
+      "phase": "acceleration",
+      "speed_kmh": 0.0,
+      "signed_speed_kmh": -0.0,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.11,
+      "slip_deg": 0,
+      "road_distance_m": 0.897,
+      "location_cm": [
+        -94911.21849265123,
+        -125013.04083029255,
+        6501.300945207583
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.113,
+      "phase": "acceleration",
+      "speed_kmh": 0.299,
+      "signed_speed_kmh": 0.299,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.16,
+      "slip_deg": 0,
+      "road_distance_m": 0.901,
+      "location_cm": [
+        -94910.86867923256,
+        -125013.02310687504,
+        6501.173355903136
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.213,
+      "phase": "acceleration",
+      "speed_kmh": 1.161,
+      "signed_speed_kmh": 1.161,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.37,
+      "slip_deg": 0,
+      "road_distance_m": 0.926,
+      "location_cm": [
+        -94908.315899119,
+        -125012.8583836682,
+        6500.7042988161675
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.313,
+      "phase": "acceleration",
+      "speed_kmh": 1.992,
+      "signed_speed_kmh": 1.992,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -2.31,
+      "slip_deg": 0,
+      "road_distance_m": 0.973,
+      "location_cm": [
+        -94903.54065538634,
+        -125012.49418826771,
+        6500.405878313593
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.413,
+      "phase": "acceleration",
+      "speed_kmh": 2.841,
+      "signed_speed_kmh": 2.841,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.58,
+      "slip_deg": 0,
+      "road_distance_m": 1.04,
+      "location_cm": [
+        -94896.72662884218,
+        -125012.05274066902,
+        6501.186711604209
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.513,
+      "phase": "acceleration",
+      "speed_kmh": 3.629,
+      "signed_speed_kmh": 3.629,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.06,
+      "slip_deg": 7.29,
+      "road_distance_m": 1.128,
+      "location_cm": [
+        -94887.72414217275,
+        -125011.12188034378,
+        6502.358564102983
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.613,
+      "phase": "acceleration",
+      "speed_kmh": 4.405,
+      "signed_speed_kmh": 4.405,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.02,
+      "slip_deg": 7.27,
+      "road_distance_m": 1.24,
+      "location_cm": [
+        -94876.33273982833,
+        -125009.46202832977,
+        6502.889760039816
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.713,
+      "phase": "acceleration",
+      "speed_kmh": 5.245,
+      "signed_speed_kmh": 5.245,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.08,
+      "slip_deg": 7.21,
+      "road_distance_m": 1.376,
+      "location_cm": [
+        -94862.54454694687,
+        -125007.21174331753,
+        6502.639838257305
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.813,
+      "phase": "acceleration",
+      "speed_kmh": 6.138,
+      "signed_speed_kmh": 6.138,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.05,
+      "slip_deg": 7.13,
+      "road_distance_m": 1.537,
+      "location_cm": [
+        -94846.32341785308,
+        -125004.36408922634,
+        6502.176150644282
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 2.913,
+      "phase": "acceleration",
+      "speed_kmh": 7.033,
+      "signed_speed_kmh": 7.033,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.06,
+      "slip_deg": 7.03,
+      "road_distance_m": 1.722,
+      "location_cm": [
+        -94827.77675012118,
+        -125000.70493455972,
+        6502.0834018452315
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.013,
+      "phase": "acceleration",
+      "speed_kmh": 7.879,
+      "signed_speed_kmh": 7.879,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -1.25,
+      "slip_deg": 7.07,
+      "road_distance_m": 1.766,
+      "location_cm": [
+        -94807.05845236691,
+        -124996.00170042746,
+        6502.582404866689
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.113,
+      "phase": "acceleration",
+      "speed_kmh": 8.689,
+      "signed_speed_kmh": 8.689,
+      "engine_rpm": 859.16,
+      "gear": 1,
+      "roll_deg": -1.62,
+      "slip_deg": 6.77,
+      "road_distance_m": 1.815,
+      "location_cm": [
+        -94784.34197052364,
+        -124990.18869186121,
+        6503.56899578038
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.213,
+      "phase": "acceleration",
+      "speed_kmh": 9.443,
+      "signed_speed_kmh": 9.443,
+      "engine_rpm": 891.91,
+      "gear": 1,
+      "roll_deg": -1.58,
+      "slip_deg": 6.53,
+      "road_distance_m": 1.897,
+      "location_cm": [
+        -94759.53371668067,
+        -124983.51588339641,
+        6504.1549177080005
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.313,
+      "phase": "acceleration",
+      "speed_kmh": 10.196,
+      "signed_speed_kmh": 10.196,
+      "engine_rpm": 918.88,
+      "gear": 1,
+      "roll_deg": -1.1,
+      "slip_deg": 6.64,
+      "road_distance_m": 2.015,
+      "location_cm": [
+        -94732.78015199387,
+        -124975.73824555251,
+        6504.522792287897
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.413,
+      "phase": "acceleration",
+      "speed_kmh": 11.022,
+      "signed_speed_kmh": 11.022,
+      "engine_rpm": 964.23,
+      "gear": 1,
+      "roll_deg": -0.77,
+      "slip_deg": 6.34,
+      "road_distance_m": 2.167,
+      "location_cm": [
+        -94704.15755304499,
+        -124966.42620389214,
+        6505.309884754428
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.513,
+      "phase": "acceleration",
+      "speed_kmh": 11.824,
+      "signed_speed_kmh": 11.824,
+      "engine_rpm": 1013.39,
+      "gear": 1,
+      "roll_deg": -1.05,
+      "slip_deg": 6.22,
+      "road_distance_m": 2.352,
+      "location_cm": [
+        -94673.9734459383,
+        -124955.18816003241,
+        6505.865574562979
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.613,
+      "phase": "acceleration",
+      "speed_kmh": 12.596,
+      "signed_speed_kmh": 12.596,
+      "engine_rpm": 1065.63,
+      "gear": 1,
+      "roll_deg": -1.28,
+      "slip_deg": 6.04,
+      "road_distance_m": 2.57,
+      "location_cm": [
+        -94642.2095518519,
+        -124942.15823676584,
+        6506.423459785311
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.714,
+      "phase": "acceleration",
+      "speed_kmh": 13.354,
+      "signed_speed_kmh": 13.354,
+      "engine_rpm": 1114.97,
+      "gear": 1,
+      "roll_deg": -2.04,
+      "slip_deg": 6.06,
+      "road_distance_m": 2.819,
+      "location_cm": [
+        -94609.11145139624,
+        -124926.86098849087,
+        6506.297445587678
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.814,
+      "phase": "acceleration",
+      "speed_kmh": 14.083,
+      "signed_speed_kmh": 14.083,
+      "engine_rpm": 1156.51,
+      "gear": 1,
+      "roll_deg": -2.58,
+      "slip_deg": 5.97,
+      "road_distance_m": 3.079,
+      "location_cm": [
+        -94574.85521509347,
+        -124909.4729148472,
+        6506.138055848302
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 3.914,
+      "phase": "acceleration",
+      "speed_kmh": 14.817,
+      "signed_speed_kmh": 14.817,
+      "engine_rpm": 1207.39,
+      "gear": 1,
+      "roll_deg": -2.46,
+      "slip_deg": 5.8,
+      "road_distance_m": 3.14,
+      "location_cm": [
+        -94539.14372817462,
+        -124890.09733147433,
+        6507.029576982196
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.014,
+      "phase": "acceleration",
+      "speed_kmh": 15.531,
+      "signed_speed_kmh": 15.531,
+      "engine_rpm": 1265.12,
+      "gear": 1,
+      "roll_deg": -2.27,
+      "slip_deg": 5.66,
+      "road_distance_m": 3.243,
+      "location_cm": [
+        -94502.45593456813,
+        -124868.31931405487,
+        6508.46273694099
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.114,
+      "phase": "acceleration",
+      "speed_kmh": 16.204,
+      "signed_speed_kmh": 16.204,
+      "engine_rpm": 1311.79,
+      "gear": 1,
+      "roll_deg": -2.12,
+      "slip_deg": 5.82,
+      "road_distance_m": 3.387,
+      "location_cm": [
+        -94465.23612247374,
+        -124843.92860787876,
+        6509.932145889485
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.214,
+      "phase": "acceleration",
+      "speed_kmh": 16.882,
+      "signed_speed_kmh": 16.882,
+      "engine_rpm": 1373.65,
+      "gear": 1,
+      "roll_deg": -1.85,
+      "slip_deg": 5.29,
+      "road_distance_m": 3.572,
+      "location_cm": [
+        -94427.5948953893,
+        -124816.9686148839,
+        6511.462402106866
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.314,
+      "phase": "acceleration",
+      "speed_kmh": 17.466,
+      "signed_speed_kmh": 17.466,
+      "engine_rpm": 1443.47,
+      "gear": 1,
+      "roll_deg": -2.14,
+      "slip_deg": 5.34,
+      "road_distance_m": 3.794,
+      "location_cm": [
+        -94389.90379401646,
+        -124787.00502728052,
+        6512.496951847209
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.414,
+      "phase": "acceleration",
+      "speed_kmh": 17.969,
+      "signed_speed_kmh": 17.969,
+      "engine_rpm": 1532.73,
+      "gear": 1,
+      "roll_deg": -2.83,
+      "slip_deg": 4.9,
+      "road_distance_m": 3.908,
+      "location_cm": [
+        -94352.36014930446,
+        -124754.0285137269,
+        6512.905080083988
+      ],
+      "steer": 0.65,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.514,
+      "phase": "acceleration",
+      "speed_kmh": 18.539,
+      "signed_speed_kmh": 18.539,
+      "engine_rpm": 1564.95,
+      "gear": 1,
+      "roll_deg": -3.69,
+      "slip_deg": 5.49,
+      "road_distance_m": 3.912,
+      "location_cm": [
+        -94315.67668940882,
+        -124717.85833766093,
+        6512.65412681014
+      ],
+      "steer": 0.647,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.614,
+      "phase": "acceleration",
+      "speed_kmh": 19.341,
+      "signed_speed_kmh": 19.341,
+      "engine_rpm": 1591.09,
+      "gear": 1,
+      "roll_deg": -3.5,
+      "slip_deg": 4.96,
+      "road_distance_m": 3.966,
+      "location_cm": [
+        -94279.16831513448,
+        -124679.08431997905,
+        6513.607637073499
+      ],
+      "steer": 0.601,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.714,
+      "phase": "acceleration",
+      "speed_kmh": 20.094,
+      "signed_speed_kmh": 20.094,
+      "engine_rpm": 1648.19,
+      "gear": 1,
+      "roll_deg": -3.08,
+      "slip_deg": 4.16,
+      "road_distance_m": 4.08,
+      "location_cm": [
+        -94242.65114922667,
+        -124637.92216958794,
+        6515.590620227357
+      ],
+      "steer": 0.561,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.814,
+      "phase": "acceleration",
+      "speed_kmh": 20.762,
+      "signed_speed_kmh": 20.762,
+      "engine_rpm": 1712.84,
+      "gear": 1,
+      "roll_deg": -2.89,
+      "slip_deg": 3.56,
+      "road_distance_m": 4.252,
+      "location_cm": [
+        -94206.26703612266,
+        -124594.22417156448,
+        6517.72194766713
+      ],
+      "steer": 0.526,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 4.914,
+      "phase": "acceleration",
+      "speed_kmh": 21.469,
+      "signed_speed_kmh": 21.469,
+      "engine_rpm": 1767.8,
+      "gear": 1,
+      "roll_deg": -2.81,
+      "slip_deg": 2.46,
+      "road_distance_m": 4.197,
+      "location_cm": [
+        -94169.63502747768,
+        -124548.19764149682,
+        6519.508214924162
+      ],
+      "steer": 0.412,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.014,
+      "phase": "acceleration",
+      "speed_kmh": 22.224,
+      "signed_speed_kmh": 22.224,
+      "engine_rpm": 1808.94,
+      "gear": 1,
+      "roll_deg": -2.77,
+      "slip_deg": 2.06,
+      "road_distance_m": 4.174,
+      "location_cm": [
+        -94132.11928017426,
+        -124500.11554195611,
+        6521.056737849201
+      ],
+      "steer": 0.391,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.114,
+      "phase": "acceleration",
+      "speed_kmh": 23.011,
+      "signed_speed_kmh": 23.011,
+      "engine_rpm": 1848.66,
+      "gear": 1,
+      "roll_deg": -2.76,
+      "slip_deg": 1.87,
+      "road_distance_m": 4.231,
+      "location_cm": [
+        -94094.23766671374,
+        -124449.63144827209,
+        6522.57396189376
+      ],
+      "steer": 0.373,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.214,
+      "phase": "acceleration",
+      "speed_kmh": 23.806,
+      "signed_speed_kmh": 23.806,
+      "engine_rpm": 1893.75,
+      "gear": 1,
+      "roll_deg": -2.72,
+      "slip_deg": 1.69,
+      "road_distance_m": 4.375,
+      "location_cm": [
+        -94055.99603310651,
+        -124396.73390598278,
+        6524.272291088467
+      ],
+      "steer": 0.358,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.314,
+      "phase": "acceleration",
+      "speed_kmh": 24.61,
+      "signed_speed_kmh": 24.61,
+      "engine_rpm": 1944.54,
+      "gear": 1,
+      "roll_deg": -2.62,
+      "slip_deg": 1.09,
+      "road_distance_m": 4.325,
+      "location_cm": [
+        -94017.09722072739,
+        -124341.62107841487,
+        6526.170235787921
+      ],
+      "steer": 0.282,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.414,
+      "phase": "acceleration",
+      "speed_kmh": 25.408,
+      "signed_speed_kmh": 25.408,
+      "engine_rpm": 1995.98,
+      "gear": 1,
+      "roll_deg": -2.57,
+      "slip_deg": 0.98,
+      "road_distance_m": 4.262,
+      "location_cm": [
+        -93977.28835491848,
+        -124284.38221592753,
+        6528.208505587979
+      ],
+      "steer": 0.273,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.514,
+      "phase": "acceleration",
+      "speed_kmh": 26.206,
+      "signed_speed_kmh": 26.206,
+      "engine_rpm": 2049.42,
+      "gear": 1,
+      "roll_deg": -2.56,
+      "slip_deg": 0.92,
+      "road_distance_m": 4.307,
+      "location_cm": [
+        -93936.92180926606,
+        -124224.88014204997,
+        6530.199998960587
+      ],
+      "steer": 0.264,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.614,
+      "phase": "acceleration",
+      "speed_kmh": 27.01,
+      "signed_speed_kmh": 27.01,
+      "engine_rpm": 2105.08,
+      "gear": 1,
+      "roll_deg": -2.47,
+      "slip_deg": 0.86,
+      "road_distance_m": 4.469,
+      "location_cm": [
+        -93895.97277110061,
+        -124163.10091447644,
+        6532.100504618557
+      ],
+      "steer": 0.231,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.714,
+      "phase": "acceleration",
+      "speed_kmh": 27.828,
+      "signed_speed_kmh": 27.828,
+      "engine_rpm": 2160.59,
+      "gear": 1,
+      "roll_deg": -2.45,
+      "slip_deg": 0.51,
+      "road_distance_m": 4.325,
+      "location_cm": [
+        -93854.08759565825,
+        -124099.19372321948,
+        6534.155823748645
+      ],
+      "steer": 0.204,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.814,
+      "phase": "acceleration",
+      "speed_kmh": 28.645,
+      "signed_speed_kmh": 28.645,
+      "engine_rpm": 2212.57,
+      "gear": 1,
+      "roll_deg": -2.6,
+      "slip_deg": 0.48,
+      "road_distance_m": 4.271,
+      "location_cm": [
+        -93811.32739311666,
+        -124033.07366559362,
+        6536.52066882846
+      ],
+      "steer": 0.2,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 5.914,
+      "phase": "acceleration",
+      "speed_kmh": 29.454,
+      "signed_speed_kmh": 29.454,
+      "engine_rpm": 2267.8,
+      "gear": 1,
+      "roll_deg": -2.66,
+      "slip_deg": 0.46,
+      "road_distance_m": 4.36,
+      "location_cm": [
+        -93767.77257199083,
+        -123964.84782495436,
+        6538.883220825711
+      ],
+      "steer": 0.197,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.014,
+      "phase": "acceleration",
+      "speed_kmh": 30.261,
+      "signed_speed_kmh": 30.261,
+      "engine_rpm": 2326.16,
+      "gear": 1,
+      "roll_deg": -2.63,
+      "slip_deg": 0.35,
+      "road_distance_m": 4.399,
+      "location_cm": [
+        -93723.41220060685,
+        -123894.49663837871,
+        6541.189978211105
+      ],
+      "steer": 0.157,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.114,
+      "phase": "acceleration",
+      "speed_kmh": 31.072,
+      "signed_speed_kmh": 31.072,
+      "engine_rpm": 2384.55,
+      "gear": 1,
+      "roll_deg": -2.57,
+      "slip_deg": 0.29,
+      "road_distance_m": 4.252,
+      "location_cm": [
+        -93678.02799630696,
+        -123822.12609464489,
+        6543.524482712227
+      ],
+      "steer": 0.155,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.214,
+      "phase": "acceleration",
+      "speed_kmh": 31.886,
+      "signed_speed_kmh": 31.886,
+      "engine_rpm": 2442.91,
+      "gear": 1,
+      "roll_deg": -2.57,
+      "slip_deg": 0.28,
+      "road_distance_m": 4.274,
+      "location_cm": [
+        -93631.76907854661,
+        -123747.62957179925,
+        6545.9413318006655
+      ],
+      "steer": 0.153,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.314,
+      "phase": "acceleration",
+      "speed_kmh": 32.698,
+      "signed_speed_kmh": 32.698,
+      "engine_rpm": 2501.92,
+      "gear": 1,
+      "roll_deg": -2.58,
+      "slip_deg": 0.27,
+      "road_distance_m": 4.466,
+      "location_cm": [
+        -93584.65061815482,
+        -123671.00958147523,
+        6548.4447992818
+      ],
+      "steer": 0.135,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.414,
+      "phase": "acceleration",
+      "speed_kmh": 33.511,
+      "signed_speed_kmh": 33.511,
+      "engine_rpm": 2561.49,
+      "gear": 1,
+      "roll_deg": -2.56,
+      "slip_deg": 0.18,
+      "road_distance_m": 4.235,
+      "location_cm": [
+        -93536.55613247163,
+        -123592.33338031941,
+        6551.024356689701
+      ],
+      "steer": 0.12,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.514,
+      "phase": "acceleration",
+      "speed_kmh": 34.321,
+      "signed_speed_kmh": 34.321,
+      "engine_rpm": 2621.27,
+      "gear": 1,
+      "roll_deg": -2.55,
+      "slip_deg": 0.18,
+      "road_distance_m": 4.198,
+      "location_cm": [
+        -93487.46647983247,
+        -123511.6353103306,
+        6553.664673537675
+      ],
+      "steer": 0.12,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.614,
+      "phase": "acceleration",
+      "speed_kmh": 35.131,
+      "signed_speed_kmh": 35.131,
+      "engine_rpm": 2681.42,
+      "gear": 1,
+      "roll_deg": -2.55,
+      "slip_deg": 0.17,
+      "road_distance_m": 4.374,
+      "location_cm": [
+        -93437.44139635282,
+        -123428.87268479558,
+        6556.3603221950325
+      ],
+      "steer": 0.119,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.714,
+      "phase": "acceleration",
+      "speed_kmh": 35.941,
+      "signed_speed_kmh": 35.941,
+      "engine_rpm": 2741.67,
+      "gear": 1,
+      "roll_deg": -2.55,
+      "slip_deg": 0.14,
+      "road_distance_m": 4.207,
+      "location_cm": [
+        -93386.44909535396,
+        -123344.0656775612,
+        6559.117639208824
+      ],
+      "steer": 0.105,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.814,
+      "phase": "acceleration",
+      "speed_kmh": 36.75,
+      "signed_speed_kmh": 36.75,
+      "engine_rpm": 2801.89,
+      "gear": 1,
+      "roll_deg": -2.54,
+      "slip_deg": 0.11,
+      "road_distance_m": 4.125,
+      "location_cm": [
+        -93334.4258166641,
+        -123257.25367191418,
+        6561.940906746567
+      ],
+      "steer": 0.093,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 6.914,
+      "phase": "acceleration",
+      "speed_kmh": 37.558,
+      "signed_speed_kmh": 37.558,
+      "engine_rpm": 2862.23,
+      "gear": 1,
+      "roll_deg": -2.53,
+      "slip_deg": 0.11,
+      "road_distance_m": 4.293,
+      "location_cm": [
+        -93281.39862931118,
+        -123168.42557487408,
+        6564.827558242425
+      ],
+      "steer": 0.093,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.014,
+      "phase": "acceleration",
+      "speed_kmh": 38.365,
+      "signed_speed_kmh": 38.365,
+      "engine_rpm": 2922.7,
+      "gear": 1,
+      "roll_deg": -2.53,
+      "slip_deg": 0.09,
+      "road_distance_m": 4.156,
+      "location_cm": [
+        -93227.36446388334,
+        -123077.58665395861,
+        6567.779584613204
+      ],
+      "steer": 0.082,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.114,
+      "phase": "acceleration",
+      "speed_kmh": 39.172,
+      "signed_speed_kmh": 39.172,
+      "engine_rpm": 2983.22,
+      "gear": 1,
+      "roll_deg": -2.53,
+      "slip_deg": 0.09,
+      "road_distance_m": 4.051,
+      "location_cm": [
+        -93172.30015314597,
+        -122984.75298427195,
+        6570.797383341985
+      ],
+      "steer": 0.071,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.214,
+      "phase": "acceleration",
+      "speed_kmh": 39.977,
+      "signed_speed_kmh": 39.977,
+      "engine_rpm": 3043.76,
+      "gear": 1,
+      "roll_deg": -2.53,
+      "slip_deg": 0.08,
+      "road_distance_m": 4.234,
+      "location_cm": [
+        -93116.17695529382,
+        -122889.91740153279,
+        6573.876497146255
+      ],
+      "steer": 0.071,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.314,
+      "phase": "acceleration",
+      "speed_kmh": 40.782,
+      "signed_speed_kmh": 40.782,
+      "engine_rpm": 3104.24,
+      "gear": 1,
+      "roll_deg": -2.52,
+      "slip_deg": 0.07,
+      "road_distance_m": 4.079,
+      "location_cm": [
+        -93059.02010279996,
+        -122793.12235661525,
+        6577.017875099864
+      ],
+      "steer": 0.062,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.414,
+      "phase": "acceleration",
+      "speed_kmh": 41.585,
+      "signed_speed_kmh": 41.585,
+      "engine_rpm": 3164.72,
+      "gear": 1,
+      "roll_deg": -2.52,
+      "slip_deg": 0.06,
+      "road_distance_m": 3.977,
+      "location_cm": [
+        -93000.80408558749,
+        -122694.35916797874,
+        6580.224695193608
+      ],
+      "steer": 0.062,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.514,
+      "phase": "acceleration",
+      "speed_kmh": 42.388,
+      "signed_speed_kmh": 42.388,
+      "engine_rpm": 3225.27,
+      "gear": 1,
+      "roll_deg": -2.52,
+      "slip_deg": 0.06,
+      "road_distance_m": 4.205,
+      "location_cm": [
+        -92941.53962425784,
+        -122593.62630504809,
+        6583.493682710224
+      ],
+      "steer": 0.053,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.614,
+      "phase": "acceleration",
+      "speed_kmh": 43.19,
+      "signed_speed_kmh": 43.19,
+      "engine_rpm": 3285.7,
+      "gear": 1,
+      "roll_deg": -2.52,
+      "slip_deg": 0.05,
+      "road_distance_m": 3.976,
+      "location_cm": [
+        -92881.18984288082,
+        -122490.94373325855,
+        6586.825838259657
+      ],
+      "steer": 0.044,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.714,
+      "phase": "acceleration",
+      "speed_kmh": 43.99,
+      "signed_speed_kmh": 43.99,
+      "engine_rpm": 3346.1,
+      "gear": 1,
+      "roll_deg": -2.51,
+      "slip_deg": 0.05,
+      "road_distance_m": 3.911,
+      "location_cm": [
+        -92819.75963384793,
+        -122386.31807726873,
+        6590.221924481006
+      ],
+      "steer": 0.045,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.814,
+      "phase": "acceleration",
+      "speed_kmh": 44.79,
+      "signed_speed_kmh": 44.79,
+      "engine_rpm": 3406.51,
+      "gear": 1,
+      "roll_deg": -2.51,
+      "slip_deg": 0.05,
+      "road_distance_m": 4.218,
+      "location_cm": [
+        -92757.25755865463,
+        -122279.74678244266,
+        6593.680124937638
+      ],
+      "steer": 0.045,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 7.914,
+      "phase": "acceleration",
+      "speed_kmh": 45.588,
+      "signed_speed_kmh": 45.588,
+      "engine_rpm": 3466.85,
+      "gear": 1,
+      "roll_deg": -2.51,
+      "slip_deg": 0.04,
+      "road_distance_m": 3.855,
+      "location_cm": [
+        -92693.66448974771,
+        -122171.24247011865,
+        6597.201537107973
+      ],
+      "steer": 0.029,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.014,
+      "phase": "cornering",
+      "speed_kmh": 46.386,
+      "signed_speed_kmh": 46.386,
+      "engine_rpm": 3527.12,
+      "gear": 1,
+      "roll_deg": -2.51,
+      "slip_deg": 0.04,
+      "road_distance_m": 3.868,
+      "location_cm": [
+        -92628.96913054206,
+        -122060.81521208324,
+        6600.7863093077585
+      ],
+      "steer": 0.029,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.114,
+      "phase": "cornering",
+      "speed_kmh": 46.394,
+      "signed_speed_kmh": 46.394,
+      "engine_rpm": 3525.86,
+      "gear": 1,
+      "roll_deg": -2.51,
+      "slip_deg": 0.04,
+      "road_distance_m": 4.057,
+      "location_cm": [
+        -92563.83436380599,
+        -121949.57414262372,
+        6604.364867230424
+      ],
+      "steer": 0.021,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.214,
+      "phase": "cornering",
+      "speed_kmh": 46.259,
+      "signed_speed_kmh": 46.259,
+      "engine_rpm": 3518.38,
+      "gear": 1,
+      "roll_deg": -2.51,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.738,
+      "location_cm": [
+        -92498.89503729303,
+        -121838.6587208213,
+        6607.961472254384
+      ],
+      "steer": 0.021,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.314,
+      "phase": "cornering",
+      "speed_kmh": 46.123,
+      "signed_speed_kmh": 46.123,
+      "engine_rpm": 3509.97,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.844,
+      "location_cm": [
+        -92434.10398570259,
+        -121727.9690171876,
+        6611.581319617828
+      ],
+      "steer": 0.022,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.414,
+      "phase": "cornering",
+      "speed_kmh": 45.987,
+      "signed_speed_kmh": 45.987,
+      "engine_rpm": 3500.92,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.907,
+      "location_cm": [
+        -92369.53146263,
+        -121617.61461478099,
+        6615.164385222922
+      ],
+      "steer": 0.014,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.514,
+      "phase": "cornering",
+      "speed_kmh": 45.851,
+      "signed_speed_kmh": 45.851,
+      "engine_rpm": 3491.42,
+      "gear": 1,
+      "roll_deg": -2.51,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.639,
+      "location_cm": [
+        -92305.15797137353,
+        -121507.5860618713,
+        6618.714164859363
+      ],
+      "steer": 0.014,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.614,
+      "phase": "cornering",
+      "speed_kmh": 45.715,
+      "signed_speed_kmh": 45.715,
+      "engine_rpm": 3481.65,
+      "gear": 1,
+      "roll_deg": -2.51,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.802,
+      "location_cm": [
+        -92240.98684587593,
+        -121397.8889470869,
+        6622.262045787836
+      ],
+      "steer": 0.014,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.714,
+      "phase": "cornering",
+      "speed_kmh": 45.58,
+      "signed_speed_kmh": 45.58,
+      "engine_rpm": 3471.71,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.799,
+      "location_cm": [
+        -92177.01186529701,
+        -121288.51812583959,
+        6625.818836643659
+      ],
+      "steer": 0.006,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.814,
+      "phase": "cornering",
+      "speed_kmh": 45.445,
+      "signed_speed_kmh": 45.445,
+      "engine_rpm": 3461.65,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.544,
+      "location_cm": [
+        -92113.1736849104,
+        -121179.38295177322,
+        6629.374151888198
+      ],
+      "steer": 0.006,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 8.915,
+      "phase": "cornering",
+      "speed_kmh": 45.308,
+      "signed_speed_kmh": 45.308,
+      "engine_rpm": 3451.42,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.729,
+      "location_cm": [
+        -92048.88611565018,
+        -121069.47552812567,
+        6632.952092814472
+      ],
+      "steer": 0.007,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.016,
+      "phase": "cornering",
+      "speed_kmh": 45.172,
+      "signed_speed_kmh": 45.172,
+      "engine_rpm": 3441.18,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.718,
+      "location_cm": [
+        -91984.90225031115,
+        -120960.08525655215,
+        6636.5050198501085
+      ],
+      "steer": -0.001,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.116,
+      "phase": "cornering",
+      "speed_kmh": 45.037,
+      "signed_speed_kmh": 45.037,
+      "engine_rpm": 3430.99,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.447,
+      "location_cm": [
+        -91921.59924487944,
+        -120851.86081165996,
+        6640.014919669894
+      ],
+      "steer": -0.001,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.216,
+      "phase": "cornering",
+      "speed_kmh": 44.902,
+      "signed_speed_kmh": 44.902,
+      "engine_rpm": 3420.81,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.615,
+      "location_cm": [
+        -91858.54658462055,
+        -120744.06436774439,
+        6643.516316590001
+      ],
+      "steer": 0.007,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.316,
+      "phase": "cornering",
+      "speed_kmh": 44.767,
+      "signed_speed_kmh": 44.767,
+      "engine_rpm": 3410.64,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.686,
+      "location_cm": [
+        -91795.70062394338,
+        -120636.6190256966,
+        6647.011272510938
+      ],
+      "steer": -0.002,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.416,
+      "phase": "cornering",
+      "speed_kmh": 44.633,
+      "signed_speed_kmh": 44.633,
+      "engine_rpm": 3400.47,
+      "gear": 1,
+      "roll_deg": -2.5,
+      "slip_deg": 0.03,
+      "road_distance_m": 3.352,
+      "location_cm": [
+        -91733.05310206527,
+        -120529.51484490177,
+        6650.493536992397
+      ],
+      "steer": -0.002,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.52,
+      "phase": "cornering",
+      "speed_kmh": 44.48,
+      "signed_speed_kmh": 44.48,
+      "engine_rpm": 3388.21,
+      "gear": 1,
+      "roll_deg": -2.58,
+      "slip_deg": -0.08,
+      "road_distance_m": 3.474,
+      "location_cm": [
+        -91668.15759374316,
+        -120419.3377001266,
+        6654.0770084557425
+      ],
+      "steer": 0.002,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.62,
+      "phase": "cornering",
+      "speed_kmh": 44.331,
+      "signed_speed_kmh": 44.331,
+      "engine_rpm": 3375.86,
+      "gear": 1,
+      "roll_deg": -2.39,
+      "slip_deg": -0.06,
+      "road_distance_m": 3.699,
+      "location_cm": [
+        -91605.08794114293,
+        -120313.3128928254,
+        6657.945811706606
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.72,
+      "phase": "cornering",
+      "speed_kmh": 44.185,
+      "signed_speed_kmh": 44.185,
+      "engine_rpm": 3364.26,
+      "gear": 1,
+      "roll_deg": -2.03,
+      "slip_deg": -0.04,
+      "road_distance_m": 3.294,
+      "location_cm": [
+        -91541.78222756958,
+        -120207.59523131266,
+        6662.022059825625
+      ],
+      "steer": -0.001,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.82,
+      "phase": "cornering",
+      "speed_kmh": 44.035,
+      "signed_speed_kmh": 44.035,
+      "engine_rpm": 3353.25,
+      "gear": 1,
+      "roll_deg": -1.79,
+      "slip_deg": -0.21,
+      "road_distance_m": 3.325,
+      "location_cm": [
+        -91478.63313179956,
+        -120102.53818683868,
+        6665.918584439654
+      ],
+      "steer": 0.001,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 9.92,
+      "phase": "cornering",
+      "speed_kmh": 43.875,
+      "signed_speed_kmh": 43.875,
+      "engine_rpm": 3344.59,
+      "gear": 1,
+      "roll_deg": -1.83,
+      "slip_deg": -0.37,
+      "road_distance_m": 3.778,
+      "location_cm": [
+        -91415.43507834907,
+        -119997.81911523094,
+        6669.4816211464795
+      ],
+      "steer": -0.001,
+      "throttle_input": 0.03705672174692154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.02,
+      "phase": "cornering",
+      "speed_kmh": 43.721,
+      "signed_speed_kmh": 43.721,
+      "engine_rpm": 3336.05,
+      "gear": 1,
+      "roll_deg": -1.61,
+      "slip_deg": -0.35,
+      "road_distance_m": 3.306,
+      "location_cm": [
+        -91352.6984900206,
+        -119893.71440794606,
+        6673.270274308294
+      ],
+      "steer": -0.013,
+      "throttle_input": 0.037598997354507446,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.12,
+      "phase": "cornering",
+      "speed_kmh": 43.571,
+      "signed_speed_kmh": 43.571,
+      "engine_rpm": 3326.58,
+      "gear": 1,
+      "roll_deg": -1.1,
+      "slip_deg": -0.28,
+      "road_distance_m": 3.186,
+      "location_cm": [
+        -91290.25889386152,
+        -119789.55640095715,
+        6677.405758809281
+      ],
+      "steer": -0.017,
+      "throttle_input": 0.042538709938526154,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.221,
+      "phase": "cornering",
+      "speed_kmh": 43.424,
+      "signed_speed_kmh": 43.424,
+      "engine_rpm": 3316.16,
+      "gear": 1,
+      "roll_deg": -0.59,
+      "slip_deg": -0.2,
+      "road_distance_m": 3.504,
+      "location_cm": [
+        -91228.58499112079,
+        -119685.72085253405,
+        6681.507136702778
+      ],
+      "steer": -0.02,
+      "throttle_input": 0.04740562662482262,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.321,
+      "phase": "cornering",
+      "speed_kmh": 43.283,
+      "signed_speed_kmh": 43.283,
+      "engine_rpm": 3305.08,
+      "gear": 1,
+      "roll_deg": -0.25,
+      "slip_deg": -0.14,
+      "road_distance_m": 3.377,
+      "location_cm": [
+        -91167.55335452237,
+        -119582.06192568374,
+        6685.300549335367
+      ],
+      "steer": -0.031,
+      "throttle_input": 0.05216528847813606,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.421,
+      "phase": "cornering",
+      "speed_kmh": 43.147,
+      "signed_speed_kmh": 43.147,
+      "engine_rpm": 3293.51,
+      "gear": 1,
+      "roll_deg": -0.02,
+      "slip_deg": -0.08,
+      "road_distance_m": 3.056,
+      "location_cm": [
+        -91106.97676617735,
+        -119478.52669383008,
+        6688.815671325092
+      ],
+      "steer": -0.033,
+      "throttle_input": 0.056757863610982895,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.522,
+      "phase": "cornering",
+      "speed_kmh": 43.017,
+      "signed_speed_kmh": 43.017,
+      "engine_rpm": 3281.67,
+      "gear": 1,
+      "roll_deg": 0.1,
+      "slip_deg": -0.02,
+      "road_distance_m": 3.189,
+      "location_cm": [
+        -91045.89335713063,
+        -119373.65472844371,
+        6692.210006486068
+      ],
+      "steer": -0.033,
+      "throttle_input": 0.06121918186545372,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.624,
+      "phase": "cornering",
+      "speed_kmh": 42.883,
+      "signed_speed_kmh": 42.883,
+      "engine_rpm": 3269.61,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.05,
+      "road_distance_m": 3.519,
+      "location_cm": [
+        -90984.75118188538,
+        -119268.7461874367,
+        6695.60703212212
+      ],
+      "steer": -0.041,
+      "throttle_input": 0.06577489525079727,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.725,
+      "phase": "cornering",
+      "speed_kmh": 42.754,
+      "signed_speed_kmh": 42.754,
+      "engine_rpm": 3258.05,
+      "gear": 1,
+      "roll_deg": 0.32,
+      "slip_deg": -0.03,
+      "road_distance_m": 2.998,
+      "location_cm": [
+        -90924.44803361887,
+        -119165.64916282668,
+        6699.202933205237
+      ],
+      "steer": -0.041,
+      "throttle_input": 0.07025226205587387,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.827,
+      "phase": "cornering",
+      "speed_kmh": 42.628,
+      "signed_speed_kmh": 42.628,
+      "engine_rpm": 3247.37,
+      "gear": 1,
+      "roll_deg": 0.46,
+      "slip_deg": -0.02,
+      "road_distance_m": 2.908,
+      "location_cm": [
+        -90863.17530306519,
+        -119060.95467353324,
+        6702.855987619656
+      ],
+      "steer": -0.041,
+      "throttle_input": 0.07462820410728455,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 10.927,
+      "phase": "cornering",
+      "speed_kmh": 42.501,
+      "signed_speed_kmh": 42.501,
+      "engine_rpm": 3237.85,
+      "gear": 1,
+      "roll_deg": 0.49,
+      "slip_deg": -0.16,
+      "road_distance_m": 3.283,
+      "location_cm": [
+        -90803.41004258065,
+        -118958.97921896871,
+        6706.237293175225
+      ],
+      "steer": -0.042,
+      "throttle_input": 0.07902207225561142,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.027,
+      "phase": "cornering",
+      "speed_kmh": 42.377,
+      "signed_speed_kmh": 42.377,
+      "engine_rpm": 3229.02,
+      "gear": 1,
+      "roll_deg": 0.56,
+      "slip_deg": -0.11,
+      "road_distance_m": 3.095,
+      "location_cm": [
+        -90743.87195773337,
+        -118857.43203199249,
+        6709.697558906646
+      ],
+      "steer": -0.053,
+      "throttle_input": 0.08339045941829681,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.127,
+      "phase": "cornering",
+      "speed_kmh": 42.263,
+      "signed_speed_kmh": 42.263,
+      "engine_rpm": 3219.44,
+      "gear": 1,
+      "roll_deg": 0.7,
+      "slip_deg": -0.02,
+      "road_distance_m": 2.727,
+      "location_cm": [
+        -90684.62463581174,
+        -118756.09603760434,
+        6713.183970522114
+      ],
+      "steer": -0.053,
+      "throttle_input": 0.08742906898260117,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.228,
+      "phase": "cornering",
+      "speed_kmh": 42.156,
+      "signed_speed_kmh": 42.156,
+      "engine_rpm": 3210.03,
+      "gear": 1,
+      "roll_deg": 0.63,
+      "slip_deg": 0.0,
+      "road_distance_m": 2.837,
+      "location_cm": [
+        -90625.17134556422,
+        -118653.96835791912,
+        6716.296094063469
+      ],
+      "steer": -0.054,
+      "throttle_input": 0.09123846888542175,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.328,
+      "phase": "cornering",
+      "speed_kmh": 42.046,
+      "signed_speed_kmh": 42.046,
+      "engine_rpm": 3200.82,
+      "gear": 1,
+      "roll_deg": 0.47,
+      "slip_deg": -0.03,
+      "road_distance_m": 3.378,
+      "location_cm": [
+        -90566.2478698654,
+        -118552.8223113589,
+        6719.202554672139
+      ],
+      "steer": -0.055,
+      "throttle_input": 0.09510563313961029,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.428,
+      "phase": "cornering",
+      "speed_kmh": 41.942,
+      "signed_speed_kmh": 41.942,
+      "engine_rpm": 3191.56,
+      "gear": 1,
+      "roll_deg": 0.41,
+      "slip_deg": 0.04,
+      "road_distance_m": 2.74,
+      "location_cm": [
+        -90507.43642911925,
+        -118452.10163886931,
+        6722.336385046836
+      ],
+      "steer": -0.055,
+      "throttle_input": 0.09884770214557648,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.528,
+      "phase": "cornering",
+      "speed_kmh": 41.845,
+      "signed_speed_kmh": 41.845,
+      "engine_rpm": 3182.2,
+      "gear": 1,
+      "roll_deg": 0.28,
+      "slip_deg": 0.12,
+      "road_distance_m": 2.504,
+      "location_cm": [
+        -90448.75944673413,
+        -118351.57033758618,
+        6725.4304986321495
+      ],
+      "steer": -0.053,
+      "throttle_input": 0.1023280918598175,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.628,
+      "phase": "cornering",
+      "speed_kmh": 41.741,
+      "signed_speed_kmh": 41.741,
+      "engine_rpm": 3173.8,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.02,
+      "road_distance_m": 2.785,
+      "location_cm": [
+        -90389.95551917981,
+        -118251.43222832512,
+        6728.461066072361
+      ],
+      "steer": -0.053,
+      "throttle_input": 0.10600956529378891,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.728,
+      "phase": "cornering",
+      "speed_kmh": 41.641,
+      "signed_speed_kmh": 41.641,
+      "engine_rpm": 3166.16,
+      "gear": 1,
+      "roll_deg": 0.13,
+      "slip_deg": -0.03,
+      "road_distance_m": 3.029,
+      "location_cm": [
+        -90331.18930818904,
+        -118151.73113927241,
+        6731.701838115274
+      ],
+      "steer": -0.063,
+      "throttle_input": 0.10961461067199707,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.828,
+      "phase": "cornering",
+      "speed_kmh": 41.543,
+      "signed_speed_kmh": 41.543,
+      "engine_rpm": 3158.44,
+      "gear": 1,
+      "roll_deg": 0.14,
+      "slip_deg": -0.03,
+      "road_distance_m": 2.44,
+      "location_cm": [
+        -90272.41712749058,
+        -118052.28879653574,
+        6735.073052263805
+      ],
+      "steer": -0.063,
+      "throttle_input": 0.11316591501235962,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 11.928,
+      "phase": "cornering",
+      "speed_kmh": 41.446,
+      "signed_speed_kmh": 41.446,
+      "engine_rpm": 3150.76,
+      "gear": 1,
+      "roll_deg": 0.15,
+      "slip_deg": -0.03,
+      "road_distance_m": 2.326,
+      "location_cm": [
+        -90213.67831290519,
+        -117953.10074844275,
+        6738.4031623168175
+      ],
+      "steer": -0.063,
+      "throttle_input": 0.11667201668024063,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.028,
+      "phase": "cornering",
+      "speed_kmh": 41.351,
+      "signed_speed_kmh": 41.351,
+      "engine_rpm": 3143.22,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.03,
+      "road_distance_m": 2.741,
+      "location_cm": [
+        -90155.0390249361,
+        -117854.2592522941,
+        6741.632797504136
+      ],
+      "steer": -0.063,
+      "throttle_input": 0.12011103332042694,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.128,
+      "phase": "cornering",
+      "speed_kmh": 41.259,
+      "signed_speed_kmh": 41.259,
+      "engine_rpm": 3135.81,
+      "gear": 1,
+      "roll_deg": 0.15,
+      "slip_deg": -0.04,
+      "road_distance_m": 2.732,
+      "location_cm": [
+        -90096.32208935305,
+        -117755.49164423096,
+        6744.813902953807
+      ],
+      "steer": -0.072,
+      "throttle_input": 0.12346164882183075,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.228,
+      "phase": "cornering",
+      "speed_kmh": 41.17,
+      "signed_speed_kmh": 41.17,
+      "engine_rpm": 3128.43,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.05,
+      "road_distance_m": 2.179,
+      "location_cm": [
+        -90037.72659903651,
+        -117657.20612633417,
+        6747.992161977614
+      ],
+      "steer": -0.072,
+      "throttle_input": 0.12671878933906555,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.328,
+      "phase": "cornering",
+      "speed_kmh": 41.083,
+      "signed_speed_kmh": 41.083,
+      "engine_rpm": 3121.25,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.05,
+      "road_distance_m": 2.157,
+      "location_cm": [
+        -89979.15065210535,
+        -117559.2027760688,
+        6751.196132616745
+      ],
+      "steer": -0.072,
+      "throttle_input": 0.12989264726638794,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.428,
+      "phase": "cornering",
+      "speed_kmh": 40.999,
+      "signed_speed_kmh": 40.999,
+      "engine_rpm": 3114.31,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.05,
+      "road_distance_m": 2.676,
+      "location_cm": [
+        -89920.59023861523,
+        -117461.46913929553,
+        6754.4190815880775
+      ],
+      "steer": -0.072,
+      "throttle_input": 0.13298922777175903,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.529,
+      "phase": "cornering",
+      "speed_kmh": 40.917,
+      "signed_speed_kmh": 40.917,
+      "engine_rpm": 3107.54,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.06,
+      "road_distance_m": 2.488,
+      "location_cm": [
+        -89861.98215181375,
+        -117363.93061988379,
+        6757.632018592813
+      ],
+      "steer": -0.08,
+      "throttle_input": 0.1360020488500595,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.629,
+      "phase": "cornering",
+      "speed_kmh": 40.837,
+      "signed_speed_kmh": 40.837,
+      "engine_rpm": 3100.82,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.06,
+      "road_distance_m": 1.941,
+      "location_cm": [
+        -89803.3844563789,
+        -117266.74206914734,
+        6760.8157597446425
+      ],
+      "steer": -0.08,
+      "throttle_input": 0.1389332115650177,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.729,
+      "phase": "cornering",
+      "speed_kmh": 40.76,
+      "signed_speed_kmh": 40.76,
+      "engine_rpm": 3094.34,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.06,
+      "road_distance_m": 1.98,
+      "location_cm": [
+        -89744.7671423428,
+        -117169.82147805013,
+        6763.984555296338
+      ],
+      "steer": -0.08,
+      "throttle_input": 0.14178209006786346,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.829,
+      "phase": "cornering",
+      "speed_kmh": 40.685,
+      "signed_speed_kmh": 40.685,
+      "engine_rpm": 3088.1,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.06,
+      "road_distance_m": 2.577,
+      "location_cm": [
+        -89686.09296141798,
+        -117073.10320426444,
+        6767.162706954469
+      ],
+      "steer": -0.08,
+      "throttle_input": 0.1445499062538147,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 12.93,
+      "phase": "cornering",
+      "speed_kmh": 40.612,
+      "signed_speed_kmh": 40.612,
+      "engine_rpm": 3082.0,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.07,
+      "road_distance_m": 2.287,
+      "location_cm": [
+        -89626.73148302318,
+        -116975.58532395265,
+        6770.3770034907875
+      ],
+      "steer": -0.088,
+      "throttle_input": 0.14726242423057556,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.03,
+      "phase": "braking",
+      "speed_kmh": 40.428,
+      "signed_speed_kmh": 40.428,
+      "engine_rpm": 3075.98,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": -0.03,
+      "road_distance_m": 1.718,
+      "location_cm": [
+        -89568.04479360116,
+        -116879.5296373422,
+        6773.5337795952155
+      ],
+      "steer": -0.088,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.13,
+      "phase": "braking",
+      "speed_kmh": 38.587,
+      "signed_speed_kmh": 38.587,
+      "engine_rpm": 2689.92,
+      "gear": 1,
+      "roll_deg": 0.14,
+      "slip_deg": -0.0,
+      "road_distance_m": 1.777,
+      "location_cm": [
+        -89511.18338118098,
+        -116786.41331446581,
+        6776.525059572831
+      ],
+      "steer": -0.08,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.23,
+      "phase": "braking",
+      "speed_kmh": 36.674,
+      "signed_speed_kmh": 36.674,
+      "engine_rpm": 2077.72,
+      "gear": 1,
+      "roll_deg": 0.14,
+      "slip_deg": 0.01,
+      "road_distance_m": 2.359,
+      "location_cm": [
+        -89457.07357457955,
+        -116697.87747002405,
+        6779.463803555917
+      ],
+      "steer": -0.081,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.33,
+      "phase": "braking",
+      "speed_kmh": 34.774,
+      "signed_speed_kmh": 34.774,
+      "engine_rpm": 1667.17,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": 0.02,
+      "road_distance_m": 2.344,
+      "location_cm": [
+        -89405.65548365023,
+        -116613.82807743287,
+        6782.295438908356
+      ],
+      "steer": -0.082,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.43,
+      "phase": "braking",
+      "speed_kmh": 32.874,
+      "signed_speed_kmh": 32.874,
+      "engine_rpm": 1394.04,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": 0.02,
+      "road_distance_m": 1.699,
+      "location_cm": [
+        -89356.93040500212,
+        -116534.26123468234,
+        6784.904719743199
+      ],
+      "steer": -0.074,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.53,
+      "phase": "braking",
+      "speed_kmh": 30.968,
+      "signed_speed_kmh": 30.968,
+      "engine_rpm": 1212.15,
+      "gear": 1,
+      "roll_deg": 0.15,
+      "slip_deg": 0.02,
+      "road_distance_m": 1.423,
+      "location_cm": [
+        -89310.92866103721,
+        -116459.21466080508,
+        6787.314017883616
+      ],
+      "steer": -0.075,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.63,
+      "phase": "braking",
+      "speed_kmh": 29.06,
+      "signed_speed_kmh": 29.06,
+      "engine_rpm": 1091.1,
+      "gear": 1,
+      "roll_deg": 0.15,
+      "slip_deg": 0.02,
+      "road_distance_m": 1.621,
+      "location_cm": [
+        -89267.68821364758,
+        -116388.74834075698,
+        6789.606289719984
+      ],
+      "steer": -0.066,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.73,
+      "phase": "braking",
+      "speed_kmh": 27.159,
+      "signed_speed_kmh": 27.159,
+      "engine_rpm": 1010.52,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": 0.02,
+      "road_distance_m": 2.105,
+      "location_cm": [
+        -89227.1900850638,
+        -116322.80669794082,
+        6791.802625957275
+      ],
+      "steer": -0.067,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.83,
+      "phase": "braking",
+      "speed_kmh": 25.262,
+      "signed_speed_kmh": 25.262,
+      "engine_rpm": 956.79,
+      "gear": 1,
+      "roll_deg": 0.15,
+      "slip_deg": 0.02,
+      "road_distance_m": 2.567,
+      "location_cm": [
+        -89189.3668633218,
+        -116261.26513123297,
+        6793.861704244341
+      ],
+      "steer": -0.068,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 13.93,
+      "phase": "braking",
+      "speed_kmh": 23.368,
+      "signed_speed_kmh": 23.368,
+      "engine_rpm": 921.1,
+      "gear": 1,
+      "roll_deg": 0.15,
+      "slip_deg": 0.02,
+      "road_distance_m": 1.995,
+      "location_cm": [
+        -89154.3360337384,
+        -116204.31264401104,
+        6795.744232944738
+      ],
+      "steer": -0.058,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.03,
+      "phase": "braking",
+      "speed_kmh": 21.475,
+      "signed_speed_kmh": 21.475,
+      "engine_rpm": 897.34,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": 0.02,
+      "road_distance_m": 1.537,
+      "location_cm": [
+        -89122.04351969688,
+        -116151.85005241196,
+        6797.46020245641
+      ],
+      "steer": -0.058,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.13,
+      "phase": "braking",
+      "speed_kmh": 19.582,
+      "signed_speed_kmh": 19.582,
+      "engine_rpm": 881.51,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": 0.03,
+      "road_distance_m": 1.245,
+      "location_cm": [
+        -89092.49734479732,
+        -116103.87441407697,
+        6799.025845020164
+      ],
+      "steer": -0.047,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.23,
+      "phase": "braking",
+      "speed_kmh": 17.69,
+      "signed_speed_kmh": 17.69,
+      "engine_rpm": 870.98,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": 0.03,
+      "road_distance_m": 1.167,
+      "location_cm": [
+        -89065.69916812758,
+        -116060.37982111279,
+        6800.4554826219555
+      ],
+      "steer": -0.032,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.33,
+      "phase": "braking",
+      "speed_kmh": 15.8,
+      "signed_speed_kmh": 15.8,
+      "engine_rpm": 863.97,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": 0.03,
+      "road_distance_m": 1.28,
+      "location_cm": [
+        -89041.64638515955,
+        -116021.35864104122,
+        6801.747842156444
+      ],
+      "steer": -0.032,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.43,
+      "phase": "braking",
+      "speed_kmh": 13.918,
+      "signed_speed_kmh": 13.918,
+      "engine_rpm": 859.3,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": 0.04,
+      "road_distance_m": 1.495,
+      "location_cm": [
+        -89020.33416944827,
+        -115986.79639718014,
+        6802.869829263948
+      ],
+      "steer": -0.012,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.53,
+      "phase": "braking",
+      "speed_kmh": 12.042,
+      "signed_speed_kmh": 12.042,
+      "engine_rpm": 856.19,
+      "gear": 1,
+      "roll_deg": 0.16,
+      "slip_deg": 0.04,
+      "road_distance_m": 1.738,
+      "location_cm": [
+        -89001.75604338519,
+        -115956.67423239017,
+        6803.807010815435
+      ],
+      "steer": -0.012,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.63,
+      "phase": "braking",
+      "speed_kmh": 10.172,
+      "signed_speed_kmh": 10.172,
+      "engine_rpm": 854.12,
+      "gear": 1,
+      "roll_deg": 0.13,
+      "slip_deg": -0.42,
+      "road_distance_m": 1.974,
+      "location_cm": [
+        -88985.72149449296,
+        -115931.07327229215,
+        6804.577668570689
+      ],
+      "steer": 0.023,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.73,
+      "phase": "braking",
+      "speed_kmh": 8.322,
+      "signed_speed_kmh": 8.322,
+      "engine_rpm": 852.74,
+      "gear": 1,
+      "roll_deg": 0.02,
+      "slip_deg": -0.46,
+      "road_distance_m": 2.183,
+      "location_cm": [
+        -88972.33863176277,
+        -115909.88223814011,
+        6805.3334994599945
+      ],
+      "steer": 0.026,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.83,
+      "phase": "braking",
+      "speed_kmh": 6.495,
+      "signed_speed_kmh": 6.495,
+      "engine_rpm": 851.83,
+      "gear": 1,
+      "roll_deg": -0.04,
+      "slip_deg": -0.45,
+      "road_distance_m": 2.355,
+      "location_cm": [
+        -88961.64244417008,
+        -115893.02174012492,
+        6806.022872558451
+      ],
+      "steer": 0.028,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 14.93,
+      "phase": "braking",
+      "speed_kmh": 4.682,
+      "signed_speed_kmh": 4.682,
+      "engine_rpm": 851.22,
+      "gear": 1,
+      "roll_deg": -0.06,
+      "slip_deg": -0.46,
+      "road_distance_m": 2.487,
+      "location_cm": [
+        -88953.62974562692,
+        -115880.45896726938,
+        6806.544154479548
+      ],
+      "steer": 0.03,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.03,
+      "phase": "braking",
+      "speed_kmh": 2.88,
+      "signed_speed_kmh": 2.88,
+      "engine_rpm": 850.81,
+      "gear": 1,
+      "roll_deg": -0.05,
+      "slip_deg": 0,
+      "road_distance_m": 2.47,
+      "location_cm": [
+        -88948.30038540156,
+        -115872.14412286568,
+        6806.880873346533
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.13,
+      "phase": "braking",
+      "speed_kmh": 1.395,
+      "signed_speed_kmh": 1.395,
+      "engine_rpm": 850.54,
+      "gear": 1,
+      "roll_deg": -0.05,
+      "slip_deg": 0,
+      "road_distance_m": 2.423,
+      "location_cm": [
+        -88945.54340409646,
+        -115867.80742430367,
+        6807.082591560728
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.23,
+      "phase": "braking",
+      "speed_kmh": 1.329,
+      "signed_speed_kmh": 1.329,
+      "engine_rpm": 850.36,
+      "gear": 1,
+      "roll_deg": -0.05,
+      "slip_deg": 0,
+      "road_distance_m": 2.387,
+      "location_cm": [
+        -88943.46271866656,
+        -115864.49646899816,
+        6807.28399275654
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.331,
+      "phase": "braking",
+      "speed_kmh": 1.263,
+      "signed_speed_kmh": 1.263,
+      "engine_rpm": 850.24,
+      "gear": 1,
+      "roll_deg": -0.06,
+      "slip_deg": 0,
+      "road_distance_m": 2.352,
+      "location_cm": [
+        -88941.5021535192,
+        -115861.35957560735,
+        6807.338983009205
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.431,
+      "phase": "braking",
+      "speed_kmh": 1.2,
+      "signed_speed_kmh": 1.2,
+      "engine_rpm": 850.16,
+      "gear": 1,
+      "roll_deg": -0.07,
+      "slip_deg": 0,
+      "road_distance_m": 2.321,
+      "location_cm": [
+        -88939.70002599822,
+        -115858.47741348496,
+        6807.358095810586
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.531,
+      "phase": "braking",
+      "speed_kmh": 1.138,
+      "signed_speed_kmh": 1.138,
+      "engine_rpm": 850.11,
+      "gear": 1,
+      "roll_deg": -0.08,
+      "slip_deg": 0,
+      "road_distance_m": 2.292,
+      "location_cm": [
+        -88938.00134522749,
+        -115855.76943875814,
+        6807.4673226715495
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.631,
+      "phase": "braking",
+      "speed_kmh": 1.073,
+      "signed_speed_kmh": 1.073,
+      "engine_rpm": 850.07,
+      "gear": 1,
+      "roll_deg": -0.08,
+      "slip_deg": 0,
+      "road_distance_m": 2.264,
+      "location_cm": [
+        -88936.38878906502,
+        -115853.19911940233,
+        6807.627956962474
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.731,
+      "phase": "braking",
+      "speed_kmh": 1.008,
+      "signed_speed_kmh": 1.008,
+      "engine_rpm": 850.05,
+      "gear": 1,
+      "roll_deg": -0.08,
+      "slip_deg": 0,
+      "road_distance_m": 2.238,
+      "location_cm": [
+        -88934.86534409945,
+        -115850.76759789207,
+        6807.7539067208645
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.836,
+      "phase": "braking",
+      "speed_kmh": 0.943,
+      "signed_speed_kmh": 0.943,
+      "engine_rpm": 850.03,
+      "gear": 1,
+      "roll_deg": -0.09,
+      "slip_deg": 0,
+      "road_distance_m": 2.212,
+      "location_cm": [
+        -88933.36111655713,
+        -115848.36655558045,
+        6807.8454452075475
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 15.937,
+      "phase": "braking",
+      "speed_kmh": 0.877,
+      "signed_speed_kmh": 0.877,
+      "engine_rpm": 850.02,
+      "gear": 1,
+      "roll_deg": -0.09,
+      "slip_deg": 0,
+      "road_distance_m": 2.189,
+      "location_cm": [
+        -88932.02849369479,
+        -115846.24070116106,
+        6807.918508334089
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.037,
+      "phase": "braking",
+      "speed_kmh": 0.811,
+      "signed_speed_kmh": 0.811,
+      "engine_rpm": 850.01,
+      "gear": 1,
+      "roll_deg": -0.1,
+      "slip_deg": 0,
+      "road_distance_m": 2.168,
+      "location_cm": [
+        -88930.79544551513,
+        -115844.2744452031,
+        6807.967139000382
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.137,
+      "phase": "braking",
+      "speed_kmh": 0.747,
+      "signed_speed_kmh": 0.747,
+      "engine_rpm": 850.01,
+      "gear": 1,
+      "roll_deg": -0.1,
+      "slip_deg": 0,
+      "road_distance_m": 2.148,
+      "location_cm": [
+        -88929.64733875665,
+        -115842.44458424837,
+        6808.017225616292
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.237,
+      "phase": "braking",
+      "speed_kmh": 0.683,
+      "signed_speed_kmh": 0.683,
+      "engine_rpm": 850.01,
+      "gear": 1,
+      "roll_deg": -0.1,
+      "slip_deg": 0,
+      "road_distance_m": 2.131,
+      "location_cm": [
+        -88928.6029276251,
+        -115840.78030571673,
+        6808.079271794985
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.337,
+      "phase": "braking",
+      "speed_kmh": 0.619,
+      "signed_speed_kmh": 0.619,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.1,
+      "slip_deg": 0,
+      "road_distance_m": 2.114,
+      "location_cm": [
+        -88927.65329464148,
+        -115839.26726495619,
+        6808.143231264455
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.438,
+      "phase": "braking",
+      "speed_kmh": 0.554,
+      "signed_speed_kmh": 0.554,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.11,
+      "slip_deg": 0,
+      "road_distance_m": 2.1,
+      "location_cm": [
+        -88926.7905150983,
+        -115837.8931912249,
+        6808.200143428896
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.538,
+      "phase": "braking",
+      "speed_kmh": 0.49,
+      "signed_speed_kmh": 0.49,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.11,
+      "slip_deg": 0,
+      "road_distance_m": 2.087,
+      "location_cm": [
+        -88926.03067334651,
+        -115836.68358854881,
+        6808.245313342114
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.646,
+      "phase": "braking",
+      "speed_kmh": 0.422,
+      "signed_speed_kmh": 0.422,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.11,
+      "slip_deg": 0,
+      "road_distance_m": 2.075,
+      "location_cm": [
+        -88925.32091339886,
+        -115835.5546159635,
+        6808.2905540032125
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.752,
+      "phase": "braking",
+      "speed_kmh": 0.317,
+      "signed_speed_kmh": 0.317,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.11,
+      "slip_deg": 0,
+      "road_distance_m": 2.065,
+      "location_cm": [
+        -88924.74152077378,
+        -115834.6335877823,
+        6808.325864251754
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.852,
+      "phase": "braking",
+      "speed_kmh": 0.001,
+      "signed_speed_kmh": 0.001,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.11,
+      "slip_deg": 0,
+      "road_distance_m": 2.065,
+      "location_cm": [
+        -88924.70445422824,
+        -115834.57586128903,
+        6808.327291412283
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 16.952,
+      "phase": "braking",
+      "speed_kmh": 0.0,
+      "signed_speed_kmh": -0.0,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.11,
+      "slip_deg": 0,
+      "road_distance_m": 2.064,
+      "location_cm": [
+        -88924.69871381193,
+        -115834.5680078672,
+        6808.338761747419
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.052,
+      "phase": "second_launch",
+      "speed_kmh": 0.0,
+      "signed_speed_kmh": -0.0,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.11,
+      "slip_deg": 0,
+      "road_distance_m": 2.064,
+      "location_cm": [
+        -88924.69405518033,
+        -115834.56074255568,
+        6808.343595976205
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.152,
+      "phase": "second_launch",
+      "speed_kmh": 0.713,
+      "signed_speed_kmh": 0.713,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.11,
+      "slip_deg": 0,
+      "road_distance_m": 2.054,
+      "location_cm": [
+        -88924.09868027944,
+        -115833.61529236472,
+        6808.397734565972
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.252,
+      "phase": "second_launch",
+      "speed_kmh": 1.664,
+      "signed_speed_kmh": 1.664,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.11,
+      "slip_deg": 0,
+      "road_distance_m": 2.021,
+      "location_cm": [
+        -88922.12628961618,
+        -115830.4663128564,
+        6808.463572506111
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.352,
+      "phase": "second_launch",
+      "speed_kmh": 2.608,
+      "signed_speed_kmh": 2.608,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.13,
+      "slip_deg": 0,
+      "road_distance_m": 1.965,
+      "location_cm": [
+        -88918.78176685607,
+        -115825.1318155823,
+        6808.556457751261
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.452,
+      "phase": "second_launch",
+      "speed_kmh": 3.538,
+      "signed_speed_kmh": 3.538,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.14,
+      "slip_deg": -0.06,
+      "road_distance_m": 1.887,
+      "location_cm": [
+        -88914.07831290702,
+        -115817.63734654438,
+        6808.7800029398495
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.552,
+      "phase": "second_launch",
+      "speed_kmh": 4.455,
+      "signed_speed_kmh": 4.455,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.15,
+      "slip_deg": -0.05,
+      "road_distance_m": 1.788,
+      "location_cm": [
+        -88908.01244128331,
+        -115807.97487768716,
+        6809.140909958484
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.652,
+      "phase": "second_launch",
+      "speed_kmh": 5.364,
+      "signed_speed_kmh": 5.364,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.16,
+      "slip_deg": -0.04,
+      "road_distance_m": 1.67,
+      "location_cm": [
+        -88900.5959770611,
+        -115796.15688394516,
+        6809.577709090985
+      ],
+      "steer": -0.004,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.752,
+      "phase": "second_launch",
+      "speed_kmh": 6.247,
+      "signed_speed_kmh": 6.247,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.18,
+      "slip_deg": -0.43,
+      "road_distance_m": 1.535,
+      "location_cm": [
+        -88891.8121425434,
+        -115782.25778241342,
+        6810.041179981936
+      ],
+      "steer": -0.005,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.852,
+      "phase": "second_launch",
+      "speed_kmh": 7.117,
+      "signed_speed_kmh": 7.117,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.26,
+      "slip_deg": -0.42,
+      "road_distance_m": 1.388,
+      "location_cm": [
+        -88881.75308632888,
+        -115766.31530794881,
+        6810.589423335951
+      ],
+      "steer": -0.006,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 17.952,
+      "phase": "second_launch",
+      "speed_kmh": 7.981,
+      "signed_speed_kmh": 7.981,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.34,
+      "slip_deg": -0.38,
+      "road_distance_m": 1.236,
+      "location_cm": [
+        -88870.43334770507,
+        -115748.34148282727,
+        6811.268907600414
+      ],
+      "steer": -0.007,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.052,
+      "phase": "second_launch",
+      "speed_kmh": 8.838,
+      "signed_speed_kmh": 8.838,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": -0.39,
+      "slip_deg": -0.34,
+      "road_distance_m": 1.091,
+      "location_cm": [
+        -88857.8581236902,
+        -115728.34770828679,
+        6812.048610052154
+      ],
+      "steer": -0.008,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.152,
+      "phase": "second_launch",
+      "speed_kmh": 9.691,
+      "signed_speed_kmh": 9.691,
+      "engine_rpm": 856.11,
+      "gear": 1,
+      "roll_deg": -0.44,
+      "slip_deg": -0.29,
+      "road_distance_m": 0.973,
+      "location_cm": [
+        -88844.04604779248,
+        -115706.32441388041,
+        6812.889816949809
+      ],
+      "steer": -0.009,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.252,
+      "phase": "second_launch",
+      "speed_kmh": 10.544,
+      "signed_speed_kmh": 10.544,
+      "engine_rpm": 881.33,
+      "gear": 1,
+      "roll_deg": -0.48,
+      "slip_deg": -0.23,
+      "road_distance_m": 0.913,
+      "location_cm": [
+        -88829.00945331361,
+        -115682.27022620499,
+        6813.777350774995
+      ],
+      "steer": -0.01,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.352,
+      "phase": "second_launch",
+      "speed_kmh": 11.398,
+      "signed_speed_kmh": 11.398,
+      "engine_rpm": 919.94,
+      "gear": 1,
+      "roll_deg": -0.52,
+      "slip_deg": -0.16,
+      "road_distance_m": 0.945,
+      "location_cm": [
+        -88812.74770096423,
+        -115656.17979911588,
+        6814.717058971665
+      ],
+      "steer": -0.011,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.452,
+      "phase": "second_launch",
+      "speed_kmh": 12.253,
+      "signed_speed_kmh": 12.253,
+      "engine_rpm": 967.57,
+      "gear": 1,
+      "roll_deg": -0.54,
+      "slip_deg": -0.09,
+      "road_distance_m": 1.081,
+      "location_cm": [
+        -88795.25955161735,
+        -115628.05220908618,
+        6815.712805342883
+      ],
+      "steer": -0.037,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.552,
+      "phase": "second_launch",
+      "speed_kmh": 13.106,
+      "signed_speed_kmh": 13.106,
+      "engine_rpm": 1021.14,
+      "gear": 1,
+      "roll_deg": -0.53,
+      "slip_deg": -0.02,
+      "road_distance_m": 1.306,
+      "location_cm": [
+        -88776.53467842624,
+        -115597.89355469843,
+        6816.755199460009
+      ],
+      "steer": -0.037,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.652,
+      "phase": "second_launch",
+      "speed_kmh": 13.955,
+      "signed_speed_kmh": 13.955,
+      "engine_rpm": 1078.48,
+      "gear": 1,
+      "roll_deg": -0.5,
+      "slip_deg": 0.01,
+      "road_distance_m": 1.599,
+      "location_cm": [
+        -88756.571303742,
+        -115565.71454236348,
+        6817.830754990745
+      ],
+      "steer": -0.038,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.752,
+      "phase": "second_launch",
+      "speed_kmh": 14.803,
+      "signed_speed_kmh": 14.803,
+      "engine_rpm": 1138.85,
+      "gear": 1,
+      "roll_deg": -0.44,
+      "slip_deg": 0.04,
+      "road_distance_m": 1.943,
+      "location_cm": [
+        -88735.37822652471,
+        -115531.53467610046,
+        6818.914985941745
+      ],
+      "steer": -0.039,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.852,
+      "phase": "second_launch",
+      "speed_kmh": 15.648,
+      "signed_speed_kmh": 15.648,
+      "engine_rpm": 1202.0,
+      "gear": 1,
+      "roll_deg": -0.32,
+      "slip_deg": 0.04,
+      "road_distance_m": 2.327,
+      "location_cm": [
+        -88712.9507607818,
+        -115495.38060778641,
+        6819.978329601585
+      ],
+      "steer": -0.058,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 18.952,
+      "phase": "second_launch",
+      "speed_kmh": 16.49,
+      "signed_speed_kmh": 16.49,
+      "engine_rpm": 1267.79,
+      "gear": 1,
+      "roll_deg": -0.14,
+      "slip_deg": 0.05,
+      "road_distance_m": 2.12,
+      "location_cm": [
+        -88689.2799854138,
+        -115457.27394156501,
+        6820.998840901464
+      ],
+      "steer": -0.073,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.052,
+      "phase": "second_launch",
+      "speed_kmh": 17.324,
+      "signed_speed_kmh": 17.324,
+      "engine_rpm": 1333.74,
+      "gear": 1,
+      "roll_deg": -0.05,
+      "slip_deg": -0.03,
+      "road_distance_m": 1.673,
+      "location_cm": [
+        -88664.34861642083,
+        -115417.1917089072,
+        6822.127428112009
+      ],
+      "steer": -0.073,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.152,
+      "phase": "second_launch",
+      "speed_kmh": 18.151,
+      "signed_speed_kmh": 18.151,
+      "engine_rpm": 1395.24,
+      "gear": 1,
+      "roll_deg": -0.08,
+      "slip_deg": 0.08,
+      "road_distance_m": 1.224,
+      "location_cm": [
+        -88638.20987177576,
+        -115375.02989922826,
+        6823.533616404867
+      ],
+      "steer": -0.084,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.252,
+      "phase": "second_launch",
+      "speed_kmh": 18.956,
+      "signed_speed_kmh": 18.956,
+      "engine_rpm": 1455.63,
+      "gear": 1,
+      "roll_deg": 0.05,
+      "slip_deg": 0.2,
+      "road_distance_m": 0.816,
+      "location_cm": [
+        -88610.78040147746,
+        -115331.00067773211,
+        6824.906153816059
+      ],
+      "steer": -0.083,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.353,
+      "phase": "second_launch",
+      "speed_kmh": 19.737,
+      "signed_speed_kmh": 19.737,
+      "engine_rpm": 1514.79,
+      "gear": 1,
+      "roll_deg": 0.35,
+      "slip_deg": 0.05,
+      "road_distance_m": 0.611,
+      "location_cm": [
+        -88581.93286853217,
+        -115285.00757567633,
+        6826.096646236234
+      ],
+      "steer": -0.082,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.454,
+      "phase": "second_launch",
+      "speed_kmh": 20.601,
+      "signed_speed_kmh": 20.601,
+      "engine_rpm": 1573.13,
+      "gear": 1,
+      "roll_deg": 0.32,
+      "slip_deg": -0.08,
+      "road_distance_m": 0.839,
+      "location_cm": [
+        -88551.36652958668,
+        -115236.48953994742,
+        6827.516014622246
+      ],
+      "steer": -0.082,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.555,
+      "phase": "second_launch",
+      "speed_kmh": 21.445,
+      "signed_speed_kmh": 21.445,
+      "engine_rpm": 1634.04,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.1,
+      "road_distance_m": 1.317,
+      "location_cm": [
+        -88519.87887296126,
+        -115186.55134686231,
+        6829.26197074665
+      ],
+      "steer": -0.092,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.655,
+      "phase": "second_launch",
+      "speed_kmh": 22.263,
+      "signed_speed_kmh": 22.263,
+      "engine_rpm": 1696.79,
+      "gear": 1,
+      "roll_deg": 0.13,
+      "slip_deg": -0.11,
+      "road_distance_m": 1.878,
+      "location_cm": [
+        -88487.23429137628,
+        -115135.08541687723,
+        6831.132051332575
+      ],
+      "steer": -0.092,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.755,
+      "phase": "second_launch",
+      "speed_kmh": 23.077,
+      "signed_speed_kmh": 23.077,
+      "engine_rpm": 1760.49,
+      "gear": 1,
+      "roll_deg": 0.15,
+      "slip_deg": -0.11,
+      "road_distance_m": 2.259,
+      "location_cm": [
+        -88453.26138939388,
+        -115081.73884835141,
+        6832.971622493999
+      ],
+      "steer": -0.101,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.855,
+      "phase": "second_launch",
+      "speed_kmh": 23.897,
+      "signed_speed_kmh": 23.897,
+      "engine_rpm": 1822.54,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.12,
+      "road_distance_m": 1.613,
+      "location_cm": [
+        -88417.96810210477,
+        -115026.52430370793,
+        6834.773194766162
+      ],
+      "steer": -0.101,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 19.955,
+      "phase": "second_launch",
+      "speed_kmh": 24.723,
+      "signed_speed_kmh": 24.723,
+      "engine_rpm": 1883.22,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.14,
+      "road_distance_m": 0.958,
+      "location_cm": [
+        -88381.34593496638,
+        -114969.45346603182,
+        6836.616793452099
+      ],
+      "steer": -0.109,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.055,
+      "phase": "second_launch",
+      "speed_kmh": 25.549,
+      "signed_speed_kmh": 25.549,
+      "engine_rpm": 1944.15,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.14,
+      "road_distance_m": 0.381,
+      "location_cm": [
+        -88343.37007615638,
+        -114910.52241121397,
+        6838.554303587034
+      ],
+      "steer": -0.108,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.157,
+      "phase": "second_launch",
+      "speed_kmh": 26.385,
+      "signed_speed_kmh": 26.385,
+      "engine_rpm": 2007.94,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.13,
+      "road_distance_m": 0.626,
+      "location_cm": [
+        -88303.42691358483,
+        -114848.78653376485,
+        6840.627513645341
+      ],
+      "steer": -0.108,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.257,
+      "phase": "second_launch",
+      "speed_kmh": 27.208,
+      "signed_speed_kmh": 27.208,
+      "engine_rpm": 2070.53,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.14,
+      "road_distance_m": 1.327,
+      "location_cm": [
+        -88262.50765106885,
+        -114785.81548877069,
+        6842.761701701192
+      ],
+      "steer": -0.115,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.357,
+      "phase": "second_launch",
+      "speed_kmh": 28.024,
+      "signed_speed_kmh": 28.024,
+      "engine_rpm": 2132.56,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.15,
+      "road_distance_m": 2.083,
+      "location_cm": [
+        -88220.4070023553,
+        -114721.37041102446,
+        6844.934341321372
+      ],
+      "steer": -0.115,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.464,
+      "phase": "second_launch",
+      "speed_kmh": 28.899,
+      "signed_speed_kmh": 28.899,
+      "engine_rpm": 2203.56,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.16,
+      "road_distance_m": 1.763,
+      "location_cm": [
+        -88173.72865654634,
+        -114650.29296738094,
+        6847.3192697941195
+      ],
+      "steer": -0.121,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.568,
+      "phase": "second_launch",
+      "speed_kmh": 29.745,
+      "signed_speed_kmh": 29.745,
+      "engine_rpm": 2267.42,
+      "gear": 1,
+      "roll_deg": 0.17,
+      "slip_deg": -0.16,
+      "road_distance_m": 0.919,
+      "location_cm": [
+        -88127.1188866131,
+        -114579.75671750156,
+        6849.687338685389
+      ],
+      "steer": -0.12,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.668,
+      "phase": "second_launch",
+      "speed_kmh": 30.562,
+      "signed_speed_kmh": 30.562,
+      "engine_rpm": 2326.76,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.17,
+      "road_distance_m": 0.098,
+      "location_cm": [
+        -88080.5984395309,
+        -114509.78610790272,
+        6852.0222433851
+      ],
+      "steer": -0.126,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.768,
+      "phase": "second_launch",
+      "speed_kmh": 31.379,
+      "signed_speed_kmh": 31.379,
+      "engine_rpm": 2386.95,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.16,
+      "road_distance_m": 0.79,
+      "location_cm": [
+        -88032.54511238984,
+        -114437.97211530803,
+        6854.431971344547
+      ],
+      "steer": -0.125,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.869,
+      "phase": "second_launch",
+      "speed_kmh": 32.199,
+      "signed_speed_kmh": 32.199,
+      "engine_rpm": 2448.61,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.16,
+      "road_distance_m": 1.682,
+      "location_cm": [
+        -87982.68983695305,
+        -114363.91550543459,
+        6856.944447567535
+      ],
+      "steer": -0.124,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 20.969,
+      "phase": "second_launch",
+      "speed_kmh": 33.011,
+      "signed_speed_kmh": 33.011,
+      "engine_rpm": 2509.86,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.16,
+      "road_distance_m": 2.109,
+      "location_cm": [
+        -87931.7056665898,
+        -114288.64511017075,
+        6859.505424772388
+      ],
+      "steer": -0.137,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.07,
+      "phase": "second_launch",
+      "speed_kmh": 33.827,
+      "signed_speed_kmh": 33.827,
+      "engine_rpm": 2571.47,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.18,
+      "road_distance_m": 1.177,
+      "location_cm": [
+        -87878.83574410337,
+        -114211.22535138715,
+        6862.135893211927
+      ],
+      "steer": -0.135,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.17,
+      "phase": "second_launch",
+      "speed_kmh": 34.645,
+      "signed_speed_kmh": 34.645,
+      "engine_rpm": 2632.68,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.17,
+      "road_distance_m": 0.265,
+      "location_cm": [
+        -87824.3612571062,
+        -114132.05743183217,
+        6864.816575345398
+      ],
+      "steer": -0.133,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.27,
+      "phase": "second_launch",
+      "speed_kmh": 35.455,
+      "signed_speed_kmh": 35.455,
+      "engine_rpm": 2693.15,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.16,
+      "road_distance_m": 0.79,
+      "location_cm": [
+        -87768.75775499396,
+        -114051.82539893045,
+        6867.538960302433
+      ],
+      "steer": -0.131,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.37,
+      "phase": "second_launch",
+      "speed_kmh": 36.263,
+      "signed_speed_kmh": 36.263,
+      "engine_rpm": 2754.12,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.17,
+      "road_distance_m": 1.778,
+      "location_cm": [
+        -87711.59713195413,
+        -113969.94090327372,
+        6870.342104978831
+      ],
+      "steer": -0.137,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.472,
+      "phase": "second_launch",
+      "speed_kmh": 37.071,
+      "signed_speed_kmh": 37.071,
+      "engine_rpm": 2815.93,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.18,
+      "road_distance_m": 1.942,
+      "location_cm": [
+        -87652.08027338288,
+        -113885.39849132676,
+        6873.250670442707
+      ],
+      "steer": -0.142,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.572,
+      "phase": "second_launch",
+      "speed_kmh": 37.887,
+      "signed_speed_kmh": 37.887,
+      "engine_rpm": 2878.13,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.17,
+      "road_distance_m": 0.932,
+      "location_cm": [
+        -87591.27170786171,
+        -113799.79477480988,
+        6876.197252377916
+      ],
+      "steer": -0.139,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.672,
+      "phase": "second_launch",
+      "speed_kmh": 38.692,
+      "signed_speed_kmh": 38.692,
+      "engine_rpm": 2938.07,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.16,
+      "road_distance_m": 0.415,
+      "location_cm": [
+        -87529.17947481695,
+        -113713.1120782832,
+        6879.1681636184685
+      ],
+      "steer": -0.137,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.773,
+      "phase": "second_launch",
+      "speed_kmh": 39.5,
+      "signed_speed_kmh": 39.5,
+      "engine_rpm": 2999.15,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.17,
+      "road_distance_m": 1.35,
+      "location_cm": [
+        -87465.03508900868,
+        -113624.33096710256,
+        6882.2248593273
+      ],
+      "steer": -0.142,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.873,
+      "phase": "second_launch",
+      "speed_kmh": 40.303,
+      "signed_speed_kmh": 40.303,
+      "engine_rpm": 3060.27,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.16,
+      "road_distance_m": 2.368,
+      "location_cm": [
+        -87399.33363872117,
+        -113534.23913442418,
+        6885.356289314964
+      ],
+      "steer": -0.147,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 21.973,
+      "phase": "second_launch",
+      "speed_kmh": 41.101,
+      "signed_speed_kmh": 41.101,
+      "engine_rpm": 3120.76,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.17,
+      "road_distance_m": 1.286,
+      "location_cm": [
+        -87332.14076231822,
+        -113442.9876850344,
+        6888.539808726484
+      ],
+      "steer": -0.144,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.075,
+      "phase": "second_launch",
+      "speed_kmh": 41.903,
+      "signed_speed_kmh": 41.903,
+      "engine_rpm": 3180.83,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.15,
+      "road_distance_m": 0.509,
+      "location_cm": [
+        -87262.12588280228,
+        -113348.80675117533,
+        6891.816904867567
+      ],
+      "steer": -0.141,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.18,
+      "phase": "second_launch",
+      "speed_kmh": 42.748,
+      "signed_speed_kmh": 42.748,
+      "engine_rpm": 3254.47,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.16,
+      "road_distance_m": 1.331,
+      "location_cm": [
+        -87187.70297002565,
+        -113249.68547390547,
+        6895.305009942059
+      ],
+      "steer": -0.146,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.28,
+      "phase": "second_launch",
+      "speed_kmh": 43.544,
+      "signed_speed_kmh": 43.544,
+      "engine_rpm": 3312.5,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.15,
+      "road_distance_m": 2.386,
+      "location_cm": [
+        -87114.81064318448,
+        -113153.61543121113,
+        6898.679724580573
+      ],
+      "steer": -0.151,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.381,
+      "phase": "second_launch",
+      "speed_kmh": 44.337,
+      "signed_speed_kmh": 44.337,
+      "engine_rpm": 3370.51,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.15,
+      "road_distance_m": 1.244,
+      "location_cm": [
+        -87040.27384299735,
+        -113056.40724444402,
+        6902.093055939
+      ],
+      "steer": -0.148,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.481,
+      "phase": "second_launch",
+      "speed_kmh": 45.13,
+      "signed_speed_kmh": 45.13,
+      "engine_rpm": 3428.16,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.14,
+      "road_distance_m": 0.635,
+      "location_cm": [
+        -86964.0079982833,
+        -112957.96747347956,
+        6905.554799626952
+      ],
+      "steer": -0.153,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.582,
+      "phase": "second_launch",
+      "speed_kmh": 45.928,
+      "signed_speed_kmh": 45.928,
+      "engine_rpm": 3487.41,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.14,
+      "road_distance_m": 1.567,
+      "location_cm": [
+        -86884.97453032949,
+        -112857.08681141518,
+        6909.128118880382
+      ],
+      "steer": -0.149,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.682,
+      "phase": "second_launch",
+      "speed_kmh": 46.719,
+      "signed_speed_kmh": 46.719,
+      "engine_rpm": 3547.44,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.14,
+      "road_distance_m": 2.126,
+      "location_cm": [
+        -86804.7438245453,
+        -112755.77809533408,
+        6912.7537550733105
+      ],
+      "steer": -0.152,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.782,
+      "phase": "second_launch",
+      "speed_kmh": 47.503,
+      "signed_speed_kmh": 47.503,
+      "engine_rpm": 3606.71,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.13,
+      "road_distance_m": 0.977,
+      "location_cm": [
+        -86722.75131986175,
+        -112653.3988882261,
+        6916.433027911853
+      ],
+      "steer": -0.148,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.883,
+      "phase": "second_launch",
+      "speed_kmh": 48.298,
+      "signed_speed_kmh": 48.298,
+      "engine_rpm": 3666.72,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.13,
+      "road_distance_m": 0.931,
+      "location_cm": [
+        -86637.91820781812,
+        -112548.6163660305,
+        6920.188602647786
+      ],
+      "steer": -0.15,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 22.985,
+      "phase": "second_launch",
+      "speed_kmh": 49.098,
+      "signed_speed_kmh": 49.098,
+      "engine_rpm": 3727.66,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -0.12,
+      "road_distance_m": 2.131,
+      "location_cm": [
+        -86550.32664803664,
+        -112441.65281874292,
+        6924.044422319812
+      ],
+      "steer": -0.146,
+      "throttle_input": 0.6754727363586426,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 23.086,
+      "phase": "handbrake",
+      "speed_kmh": 48.506,
+      "signed_speed_kmh": 48.506,
+      "engine_rpm": 3440.26,
+      "gear": 1,
+      "roll_deg": 0.08,
+      "slip_deg": 0.15,
+      "road_distance_m": 1.541,
+      "location_cm": [
+        -86464.02970721769,
+        -112336.32252549313,
+        6927.8002002543235
+      ],
+      "steer": -0.153,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 23.187,
+      "phase": "handbrake",
+      "speed_kmh": 47.439,
+      "signed_speed_kmh": 47.439,
+      "engine_rpm": 2615.68,
+      "gear": 1,
+      "roll_deg": -0.01,
+      "slip_deg": 0.11,
+      "road_distance_m": 0.733,
+      "location_cm": [
+        -86380.1502501982,
+        -112231.61355542978,
+        6931.748781565492
+      ],
+      "steer": -0.167,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 23.287,
+      "phase": "handbrake",
+      "speed_kmh": 46.338,
+      "signed_speed_kmh": 46.338,
+      "engine_rpm": 2023.94,
+      "gear": 1,
+      "roll_deg": 0.11,
+      "slip_deg": -0.76,
+      "road_distance_m": 1.499,
+      "location_cm": [
+        -86300.87672296911,
+        -112127.97892920667,
+        6935.870007165166
+      ],
+      "steer": -0.215,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 23.387,
+      "phase": "handbrake",
+      "speed_kmh": 45.259,
+      "signed_speed_kmh": 45.259,
+      "engine_rpm": 1630.17,
+      "gear": 1,
+      "roll_deg": -0.02,
+      "slip_deg": -2.48,
+      "road_distance_m": 2.394,
+      "location_cm": [
+        -86226.9337748903,
+        -112024.75390121147,
+        6939.33646692708
+      ],
+      "steer": -0.294,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 23.489,
+      "phase": "handbrake",
+      "speed_kmh": 44.094,
+      "signed_speed_kmh": 44.094,
+      "engine_rpm": 1366.58,
+      "gear": 1,
+      "roll_deg": -0.24,
+      "slip_deg": -5.27,
+      "road_distance_m": 1.434,
+      "location_cm": [
+        -86157.38729173673,
+        -111920.58945803065,
+        6942.264680480054
+      ],
+      "steer": -0.385,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 23.589,
+      "phase": "handbrake",
+      "speed_kmh": 42.837,
+      "signed_speed_kmh": 42.837,
+      "engine_rpm": 1193.92,
+      "gear": 1,
+      "roll_deg": 0.07,
+      "slip_deg": -8.61,
+      "road_distance_m": 1.253,
+      "location_cm": [
+        -86093.47233427163,
+        -111818.2225207376,
+        6945.6568764193125
+      ],
+      "steer": -0.499,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 23.689,
+      "phase": "handbrake",
+      "speed_kmh": 41.467,
+      "signed_speed_kmh": 41.467,
+      "engine_rpm": 1078.97,
+      "gear": 1,
+      "roll_deg": 0.33,
+      "slip_deg": -12.19,
+      "road_distance_m": 2.003,
+      "location_cm": [
+        -86034.81397697418,
+        -111715.88644005035,
+        6949.213732087574
+      ],
+      "steer": -0.619,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 23.789,
+      "phase": "handbrake",
+      "speed_kmh": 39.926,
+      "signed_speed_kmh": 39.926,
+      "engine_rpm": 1002.16,
+      "gear": 1,
+      "roll_deg": 0.18,
+      "slip_deg": -15.99,
+      "road_distance_m": 2.848,
+      "location_cm": [
+        -85981.40685835389,
+        -111613.1468983722,
+        6952.249869441413
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 23.89,
+      "phase": "handbrake",
+      "speed_kmh": 38.056,
+      "signed_speed_kmh": 38.056,
+      "engine_rpm": 950.88,
+      "gear": 1,
+      "roll_deg": 0.08,
+      "slip_deg": -20.06,
+      "road_distance_m": 2.358,
+      "location_cm": [
+        -85933.04975120074,
+        -111510.49326158513,
+        6954.836187651925
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 23.99,
+      "phase": "handbrake",
+      "speed_kmh": 35.915,
+      "signed_speed_kmh": 35.915,
+      "engine_rpm": 917.09,
+      "gear": 1,
+      "roll_deg": 0.04,
+      "slip_deg": -24.26,
+      "road_distance_m": 2.393,
+      "location_cm": [
+        -85890.26760849485,
+        -111409.99095881126,
+        6957.8717722827605
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 24.098,
+      "phase": "handbrake",
+      "speed_kmh": 33.504,
+      "signed_speed_kmh": 33.504,
+      "engine_rpm": 893.7,
+      "gear": 1,
+      "roll_deg": 1.0,
+      "slip_deg": -28.96,
+      "road_distance_m": 2.93,
+      "location_cm": [
+        -85848.99189923953,
+        -111304.32143712029,
+        6960.000039259964
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 24.204,
+      "phase": "recovery",
+      "speed_kmh": 30.678,
+      "signed_speed_kmh": 30.678,
+      "engine_rpm": 878.25,
+      "gear": 1,
+      "roll_deg": 2.2,
+      "slip_deg": -33.53,
+      "road_distance_m": 3.718,
+      "location_cm": [
+        -85813.67171878745,
+        -111203.12573588316,
+        6961.259028851232
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.21763762831687927,
+      "brake_input": 0.0,
+      "handbrake_input": true
+    },
+    {
+      "time_s": 24.304,
+      "phase": "recovery",
+      "speed_kmh": 28.166,
+      "signed_speed_kmh": 28.166,
+      "engine_rpm": 868.7,
+      "gear": 1,
+      "roll_deg": 1.61,
+      "slip_deg": -37.62,
+      "road_distance_m": 4.112,
+      "location_cm": [
+        -85785.81241063058,
+        -111109.70373657638,
+        6962.614798530945
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 24.405,
+      "phase": "recovery",
+      "speed_kmh": 25.876,
+      "signed_speed_kmh": 25.876,
+      "engine_rpm": 862.4,
+      "gear": 1,
+      "roll_deg": 0.55,
+      "slip_deg": -40.81,
+      "road_distance_m": 4.202,
+      "location_cm": [
+        -85762.24878358896,
+        -111017.98015381984,
+        6963.643141529711
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 24.507,
+      "phase": "recovery",
+      "speed_kmh": 23.784,
+      "signed_speed_kmh": 23.784,
+      "engine_rpm": 858.18,
+      "gear": 1,
+      "roll_deg": 1.9,
+      "slip_deg": -43.76,
+      "road_distance_m": 4.507,
+      "location_cm": [
+        -85740.79700674383,
+        -110927.04984264894,
+        6964.046769898283
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 24.607,
+      "phase": "recovery",
+      "speed_kmh": 22.019,
+      "signed_speed_kmh": 22.019,
+      "engine_rpm": 855.44,
+      "gear": 1,
+      "roll_deg": 1.42,
+      "slip_deg": -46.02,
+      "road_distance_m": 4.951,
+      "location_cm": [
+        -85723.06952259107,
+        -110842.2524602595,
+        6961.558002105495
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 24.709,
+      "phase": "recovery",
+      "speed_kmh": 18.03,
+      "signed_speed_kmh": 18.03,
+      "engine_rpm": 853.59,
+      "gear": 1,
+      "roll_deg": -0.5,
+      "slip_deg": -49.27,
+      "road_distance_m": 5.457,
+      "location_cm": [
+        -85710.40991083451,
+        -110765.98468055991,
+        6962.7956659964675
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 24.816,
+      "phase": "recovery",
+      "speed_kmh": 16.224,
+      "signed_speed_kmh": 16.224,
+      "engine_rpm": 852.38,
+      "gear": 1,
+      "roll_deg": -0.35,
+      "slip_deg": -52.65,
+      "road_distance_m": 6.037,
+      "location_cm": [
+        -85699.76249897099,
+        -110689.10743654189,
+        6959.420570159397
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 24.923,
+      "phase": "recovery",
+      "speed_kmh": 14.044,
+      "signed_speed_kmh": 14.044,
+      "engine_rpm": 851.5,
+      "gear": 1,
+      "roll_deg": 0.45,
+      "slip_deg": -54.92,
+      "road_distance_m": 6.645,
+      "location_cm": [
+        -85693.81018175295,
+        -110615.89912320832,
+        6954.367864914154
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.027,
+      "phase": "recovery",
+      "speed_kmh": 12.282,
+      "signed_speed_kmh": 12.282,
+      "engine_rpm": 850.98,
+      "gear": 1,
+      "roll_deg": 0.51,
+      "slip_deg": -56.13,
+      "road_distance_m": 6.967,
+      "location_cm": [
+        -85691.99357986226,
+        -110551.73951440527,
+        6953.21572839457
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.127,
+      "phase": "recovery",
+      "speed_kmh": 11.03,
+      "signed_speed_kmh": 11.03,
+      "engine_rpm": 850.66,
+      "gear": 1,
+      "roll_deg": -0.57,
+      "slip_deg": -57.64,
+      "road_distance_m": 7.244,
+      "location_cm": [
+        -85693.33581311013,
+        -110495.09412791449,
+        6954.587044173242
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.227,
+      "phase": "recovery",
+      "speed_kmh": 9.913,
+      "signed_speed_kmh": 9.913,
+      "engine_rpm": 850.44,
+      "gear": 1,
+      "roll_deg": -1.18,
+      "slip_deg": -59.91,
+      "road_distance_m": 7.56,
+      "location_cm": [
+        -85697.24421766002,
+        -110441.18392759604,
+        6952.424510825657
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.327,
+      "phase": "recovery",
+      "speed_kmh": 8.045,
+      "signed_speed_kmh": 8.045,
+      "engine_rpm": 850.29,
+      "gear": 1,
+      "roll_deg": -0.2,
+      "slip_deg": -59.53,
+      "road_distance_m": 7.875,
+      "location_cm": [
+        -85702.0038804309,
+        -110392.6367764557,
+        6947.663311412503
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.427,
+      "phase": "recovery",
+      "speed_kmh": 7.445,
+      "signed_speed_kmh": 7.445,
+      "engine_rpm": 850.19,
+      "gear": 1,
+      "roll_deg": 0.89,
+      "slip_deg": -57.89,
+      "road_distance_m": 8.169,
+      "location_cm": [
+        -85708.28747525976,
+        -110352.19688221104,
+        6945.901737515183
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.527,
+      "phase": "recovery",
+      "speed_kmh": 6.79,
+      "signed_speed_kmh": 6.79,
+      "engine_rpm": 850.13,
+      "gear": 1,
+      "roll_deg": 1.56,
+      "slip_deg": -55.82,
+      "road_distance_m": 8.452,
+      "location_cm": [
+        -85716.70134726919,
+        -110317.56842353655,
+        6945.826343728949
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.627,
+      "phase": "recovery",
+      "speed_kmh": 6.223,
+      "signed_speed_kmh": 6.223,
+      "engine_rpm": 850.09,
+      "gear": 1,
+      "roll_deg": 1.5,
+      "slip_deg": -53.01,
+      "road_distance_m": 8.706,
+      "location_cm": [
+        -85725.85982449511,
+        -110288.97338541296,
+        6946.877012305459
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.727,
+      "phase": "recovery",
+      "speed_kmh": 5.694,
+      "signed_speed_kmh": 5.694,
+      "engine_rpm": 850.06,
+      "gear": 1,
+      "roll_deg": 1.47,
+      "slip_deg": -49.47,
+      "road_distance_m": 8.932,
+      "location_cm": [
+        -85735.45950907082,
+        -110265.55186473264,
+        6948.101825550069
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.827,
+      "phase": "recovery",
+      "speed_kmh": 5.1,
+      "signed_speed_kmh": 5.1,
+      "engine_rpm": 850.04,
+      "gear": 1,
+      "roll_deg": 1.54,
+      "slip_deg": -44.98,
+      "road_distance_m": 9.13,
+      "location_cm": [
+        -85745.4602364554,
+        -110247.05151147232,
+        6948.848391793032
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 25.927,
+      "phase": "recovery",
+      "speed_kmh": 4.358,
+      "signed_speed_kmh": 4.358,
+      "engine_rpm": 850.03,
+      "gear": 1,
+      "roll_deg": 1.58,
+      "slip_deg": -39.47,
+      "road_distance_m": 9.294,
+      "location_cm": [
+        -85755.35059386463,
+        -110233.47468515536,
+        6949.0150072851275
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.027,
+      "phase": "recovery",
+      "speed_kmh": 3.336,
+      "signed_speed_kmh": 3.336,
+      "engine_rpm": 850.02,
+      "gear": 1,
+      "roll_deg": 1.62,
+      "slip_deg": -34.31,
+      "road_distance_m": 9.419,
+      "location_cm": [
+        -85764.0284337152,
+        -110224.51698897434,
+        6948.840270206957
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 1.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.127,
+      "phase": "recovery",
+      "speed_kmh": 2.14,
+      "signed_speed_kmh": 2.14,
+      "engine_rpm": 850.01,
+      "gear": 1,
+      "roll_deg": 1.67,
+      "slip_deg": 0,
+      "road_distance_m": 9.5,
+      "location_cm": [
+        -85770.32673131755,
+        -110219.35809799154,
+        6948.6359094721565
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.228,
+      "phase": "recovery",
+      "speed_kmh": 1.962,
+      "signed_speed_kmh": 1.962,
+      "engine_rpm": 850.01,
+      "gear": 1,
+      "roll_deg": 1.72,
+      "slip_deg": 0,
+      "road_distance_m": 9.554,
+      "location_cm": [
+        -85775.6016382347,
+        -110217.13561712965,
+        6948.542267956833
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.328,
+      "phase": "recovery",
+      "speed_kmh": 1.911,
+      "signed_speed_kmh": 1.911,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": 2.02,
+      "slip_deg": 0,
+      "road_distance_m": 9.602,
+      "location_cm": [
+        -85780.91002337883,
+        -110215.95934056467,
+        6948.422618853818
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.428,
+      "phase": "recovery",
+      "speed_kmh": 1.859,
+      "signed_speed_kmh": 1.859,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": 2.28,
+      "slip_deg": 0,
+      "road_distance_m": 9.647,
+      "location_cm": [
+        -85786.01616287032,
+        -110214.87765175955,
+        6948.238360301291
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.528,
+      "phase": "recovery",
+      "speed_kmh": 1.807,
+      "signed_speed_kmh": 1.807,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": 2.29,
+      "slip_deg": 0,
+      "road_distance_m": 9.69,
+      "location_cm": [
+        -85790.98048518425,
+        -110213.97608664494,
+        6948.060996265599
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.628,
+      "phase": "recovery",
+      "speed_kmh": 1.754,
+      "signed_speed_kmh": 1.754,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": 2.24,
+      "slip_deg": 0,
+      "road_distance_m": 9.732,
+      "location_cm": [
+        -85795.83997254852,
+        -110213.13402041588,
+        6947.917999325993
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.728,
+      "phase": "recovery",
+      "speed_kmh": 1.702,
+      "signed_speed_kmh": 1.702,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": 2.22,
+      "slip_deg": 0,
+      "road_distance_m": 9.773,
+      "location_cm": [
+        -85800.54755258678,
+        -110212.29288628133,
+        6947.780065340965
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.828,
+      "phase": "recovery",
+      "speed_kmh": 1.648,
+      "signed_speed_kmh": 1.648,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": 2.23,
+      "slip_deg": 0,
+      "road_distance_m": 9.813,
+      "location_cm": [
+        -85805.10545406067,
+        -110211.45912383517,
+        6947.628249425798
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    },
+    {
+      "time_s": 26.928,
+      "phase": "recovery",
+      "speed_kmh": 1.595,
+      "signed_speed_kmh": 1.595,
+      "engine_rpm": 850.0,
+      "gear": 1,
+      "roll_deg": 2.24,
+      "slip_deg": 0,
+      "road_distance_m": 9.851,
+      "location_cm": [
+        -85809.51433378329,
+        -110210.65026445653,
+        6947.473323367378
+      ],
+      "steer": -0.65,
+      "throttle_input": 0.0,
+      "brake_input": 0.0,
+      "handbrake_input": false
+    }
+  ],
+  "last_sample": 26.928281102329493,
+  "last_t": 0,
+  "injected": 3191,
+  "finished": true,
+  "method": "27-second automated Enhanced Input probe in PIE; background throttling disabled temporarily; first gear reset; SouthLink route; not full-map or manual validation",
+  "date": "2026-10-22"
+}

@@ -22,6 +22,8 @@ Saved/
 # Temporary files
 *.log
 *.tmp
+__pycache__/
+*.pyc
 
 # Windows
 Thumbs.db
