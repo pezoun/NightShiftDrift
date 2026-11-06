@@ -1,0 +1,637 @@
+{
+  "status": "Authoring markers only; race logic not implemented",
+  "start_finish": {
+    "location_m": [
+      -640.8353137354077,
+      -746.3161849920391,
+      52.04390899549774
+    ],
+    "yaw_deg": 151.2774739028517
+  },
+  "checkpoints": [
+    {
+      "name": "WestPass_CP_01",
+      "route": "WestPass",
+      "order": 1,
+      "location_m": [
+        -747.3356136595505,
+        -686.3182870027474,
+        56.139421518398095
+      ],
+      "yaw_deg": 149.2543824135525,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_02",
+      "route": "WestPass",
+      "order": 2,
+      "location_m": [
+        -696.71046396163,
+        -611.3636804590016,
+        65.79815977049921
+      ],
+      "yaw_deg": 5.87097737520722,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_03",
+      "route": "WestPass",
+      "order": 3,
+      "location_m": [
+        -458.2458289876237,
+        -589.1673825738443,
+        76.89630871307781
+      ],
+      "yaw_deg": 1.3661184758739633,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_04",
+      "route": "WestPass",
+      "order": 4,
+      "location_m": [
+        -613.8502272661385,
+        -499.6450882397106,
+        85.47456045700332
+      ],
+      "yaw_deg": 155.25468721224695,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_05",
+      "route": "WestPass",
+      "order": 5,
+      "location_m": [
+        -809.0741368027242,
+        -404.6949787044405,
+        94.77519014523875
+      ],
+      "yaw_deg": 28.536585365854062,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_06",
+      "route": "WestPass",
+      "order": 6,
+      "location_m": [
+        -588.1329125029188,
+        -316.4768736006513,
+        101.61051903114186
+      ],
+      "yaw_deg": 26.46806065029456,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_07",
+      "route": "WestPass",
+      "order": 7,
+      "location_m": [
+        -475.7851648163944,
+        -222.25032010866164,
+        107.49618437888263
+      ],
+      "yaw_deg": 156.16839665638068,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_08",
+      "route": "WestPass",
+      "order": 8,
+      "location_m": [
+        -679.380400164879,
+        -99.27329241275675,
+        109.84
+      ],
+      "yaw_deg": 178.39736946200043,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_09",
+      "route": "WestPass",
+      "order": 9,
+      "location_m": [
+        -729.484148277554,
+        -51.26251073900915,
+        117.22060035132456
+      ],
+      "yaw_deg": 22.722933066483254,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_10",
+      "route": "WestPass",
+      "order": 10,
+      "location_m": [
+        -513.6643664010974,
+        52.0747273444373,
+        127.45683619921313
+      ],
+      "yaw_deg": 18.613209128432732,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_11",
+      "route": "WestPass",
+      "order": 11,
+      "location_m": [
+        -601.6700129223262,
+        140.2197419351312,
+        135.98744691508745
+      ],
+      "yaw_deg": 152.37636055906188,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_12",
+      "route": "WestPass",
+      "order": 12,
+      "location_m": [
+        -802.0041613299494,
+        243.74552459102915,
+        146.44655146506386
+      ],
+      "yaw_deg": 51.136363636361665,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_13",
+      "route": "WestPass",
+      "order": 13,
+      "location_m": [
+        -578.4311238836655,
+        324.74197467763497,
+        156.45004828320037
+      ],
+      "yaw_deg": 23.592721194943174,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_14",
+      "route": "WestPass",
+      "order": 14,
+      "location_m": [
+        -446.5194252187118,
+        412.96217012599976,
+        165.23683759483822
+      ],
+      "yaw_deg": 172.47766603957183,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_15",
+      "route": "WestPass",
+      "order": 15,
+      "location_m": [
+        -675.9149948920341,
+        480.8712778992227,
+        176.72146611530974
+      ],
+      "yaw_deg": 164.0246827336609,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_16",
+      "route": "WestPass",
+      "order": 16,
+      "location_m": [
+        -647.554971729483,
+        549.6266104931857,
+        185.0654293574319
+      ],
+      "yaw_deg": 18.046675186584338,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_17",
+      "route": "WestPass",
+      "order": 17,
+      "location_m": [
+        -418.6868116895206,
+        619.0971894357261,
+        196.4915114203497
+      ],
+      "yaw_deg": 5.637601441452119,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "WestPass_CP_18",
+      "route": "WestPass",
+      "order": 18,
+      "location_m": [
+        -214.35845273520889,
+        731.5384333228377,
+        212.14947179648652
+      ],
+      "yaw_deg": -3.823666554002346,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_01",
+      "route": "EastPass",
+      "order": 1,
+      "location_m": [
+        177.4666172437308,
+        683.6600081997084,
+        223.88679983600585
+      ],
+      "yaw_deg": 13.38830985115367,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_02",
+      "route": "EastPass",
+      "order": 2,
+      "location_m": [
+        411.8309564461966,
+        696.0634299281813,
+        221.35229444174084
+      ],
+      "yaw_deg": -21.122428781309655,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_03",
+      "route": "EastPass",
+      "order": 3,
+      "location_m": [
+        630.7991373104327,
+        598.9627720821187,
+        210.18571878944365
+      ],
+      "yaw_deg": -17.7003364935504,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_04",
+      "route": "EastPass",
+      "order": 4,
+      "location_m": [
+        563.505162906798,
+        504.7282378328757,
+        198.87987038325866
+      ],
+      "yaw_deg": -150.76702334475468,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_05",
+      "route": "EastPass",
+      "order": 5,
+      "location_m": [
+        417.6472597174936,
+        402.0183556193366,
+        184.67457828365247
+      ],
+      "yaw_deg": -7.6745587344743464,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_06",
+      "route": "EastPass",
+      "order": 6,
+      "location_m": [
+        641.6636964549118,
+        318.47024583213744,
+        168.89326865718152
+      ],
+      "yaw_deg": -21.4750617716898,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_07",
+      "route": "EastPass",
+      "order": 7,
+      "location_m": [
+        656.2005820280228,
+        244.27598876953124,
+        157.4746484375
+      ],
+      "yaw_deg": -160.76589045305963,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_08",
+      "route": "EastPass",
+      "order": 8,
+      "location_m": [
+        430.7077621429136,
+        164.12047405143494,
+        142.0229829496742
+      ],
+      "yaw_deg": -169.81491968620745,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_09",
+      "route": "EastPass",
+      "order": 9,
+      "location_m": [
+        556.3054069209821,
+        84.16898194787379,
+        131.35599692729767
+      ],
+      "yaw_deg": -22.243091231644577,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_10",
+      "route": "EastPass",
+      "order": 10,
+      "location_m": [
+        783.3197624094603,
+        10.276507258887557,
+        118.971666040571
+      ],
+      "yaw_deg": -34.77272727272803,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_11",
+      "route": "EastPass",
+      "order": 11,
+      "location_m": [
+        619.0554016620499,
+        -124.0,
+        107.98
+      ],
+      "yaw_deg": 180.0,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_12",
+      "route": "EastPass",
+      "order": 12,
+      "location_m": [
+        385.0337796310233,
+        -137.7859657610931,
+        99.84034722222222
+      ],
+      "yaw_deg": -99.37499999999991,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_13",
+      "route": "EastPass",
+      "order": 13,
+      "location_m": [
+        587.2374129091263,
+        -248.44474547859855,
+        89.61996873876092
+      ],
+      "yaw_deg": -31.933844661212913,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_14",
+      "route": "EastPass",
+      "order": 14,
+      "location_m": [
+        759.774497896978,
+        -363.57354590260246,
+        79.60214443275733
+      ],
+      "yaw_deg": -158.72727272727343,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_15",
+      "route": "EastPass",
+      "order": 15,
+      "location_m": [
+        536.319214942692,
+        -449.5101022525675,
+        71.81690370737427
+      ],
+      "yaw_deg": -153.5729646760537,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_16",
+      "route": "EastPass",
+      "order": 16,
+      "location_m": [
+        372.87019718368447,
+        -548.0873090175658,
+        64.57940334550483
+      ],
+      "yaw_deg": -2.346740429846529,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_17",
+      "route": "EastPass",
+      "order": 17,
+      "location_m": [
+        582.8353541894475,
+        -660.2167117399624,
+        55.42598271510511
+      ],
+      "yaw_deg": -22.72953424973708,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_18",
+      "route": "EastPass",
+      "order": 18,
+      "location_m": [
+        485.11048757241343,
+        -754.2215435939811,
+        51.021692115225704
+      ],
+      "yaw_deg": -154.70993560282193,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_19",
+      "route": "EastPass",
+      "order": 19,
+      "location_m": [
+        256.6390760949611,
+        -814.802260653918,
+        48.727909573843284
+      ],
+      "yaw_deg": -170.6653135563727,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_20",
+      "route": "EastPass",
+      "order": 20,
+      "location_m": [
+        21.1072544933995,
+        -859.4013465224468,
+        46.943946139102124
+      ],
+      "yaw_deg": -170.8893832225207,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_21",
+      "route": "EastPass",
+      "order": 21,
+      "location_m": [
+        -217.05659502170724,
+        -845.8729387401645,
+        47.63259619212566
+      ],
+      "yaw_deg": 168.04001882208905,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "EastPass_CP_22",
+      "route": "EastPass",
+      "order": 22,
+      "location_m": [
+        -451.01532414270974,
+        -793.5881582456942,
+        50.072552615200934
+      ],
+      "yaw_deg": 168.56366034109482,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "ValleyLink_CP_01",
+      "route": "ValleyLink",
+      "order": 1,
+      "location_m": [
+        -530.4644553532421,
+        -65.76506676376357,
+        100.56572789513532
+      ],
+      "yaw_deg": -3.960639500368466,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "ValleyLink_CP_02",
+      "route": "ValleyLink",
+      "order": 2,
+      "location_m": [
+        -298.32661463375155,
+        -107.79280242179192,
+        86.04556406772126
+      ],
+      "yaw_deg": -34.37113238036508,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "ValleyLink_CP_03",
+      "route": "ValleyLink",
+      "order": 3,
+      "location_m": [
+        -140.32645946220057,
+        -258.2542287322628,
+        67.92965175146071
+      ],
+      "yaw_deg": -81.48585872828477,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "ValleyLink_CP_04",
+      "route": "ValleyLink",
+      "order": 4,
+      "location_m": [
+        39.05622458710454,
+        -179.49186752186648,
+        65.2
+      ],
+      "yaw_deg": 42.81334669636025,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "ValleyLink_CP_05",
+      "route": "ValleyLink",
+      "order": 5,
+      "location_m": [
+        219.7291731269632,
+        -40.429147292474426,
+        79.73357613596949
+      ],
+      "yaw_deg": -0.18960192675734175,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "ValleyLink_CP_06",
+      "route": "ValleyLink",
+      "order": 6,
+      "location_m": [
+        454.7300112261354,
+        -30.527915088449536,
+        91.87404187304891
+      ],
+      "yaw_deg": 29.702344482377384,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "ValleyLink_CP_07",
+      "route": "ValleyLink",
+      "order": 7,
+      "location_m": [
+        627.6067182718838,
+        -51.063082715920864,
+        105.0566478687192
+      ],
+      "yaw_deg": -76.18354912417,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "SouthLink_CP_01",
+      "route": "SouthLink",
+      "order": 1,
+      "location_m": [
+        -477.08594467071475,
+        -633.385621298837,
+        55.9513499432756
+      ],
+      "yaw_deg": 31.874224476595458,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "SouthLink_CP_02",
+      "route": "SouthLink",
+      "order": 2,
+      "location_m": [
+        -246.5408327626411,
+        -638.4526995118995,
+        59.881505700339986
+      ],
+      "yaw_deg": -20.602498413664122,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "SouthLink_CP_03",
+      "route": "SouthLink",
+      "order": 3,
+      "location_m": [
+        -60.73201413988053,
+        -525.7835439690327,
+        63.342829389828786
+      ],
+      "yaw_deg": 41.04256682170287,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "SouthLink_CP_04",
+      "route": "SouthLink",
+      "order": 4,
+      "location_m": [
+        152.37287092761414,
+        -436.8372974312889,
+        68.4931379023358
+      ],
+      "yaw_deg": 58.60919920209717,
+      "road_width_m": 7.5
+    },
+    {
+      "name": "SouthLink_CP_05",
+      "route": "SouthLink",
+      "order": 5,
+      "location_m": [
+        86.30090015735931,
+        -250.79756306236033,
+        66.74842520440606
+      ],
+      "yaw_deg": 143.70402003406954,
+      "road_width_m": 7.5
+    }
+  ]
+}

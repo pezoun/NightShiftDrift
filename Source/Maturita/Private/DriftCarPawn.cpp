@@ -1,4 +1,5 @@
-﻿#include "DriftCarPawn.h"
+#include "DriftCarPawn.h"
+#include "Handling/DriftSteeringModel.h"
 
 #include "Audio/EngineAudioComponent.h"
 #include "Blueprint/UserWidget.h"
@@ -7,6 +8,8 @@
 #include "ChaosWheeledVehicleMovementComponent.h"
 #include "Components/DriftCameraComponent.h"
 #include "Components/DriftEffectsComponent.h"
+#include "Components/DriftLightingComponent.h"
+#include "InputCoreTypes.h"
 #include "Components/DriftHandlingComponent.h"
 #include "Components/DriftRespawnComponent.h"
 #include "Components/DriftTelemetryComponent.h"
@@ -21,6 +24,8 @@
 #include "InputMappingContext.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "UI/DriftCarUIWidget.h"
+#include "UI/NightshiftHUDWidget.h"
+#include "UI/DriftScoreComponent.h"
 
 ADriftCarPawn::ADriftCarPawn()
 {
@@ -60,7 +65,9 @@ ADriftCarPawn::ADriftCarPawn()
     EngineAudioComponent = CreateDefaultSubobject<UEngineAudioComponent>(TEXT("EngineAudioComponent"));
     DriftTransmissionComponent = CreateDefaultSubobject<UDriftTransmissionComponent>(TEXT("DriftTransmissionComponent"));
     DriftEffectsComponent = CreateDefaultSubobject<UDriftEffectsComponent>(TEXT("DriftEffectsComponent"));
+    DriftLightingComponent = CreateDefaultSubobject<UDriftLightingComponent>(TEXT("DriftLightingComponent"));
     DriftRespawnComponent = CreateDefaultSubobject<UDriftRespawnComponent>(TEXT("DriftRespawnComponent"));
+    CreateDefaultSubobject<UDriftScoreComponent>(TEXT("DriftScoreComponent"));
 
     AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
@@ -80,7 +87,7 @@ void ADriftCarPawn::BeginPlay()
     InitializeInputContext();
 
     InitializeVehicleSystems();
-    InitializeBrakeLights();
+    // LightingComponent owns the lens materials and beams; legacy light properties remain serializable.
 
     if (DriftCarUIWidgetClass)
     {
@@ -120,8 +127,9 @@ void ADriftCarPawn::Tick(float DeltaTime)
 
 
 
-    PushInputsToVehicle();
-    UpdateBrakeLights(DeltaTime);
+    if (DriftTransmissionComponent)
+        DriftTransmissionComponent->UpdateTransmission(DeltaTime, GetCurrentSpeed(), CachedThrottleInput, CachedBrakeInput);
+    PushInputsToVehicle(DeltaTime);
 
     const float SpeedKmh = GetCurrentSpeed();
     
@@ -134,16 +142,10 @@ void ADriftCarPawn::Tick(float DeltaTime)
                 CachedThrottleInput));
     }
 
-    if (DriftTransmissionComponent)
-    {
-        DriftTransmissionComponent->UpdateTransmission(DeltaTime, SpeedKmh, CachedThrottleInput);
-    }
 
     if (EngineAudioComponent)
     {
-        const float AudioThrottleInput = bBrakeReverseActive
-            ? FMath::Clamp(CachedBrakeInput, 0.0f, 1.0f)
-            : FMath::Clamp(CachedThrottleInput, 0.0f, 1.0f);
+        const float AudioThrottleInput=GetChaosVehicleMovement()?GetChaosVehicleMovement()->GetThrottleInput():0.f;
 
         const float AudioRpm = FMath::Max(GetCurrentRpm(), 800.0f);
         EngineAudioComponent->UpdateEngineAudio(AudioRpm, AudioThrottleInput, DeltaTime);
@@ -160,22 +162,6 @@ void ADriftCarPawn::Tick(float DeltaTime)
     else if (bDebugDriveInputs && GEngine)
     {
         GEngine->AddOnScreenDebugMessage(1411, 0.0f, FColor::Red, TEXT("EngineAudioComponent is NULL"));
-    }
-
-    if (DriftTelemetryComponent)
-    {
-        DriftTelemetryComponent->SetInputs(CachedThrottleInput, CachedSteeringInput);
-        DriftTelemetryComponent->SetBrakeInput(CachedBrakeInput);
-        DriftTelemetryComponent->SetHandbrakeInput(bCachedHandbrake);
-    }
-
-    if (DriftHandlingComponent && DriftTelemetryComponent)
-    {
-        const FDriftState DriftState = DriftHandlingComponent->CalculateDriftState();
-
-        const bool bIsDrifting = DriftState.bIsOversteering && DriftState.SlideIntensity > 0.15f;
-
-        DriftTelemetryComponent->SetDriftState(bIsDrifting);
     }
 
     if (RpmText)
@@ -195,7 +181,9 @@ void ADriftCarPawn::Tick(float DeltaTime)
 
     if (GearText)
     {
-        GearText->SetText(FText::FromString(FString::Printf(TEXT("%d"), GetCurrentGear())));
+        const int32 Gear = GetCurrentGear();
+        const TCHAR* Mode = DriftTransmissionComponent && DriftTransmissionComponent->IsAutomaticMode() ? TEXT("D") : TEXT("M");
+        GearText->SetText(FText::FromString(Gear < 0 ? TEXT("R") : FString::Printf(TEXT("%s%d"), Mode, Gear)));
     }
 
     if (UDriftCarUIWidget* DriftUI = Cast<UDriftCarUIWidget>(DriftCarUIWidget))
@@ -334,6 +322,22 @@ void ADriftCarPawn::InitializeVehicleSystems()
 {
     UChaosVehicleMovementComponent* MoveComp = GetChaosVehicleMovement();
 
+    if (MoveComp)
+    {
+        // The pawn owns the digital steering ramp; Chaos must not filter or square it again.
+        MoveComp->SteeringInputRate.RiseRate = 1000.0f;
+        MoveComp->SteeringInputRate.FallRate = 1000.0f;
+        MoveComp->SteeringInputRate.InputCurveFunction = EInputFunctionType::LinearFunction;
+        // MovementComponent normally ticks before its owner; invert that dependency for driver input.
+        RemoveTickPrerequisiteComponent(MoveComp);
+        MoveComp->AddTickPrerequisiteActor(this);
+        if (DriftHandlingComponent) MoveComp->AddTickPrerequisiteComponent(DriftHandlingComponent);
+    }
+
+    if (DriftTelemetryComponent) DriftTelemetryComponent->AddTickPrerequisiteActor(this);
+    if (DriftHandlingComponent && DriftTelemetryComponent)
+        DriftHandlingComponent->AddTickPrerequisiteComponent(DriftTelemetryComponent);
+
     if (DriftCameraComponent)
     {
         DriftCameraComponent->InitializeCamera(SpringArm, Camera);
@@ -356,7 +360,25 @@ void ADriftCarPawn::InitializeVehicleSystems()
 
 void ADriftCarPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
+    PlayerInputComponent->BindKey(EKeys::U, IE_Pressed, this, &ADriftCarPawn::ToggleHUDUnits);
     Super::SetupPlayerInputComponent(PlayerInputComponent);
+    if (DriftCameraComponent)
+    {
+        PlayerInputComponent->BindKey(EKeys::MiddleMouseButton,IE_Pressed,DriftCameraComponent.Get(),&UDriftCameraComponent::BeginFreeLook);
+        PlayerInputComponent->BindKey(EKeys::MiddleMouseButton,IE_Released,DriftCameraComponent.Get(),&UDriftCameraComponent::EndFreeLook);
+        PlayerInputComponent->BindAxisKey(EKeys::MouseX,DriftCameraComponent.Get(),&UDriftCameraComponent::LookHorizontal);
+        PlayerInputComponent->BindAxisKey(EKeys::MouseY,DriftCameraComponent.Get(),&UDriftCameraComponent::LookVertical);
+    }
+    if (DriftTransmissionComponent)
+        PlayerInputComponent->BindKey(EKeys::M,IE_Pressed,DriftTransmissionComponent.Get(),&UDriftTransmissionComponent::ToggleAutomaticMode);
+    if (DriftLightingComponent)
+    {
+        PlayerInputComponent->BindKey(EKeys::L, IE_Pressed, DriftLightingComponent.Get(), &UDriftLightingComponent::ToggleHeadlights);
+        PlayerInputComponent->BindKey(EKeys::K, IE_Pressed, DriftLightingComponent.Get(), &UDriftLightingComponent::ToggleHighBeam);
+        PlayerInputComponent->BindKey(EKeys::Z, IE_Pressed, DriftLightingComponent.Get(), &UDriftLightingComponent::ToggleLeftIndicator);
+        PlayerInputComponent->BindKey(EKeys::X, IE_Pressed, DriftLightingComponent.Get(), &UDriftLightingComponent::ToggleRightIndicator);
+        PlayerInputComponent->BindKey(EKeys::C, IE_Pressed, DriftLightingComponent.Get(), &UDriftLightingComponent::ToggleHazards);
+    }
     UE_LOG(LogTemp, Warning, TEXT("ADriftCarPawn: SetupPlayerInputComponent called"));
     InitializeInputContext();
 
@@ -428,34 +450,34 @@ void ADriftCarPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     }
 }
 
+void ADriftCarPawn::ToggleHUDUnits()
+{
+    if (auto* HUD = Cast<UNightshiftHUDWidget>(DriftCarUIWidget)) HUD->ToggleUnits();
+}
+
 void ADriftCarPawn::Input_Throttle(const FInputActionValue& Value)
 {
     CachedThrottleInput = FMath::Clamp(Value.Get<float>(), -1.0f, 1.0f);
-    PushInputsToVehicle();
 }
 
 void ADriftCarPawn::Input_Steer(const FInputActionValue& Value)
 {
     CachedSteeringInput = FMath::Clamp(Value.Get<float>(), -1.0f, 1.0f);
-    PushInputsToVehicle();
 }
 
 void ADriftCarPawn::Input_Brake(const FInputActionValue& Value)
 {
     CachedBrakeInput = FMath::Clamp(Value.Get<float>(), 0.0f, 1.0f);
-    PushInputsToVehicle();
 }
 
 void ADriftCarPawn::Input_HandbrakePressed()
 {
     bCachedHandbrake = true;
-    PushInputsToVehicle();
 }
 
 void ADriftCarPawn::Input_HandbrakeReleased()
 {
     bCachedHandbrake = false;
-    PushInputsToVehicle();
 }
 
 void ADriftCarPawn::Input_GearUp()
@@ -482,7 +504,7 @@ void ADriftCarPawn::Input_ResetVehicle()
     }
 }
 
-void ADriftCarPawn::PushInputsToVehicle()
+void ADriftCarPawn::PushInputsToVehicle(float DeltaTime)
 {
     UChaosVehicleMovementComponent* MoveComp = GetChaosVehicleMovement();
     if (!MoveComp)
@@ -493,26 +515,33 @@ void ADriftCarPawn::PushInputsToVehicle()
 
     const float SpeedKmH = FMath::Abs(GetCurrentSpeed());
 
-    const float ProcessedThrottle = ProcessThrottleInput(CachedThrottleInput);
+    const float ThrottleTarget = ProcessThrottleInput(CachedThrottleInput);
+    LastProcessedThrottle = FMath::FInterpConstantTo(LastProcessedThrottle, ThrottleTarget, DeltaTime,
+        FMath::Abs(ThrottleTarget) > FMath::Abs(LastProcessedThrottle) ? 2.5f : 5.f);
+    const float ProcessedThrottle = LastProcessedThrottle;
 
-    const float ProcessedSteering = ProcessSteeringInput(CachedSteeringInput, SpeedKmH);
+    const float ProcessedSteering = ProcessSteeringInput(CachedSteeringInput, SpeedKmH, DeltaTime);
 
 
     const bool bBrakeHeld = CachedBrakeInput > ReverseInputThreshold;
-    const bool bForwardThrottleHeld = ProcessedThrottle > ReverseInputThreshold;
+    // Direction switching follows the actual key, not the release tail of the throttle filter.
+    const bool bForwardThrottleHeld = CachedThrottleInput > ReverseInputThreshold;
+    const float SignedSpeed = MoveComp->GetForwardSpeed() * .036f;
+    if (!bBrakeHeld) bBrakeWasUsedToStop=false;
+    if (bBrakeHeld && SignedSpeed>3.f && !bBrakeReverseActive) bBrakeWasUsedToStop=true;
 
     if (bUseBrakeAsReverse)
     {
         if (!bBrakeReverseActive)
         {
-            if (bBrakeHeld && SpeedKmH <= ReverseEnterSpeedKmh)
+            if (bBrakeHeld && !bForwardThrottleHeld && !bBrakeWasUsedToStop && SpeedKmH <= .7f)
             {
                 bBrakeReverseActive = true;
             }
         }
         else
         {
-            if (!bBrakeHeld || bForwardThrottleHeld || SpeedKmH >= ReverseExitSpeedKmh)
+            if (!bBrakeHeld || bForwardThrottleHeld)
             {
                 bBrakeReverseActive = false;
             }
@@ -526,7 +555,12 @@ void ADriftCarPawn::PushInputsToVehicle()
     float DriveThrottle = 0.0f;
     float BrakeInput = 0.0f;
 
-    if (bBrakeReverseActive)
+    if (bForwardThrottleHeld && SignedSpeed < -1.f)
+    {
+        if (DriftTransmissionComponent) DriftTransmissionComponent->SetBrakeAsReverseOverride(true);
+        DriveThrottle=0;BrakeInput=ProcessedThrottle;
+    }
+    else if (bBrakeReverseActive)
     {
         if (DriftTransmissionComponent)
         {
@@ -593,28 +627,31 @@ void ADriftCarPawn::PushInputsToVehicle()
     }
 
 
+    // Brake priority: lifting only one keyboard key must not leave engine torque fighting the brakes.
+    if (!bBrakeReverseActive && BrakeInput>.05f)
+    {
+        DriveThrottle = 0.f;
+        LastProcessedThrottle = 0.f;
+    }
     if (DriftHandlingComponent)
     {
         DriftHandlingComponent->SetDriverInputs(DriveThrottle, ProcessedSteering, BrakeInput, bCachedHandbrake);
     }
 
-    const float SteeringAssistOffset = DriftHandlingComponent
-        ? DriftHandlingComponent->GetSteeringAssistOffset()
-        : 0.0f;
-
-    const float FinalSteering = FMath::Clamp(ProcessedSteering + SteeringAssistOffset, -1.0f, 1.0f);
-
-
     MoveComp->SetThrottleInput(DriveThrottle);
-    MoveComp->SetSteeringInput(FinalSteering);
+    // Chaos 5.8 samples controls from VehicleManager::PreTickGT, independently of
+    // the movement component's tick prerequisites. Preserve the latest assist
+    // here too: a driver-only write would erase it before physics samples it.
+    const float AssistOffset = DriftHandlingComponent ? DriftHandlingComponent->GetSteeringAssistOffset() : 0.f;
+    MoveComp->SetSteeringInput(FMath::Clamp(ProcessedSteering + AssistOffset, -1.f, 1.f));
     MoveComp->SetBrakeInput(BrakeInput);
     MoveComp->SetHandbrakeInput(bCachedHandbrake);
 
 
     if (DriftTelemetryComponent)
     {
-        DriftTelemetryComponent->SetInputs(CachedThrottleInput, CachedSteeringInput);
-        DriftTelemetryComponent->SetBrakeInput(CachedBrakeInput);
+        DriftTelemetryComponent->SetInputs(DriveThrottle, ProcessedSteering);
+        DriftTelemetryComponent->SetBrakeInput(BrakeInput);
         DriftTelemetryComponent->SetHandbrakeInput(bCachedHandbrake);
     }
 }
@@ -685,7 +722,7 @@ float ADriftCarPawn::ProcessThrottleInput(float RawThrottle)
     return Sign * ProcessedMagnitude;
 }
 
-float ADriftCarPawn::ProcessSteeringInput(float RawSteering, float SpeedKmH)
+float ADriftCarPawn::ProcessSteeringInput(float RawSteering, float SpeedKmH, float DeltaTime)
 {
 
     if (!DriftHandlingComponent)
@@ -703,18 +740,17 @@ float ADriftCarPawn::ProcessSteeringInput(float RawSteering, float SpeedKmH)
 
     const float ScaledSteering = RawSteering * SpeedFactor;
 
-    const float DeltaTime = GetWorld() ? GetWorld()->GetDeltaSeconds() : 0.016f;
-
-    const float SmoothedSteering = FMath::FInterpTo(
-        LastProcessedSteering,
-        ScaledSteering,
-        DeltaTime,
-        Tuning.SteeringInterpSpeed
-    );
-
-    LastProcessedSteering = SmoothedSteering;
-
-    return SmoothedSteering;
+    if (!FMath::IsNearlyEqual(ScaledSteering, LastSteeringTarget))
+    {
+        bSteeringReversal = ScaledSteering * LastProcessedSteering < 0.0f;
+        LastSteeringTarget = ScaledSteering;
+    }
+    const float SpeedAlpha = FMath::Clamp(SpeedKmH / 160.0f, 0.0f, 1.0f);
+    const float RiseRate = FMath::Lerp(Tuning.SteeringRiseRate, Tuning.SteeringRiseRate * 0.65f, SpeedAlpha);
+    LastProcessedSteering = DriftSteering::Step(LastProcessedSteering, ScaledSteering, DeltaTime,
+        RiseRate, Tuning.SteeringReturnRate, Tuning.SteeringCounterRate, bSteeringReversal);
+    if (FMath::IsNearlyEqual(LastProcessedSteering, ScaledSteering)) bSteeringReversal = false;
+    return LastProcessedSteering;
 }
 
 void ADriftCarPawn::ApplyHandbrake(float HandbrakeInput)
@@ -752,4 +788,3 @@ void ADriftCarPawn::ApplyHandbrake(float HandbrakeInput)
     }
 
 }
-

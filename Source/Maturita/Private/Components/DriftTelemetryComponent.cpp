@@ -105,14 +105,10 @@ float UDriftTelemetryComponent::CalculateSlipAngleDegrees() const
     Forward.Z = 0.0f;
     Forward.Normalize();
 
-    const FVector VelDir = Velocity.GetSafeNormal();
-
-    const float Dot = FVector::DotProduct(Forward, VelDir);
-    const float AngleRad = FMath::Acos(FMath::Clamp(Dot, -1.0f, 1.0f));
-
-    const FVector Cross = FVector::CrossProduct(Forward, VelDir);
-    const float Sign = FMath::Sign(Cross.Z);
-
-    return FMath::RadiansToDegrees(AngleRad) * Sign;
+    if (Velocity.SizeSquared2D() < FMath::Square(100.0f)) return 0.0f;
+    const FVector Right = FVector::CrossProduct(FVector::UpVector, Forward);
+    const float Longitudinal = FVector::DotProduct(Forward, Velocity);
+    // Reverse travel is not a 180-degree drift; direction changes are handled by the transmission.
+    if (Longitudinal <= 0.0f) return 0.0f;
+    return FMath::RadiansToDegrees(FMath::Atan2(FVector::DotProduct(Right, Velocity), Longitudinal));
 }
-

@@ -27,6 +27,16 @@ struct FDriftHandlingTuning
 {
 	GENERATED_BODY()
 
+    // Extra road braking acceleration for keyboard play, in cm/s squared.
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Handling|Brakes", meta=(ClampMin="0.0", ClampMax="400.0"))
+    float BrakeAssistDeceleration = 250.0f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Transitions", meta=(ClampMin="0.0", ClampMax="1.0"))
+    float DriftTransitionTime = 0.45f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Transitions", meta=(ClampMin="20.0", ClampMax="60.0"))
+    float DriftSteeringLockDeg = 42.0f;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift")
 	float MinDriftAngle = 28.0f;
 
@@ -67,10 +77,10 @@ struct FDriftHandlingTuning
 	float MaxDriftAngle = 62.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift")
-	float CounterSteerAssistLowSpeed = 0.05f;
+	float CounterSteerAssistLowSpeed = 0.65f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift")
-	float CounterSteerAssistHighSpeed = 0.11f;
+	float CounterSteerAssistHighSpeed = 0.70f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift")
 	float SteeringResponse = 8.0f;
@@ -142,7 +152,7 @@ struct FDriftHandlingTuning
 	float LinearDamping = 0.01f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift")
-	float AngularDamping = 0.50f;
+	float AngularDamping = 0.25f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Input")
 	float ThrottleExponent = 1.0f;
 
@@ -156,10 +166,16 @@ struct FDriftHandlingTuning
 	float SteeringScaleAtMinSpeed = 1.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Input")
-	float SteeringScaleAtMaxSpeed = 0.75f;
+	float SteeringScaleAtMaxSpeed = 1.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Input")
-	float SteeringInterpSpeed = 12.0f;
+	float SteeringRiseRate = 4.0f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Input", meta=(ClampMin="0.1"))
+    float SteeringReturnRate = 5.5f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Input", meta=(ClampMin="0.1"))
+    float SteeringCounterRate = 8.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Input")
 	float HandbrakeDeadzone = 0.5f;
@@ -196,7 +212,17 @@ struct FDriftHandlingTuning
 	float PowerAssistReleaseSpeed = 6.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Assist")
-	float MaxCounterSteerAssistOffset = 0.18f;
+	float MaxCounterSteerAssistOffset = 0.40f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Tyres", meta=(ClampMin="0.1", ClampMax="1.0"))
+    float HandbrakeRearGripScale = 0.55f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Tyres", meta=(ClampMin="0.1", ClampMax="1.0"))
+    float PowerSlideRearGripScale = 0.85f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Tyres", meta=(ClampMin="0.1"))
+    float RearGripRecoverySpeed = 3.0f;
+
 
 };
 
@@ -212,25 +238,25 @@ struct FDriftCameraTuning
 	float MaxFOV = 104.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera")
-	float CameraLagSpeed = 8.0f;
+	float CameraLagSpeed = 14.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera")
-	float DriftLookOffset = 120.0f;
+	float DriftLookOffset = 35.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera|Drift Look")
-	float DriftLookYawDegrees = 22.0f;
+	float DriftLookYawDegrees = 8.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera|Drift Look")
-	float DriftLookEnterSpeed = 3.0f;
+	float DriftLookEnterSpeed = 7.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera|Drift Look")
-	float DriftLookReturnSpeed = 1.15f;
+	float DriftLookReturnSpeed = 8.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera|Drift Look")
 	float DriftLookFullSlipAngle = 38.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera")
-	float FOVSpeedScale = 0.015f;
+	float FOVSpeedScale = 0.045f;
 };
 
 USTRUCT(BlueprintType)

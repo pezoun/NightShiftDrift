@@ -18,7 +18,8 @@ public class Maturita : ModuleRules
             "UMG",
             "Slate",
             "SlateCore",
-            "Niagara"
+            "Niagara",
+            "PhysicsCore"
         });
     }
 }

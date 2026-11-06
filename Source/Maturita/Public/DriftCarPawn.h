@@ -13,6 +13,7 @@ class UDriftTelemetryComponent;
 class UEngineAudioComponent;
 class UDriftTransmissionComponent;
 class UDriftEffectsComponent;
+class UDriftLightingComponent;
 class UDriftRespawnComponent;
 class UChaosVehicleMovementComponent;
 class UInputMappingContext;
@@ -39,6 +40,7 @@ protected:
     virtual void OnRep_Controller() override;
 
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+    void ToggleHUDUnits();
 
     UFUNCTION(BlueprintCallable, BlueprintPure, Category="HUD")
     float GetCurrentRpm() const;
@@ -94,6 +96,9 @@ protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Drift|Effects", meta=(AllowPrivateAccess="true"))
     TObjectPtr<UDriftEffectsComponent> DriftEffectsComponent;
 
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Vehicle|Lights")
+    TObjectPtr<UDriftLightingComponent> DriftLightingComponent;
+
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Drift|Respawn", meta=(AllowPrivateAccess="true"))
     TObjectPtr<UDriftRespawnComponent> DriftRespawnComponent;
 
@@ -138,14 +143,14 @@ protected:
 
     void InitializeInputContext();
     void InitializeVehicleSystems();
-    void PushInputsToVehicle();
+    void PushInputsToVehicle(float DeltaTime);
     UChaosVehicleMovementComponent* GetChaosVehicleMovement();
     const UChaosVehicleMovementComponent* GetChaosVehicleMovement() const;
 
 
     float ProcessThrottleInput(float RawThrottle);
 
-    float ProcessSteeringInput(float RawSteering, float SpeedKmH);
+    float ProcessSteeringInput(float RawSteering, float SpeedKmH, float DeltaTime);
 
     void ApplyHandbrake(float HandbrakeInput);
 
@@ -153,8 +158,12 @@ protected:
     float CachedSteeringInput = 0.0f;
     float CachedBrakeInput = 0.0f;
     bool bCachedHandbrake = false;
+    bool bBrakeWasUsedToStop = false;
 
+    float LastProcessedThrottle = 0.0f;
     float LastProcessedSteering = 0.0f;
+    float LastSteeringTarget = 0.0f;
+    bool bSteeringReversal = false;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Vehicle|Brake As Reverse", meta=(AllowPrivateAccess="true"))
     bool bUseBrakeAsReverse = true;

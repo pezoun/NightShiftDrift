@@ -1,474 +1,234 @@
-﻿#include "Components/DriftHandlingComponent.h"
+#include "Components/DriftHandlingComponent.h"
 
+#include "ChaosWheeledVehicleMovementComponent.h"
+#include "ChaosVehicleWheel.h"
 #include "Components/DriftTelemetryComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Handling/DriftSteeringModel.h"
 #include "WheeledVehiclePawn.h"
-#include "ChaosVehicleMovementComponent.h"
 
 UDriftHandlingComponent::UDriftHandlingComponent()
 {
-	PrimaryComponentTick.bCanEverTick = true;
+    PrimaryComponentTick.bCanEverTick = true;
+    PrimaryComponentTick.TickGroup = TG_PrePhysics;
 }
 
 void UDriftHandlingComponent::BeginPlay()
 {
-	Super::BeginPlay();
-
-	VehiclePawn = Cast<AWheeledVehiclePawn>(GetOwner());
-	TelemetryComponent = GetOwner() ? GetOwner()->FindComponentByClass<UDriftTelemetryComponent>() : nullptr;
-
-	if (VehiclePawn)
-	{
-		VehicleMesh = VehiclePawn->GetMesh();
-	}
-
-	if (VehicleMesh)
-	{
-		VehicleMesh->SetLinearDamping(HandlingTuning.LinearDamping);
-		VehicleMesh->SetAngularDamping(HandlingTuning.AngularDamping);
-	}
+    Super::BeginPlay();
+    VehiclePawn = Cast<AWheeledVehiclePawn>(GetOwner());
+    TelemetryComponent = GetOwner() ? GetOwner()->FindComponentByClass<UDriftTelemetryComponent>() : nullptr;
+    if (VehiclePawn)
+    {
+        VehicleMesh = VehiclePawn->GetMesh();
+        VehicleMovement = Cast<UChaosWheeledVehicleMovementComponent>(VehiclePawn->GetVehicleMovementComponent());
+    }
+    if (VehicleMesh)
+    {
+        VehicleMesh->SetLinearDamping(HandlingTuning.LinearDamping);
+        VehicleMesh->SetAngularDamping(HandlingTuning.AngularDamping);
+    }
 }
 
 void UDriftHandlingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+    Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+    if (!VehicleMovement || !VehicleMesh || !TelemetryComponent) return;
 
-	UpdateDriftState(DeltaTime);
-	ApplyWheelSpinForce(DeltaTime);
-	ApplyDriftSustainForce(DeltaTime);
-	ApplyHandbrakeAssist(DeltaTime);
-	ApplyCounterSteerAssist(DeltaTime);
-	ApplyGripRecoveryAssist(DeltaTime);
-	ApplyYawStabilization(DeltaTime);
+    int32 GroundedWheels = 0;
+    bool bRearWheelSpin = false;
+    for (int32 Index = 0; Index < VehicleMovement->GetNumWheels(); ++Index)
+    {
+        const FWheelStatus& Wheel = VehicleMovement->GetWheelState(Index);
+        GroundedWheels += Wheel.bInContact ? 1 : 0;
+        const UChaosVehicleWheel* Setup = VehicleMovement->Wheels.IsValidIndex(Index) ? VehicleMovement->Wheels[Index] : nullptr;
+        bRearWheelSpin |= Setup && Setup->AxleType == EAxleType::Rear && Wheel.bInContact
+            && FMath::Abs(Wheel.SlipMagnitude)>FMath::Max(200.f,VehicleMesh->GetPhysicsLinearVelocity().Size2D()*.2f)
+            && Wheel.DriveTorque>10.f;
+    }
+    TelemetryComponent->SetWheelSpinState(bRearWheelSpin && CachedThrottle > 0.2f);
+
+    // Tyre forces drive the car. Assists never rotate or propel an airborne/reversing chassis.
+    const bool bGroundedForward = GroundedWheels >= 2 && VehicleMovement->GetForwardSpeed() > 100.0f;
+    if (bGroundedForward)
+    {
+        if (CachedBrake > .05f && !bCachedHandbrake && DeltaTime > SMALL_NUMBER)
+        {
+            // Add bounded deceleration while tyres regain lateral grip after a slide.
+            // Project onto the road plane so braking cannot pull a jumping chassis down.
+            const FVector Velocity = FVector::VectorPlaneProject(
+                VehicleMesh->GetPhysicsLinearVelocity(), VehiclePawn->GetActorUpVector());
+            const float Speed = Velocity.Size();
+            const float Deceleration = FMath::Min(
+                FMath::Clamp(HandlingTuning.BrakeAssistDeceleration, 0.f, 400.f) * CachedBrake,
+                Speed / DeltaTime);
+            VehicleMesh->AddForce(-Velocity.GetSafeNormal() * Deceleration, NAME_None, true);
+        }
+        UpdateDriftState(DeltaTime);
+        ApplyCounterSteerAssist(DeltaTime);
+        if (TelemetryComponent->GetTelemetry().SpeedKmh <= HandlingTuning.MaxAssistSpeedKmh)
+        {
+            ApplyGripRecoveryAssist(DeltaTime);
+            ApplyYawStabilization(DeltaTime);
+        }
+    }
+    else
+    {
+        bDriftActive = false;
+        DriftHoldTimer = 0.0f;
+        CurrentDriftAssistAlpha = 0.0f;
+        CurrentSteeringAssistOffset = 0.0f;
+        TelemetryComponent->SetDriftState(false);
+    }
+    UpdateRearTyreGrip(bGroundedForward, bRearWheelSpin, DeltaTime);
+    UpdateDriftSteeringLock(bGroundedForward, DeltaTime);
+
+    // This component ticks after driver input and telemetry, before Chaos consumes this frame's input.
+    const float Steering = CachedSteering + CurrentSteeringAssistOffset;
+    VehicleMovement->SetSteeringInput(FMath::Clamp(Steering,-1.f,1.f));
+}
+
+void UDriftHandlingComponent::UpdateRearTyreGrip(bool bGroundedForward, bool bRearWheelSpin, float DeltaTime)
+{
+    const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
+    float TargetGrip = 1.0f;
+    // Briefly preserve breakaway through a left/right transition instead of snapping back at zero slip.
+    if (bGroundedForward && bDriftActive) SlideTransitionTimer = HandlingTuning.DriftTransitionTime;
+    else SlideTransitionTimer = FMath::Max(0.0f, SlideTransitionTimer - DeltaTime);
+    if (!bGroundedForward) SlideTransitionTimer = 0.0f;
+    if (bGroundedForward && Telemetry.SpeedKmh >= HandlingTuning.MinDriftSpeedKmh
+        && Telemetry.SpeedKmh <= HandlingTuning.MaxAssistSpeedKmh)
+    {
+        if (bCachedHandbrake)
+            TargetGrip = HandlingTuning.HandbrakeRearGripScale;
+        else if (Telemetry.CurrentGear > 0 && Telemetry.CurrentGear <= 3
+            && (bRearWheelSpin || bDriftActive || SlideTransitionTimer > 0.0f))
+        {
+            const float Power = FMath::GetMappedRangeValueClamped(FVector2D(.2f,1.0f), FVector2D(0,1), CachedThrottle);
+            TargetGrip = FMath::Lerp(1.0f, HandlingTuning.PowerSlideRearGripScale, Power);
+        }
+    }
+    TargetGrip = FMath::Clamp(TargetGrip, 0.1f, 1.0f);
+    const float PreviousGrip = CurrentRearGripScale;
+    CurrentRearGripScale = FMath::FInterpTo(CurrentRearGripScale, TargetGrip, DeltaTime,
+        TargetGrip < CurrentRearGripScale ? 12.0f : HandlingTuning.RearGripRecoverySpeed);
+    if (FMath::IsNearlyEqual(PreviousGrip, CurrentRearGripScale, 0.0001f)) return;
+
+    // Model the tyre's breakaway and progressive recovery. Never inject chassis rotation or forward speed.
+    for (int32 Index = 0; Index < VehicleMovement->Wheels.Num(); ++Index)
+    {
+        const UChaosVehicleWheel* Wheel = VehicleMovement->Wheels[Index];
+        if (Wheel && Wheel->AxleType == EAxleType::Rear)
+            VehicleMovement->SetWheelFrictionMultiplier(Index, Wheel->FrictionForceMultiplier * CurrentRearGripScale);
+    }
+}
+
+void UDriftHandlingComponent::UpdateDriftSteeringLock(bool bGroundedForward, float DeltaTime)
+{
+    // Normal road steering still uses the existing speed curve. In a slide, an angle kit supplies
+    // enough physical lock for countersteering; it does not rotate the chassis or set its velocity.
+    const float Slip=TelemetryComponent->GetTelemetry().SlipAngleDeg;
+    const bool Counter=CachedSteering*Slip>=0 || FMath::Abs(CachedSteering)<.2f;
+    const float Target=bGroundedForward && (bDriftActive || SlideTransitionTimer>0) && Counter?1.f:0.f;
+    CurrentSteeringLockBlend=FMath::FInterpTo(CurrentSteeringLockBlend,Target,DeltaTime,Target>0?10.f:5.f);
+    const float Mph = TelemetryComponent->GetTelemetry().SpeedKmh * 0.621371f;
+    const float Curve = FMath::Max(.08f, VehicleMovement->SteeringSetup.SteeringCurve.GetRichCurveConst()->Eval(Mph));
+    for (int32 Index = 0; Index < VehicleMovement->Wheels.Num(); ++Index)
+    {
+        const UChaosVehicleWheel* Wheel = VehicleMovement->Wheels[Index];
+        if (!Wheel || !Wheel->bAffectedBySteering) continue;
+        const float DriftLock = FMath::Max(Wheel->MaxSteerAngle, HandlingTuning.DriftSteeringLockDeg / Curve);
+        VehicleMovement->SetWheelMaxSteerAngle(Index, FMath::Lerp(Wheel->MaxSteerAngle, DriftLock, CurrentSteeringLockBlend));
+    }
 }
 
 void UDriftHandlingComponent::SetDriverInputs(float InThrottle, float InSteering, float InBrake, bool bInHandbrake)
 {
-	CachedThrottle = FMath::Clamp(InThrottle, -1.0f, 1.0f);
-	CachedSteering = FMath::Clamp(InSteering, -1.0f, 1.0f);
-	CachedBrake = FMath::Clamp(InBrake, 0.0f, 1.0f);
-	bCachedHandbrake = bInHandbrake;
+    CachedThrottle = FMath::Clamp(InThrottle, 0.0f, 1.0f);
+    CachedSteering = FMath::Clamp(InSteering, -1.0f, 1.0f);
+    CachedBrake = FMath::Clamp(InBrake, 0.0f, 1.0f);
+    bCachedHandbrake = bInHandbrake;
 }
 
 float UDriftHandlingComponent::GetSpeedAssistAlpha(float SpeedKmh) const
 {
-	return FMath::GetMappedRangeValueClamped(
-		FVector2D(HandlingTuning.StabilityStartSpeedKmh, HandlingTuning.StabilityFullSpeedKmh),
-		FVector2D(0.0f, 1.0f),
-		SpeedKmh
-	);
+    return FMath::GetMappedRangeValueClamped(
+        FVector2D(HandlingTuning.StabilityStartSpeedKmh, HandlingTuning.StabilityFullSpeedKmh), FVector2D(0.0f, 1.0f), SpeedKmh);
 }
 
 void UDriftHandlingComponent::UpdateDriftState(float DeltaTime)
 {
-	if (!TelemetryComponent)
-	{
-		bDriftActive = false;
-		CurrentDriftAssistAlpha = FMath::FInterpTo(CurrentDriftAssistAlpha, 0.0f, DeltaTime, HandlingTuning.DriftAssistReleaseSpeed);
-		return;
-	}
+    const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
+    const float AbsSlip = FMath::Abs(Telemetry.SlipAngleDeg);
+    const bool bEnoughSpeed = Telemetry.SpeedKmh >= HandlingTuning.MinDriftSpeedKmh;
+    if (bCachedHandbrake && bEnoughSpeed) DriftHoldTimer = HandlingTuning.DriftHoldAfterHandbrakeTime;
+    else DriftHoldTimer = FMath::Max(0.0f, DriftHoldTimer - DeltaTime);
 
-	const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
-	const float AbsSlip = FMath::Abs(Telemetry.SlipAngleDeg);
-	const bool bEnoughSpeed = Telemetry.SpeedKmh >= HandlingTuning.MinDriftSpeedKmh;
+    // Engine/audio RPM is not evidence of wheelspin or of a drift.
+    const bool bSliding = AbsSlip >= (bDriftActive ? HandlingTuning.DriftSustainSlipAngle : HandlingTuning.DriftEntrySlipAngle);
+    const bool bHandbrakeEntry = bCachedHandbrake && AbsSlip >= HandlingTuning.DriftExitAngle;
+    const bool bHeldSlide = DriftHoldTimer > 0.0f && AbsSlip >= HandlingTuning.DriftSustainSlipAngle;
+    bDriftActive = bEnoughSpeed && (bSliding || bHandbrakeEntry || bHeldSlide);
 
-	bool bRpmWheelSpin = false;
-	const int32 GearIdx = FMath::Clamp(Telemetry.CurrentGear, 0, HandlingTuning.WheelSpinRpmThreshold.Num() - 1);
-	if (GearIdx > 0
-		&& Telemetry.EngineRpm > 0.0f
-		&& CachedThrottle >= HandlingTuning.MinThrottleForWheelSpin
-		&& GearIdx <= HandlingTuning.PowerOversteerMaxGear
-		&& HandlingTuning.WheelSpinRpmThreshold.IsValidIndex(GearIdx))
-	{
-		bRpmWheelSpin = Telemetry.EngineRpm >= HandlingTuning.WheelSpinRpmThreshold[GearIdx];
-	}
-
-	const bool bHandbrakeActive = Telemetry.bHandbrakeActive || bCachedHandbrake;
-	const bool bHasSteering = FMath::Abs(CachedSteering) > 0.08f;
-
-	if (bHandbrakeActive && bEnoughSpeed)
-	{
-		DriftHoldTimer = HandlingTuning.DriftHoldAfterHandbrakeTime;
-	}
-	else
-	{
-		DriftHoldTimer = FMath::Max(0.0f, DriftHoldTimer - DeltaTime);
-	}
-
-	const bool bHighGearGripMode = Telemetry.CurrentGear >= HandlingTuning.GripAssistHighGearStart
-		&& Telemetry.SpeedKmh >= HandlingTuning.GripAssistSpeedStartKmh
-		&& !bHandbrakeActive
-		&& DriftHoldTimer <= 0.0f;
-
-	const bool bHairpinGripMode = Telemetry.SpeedKmh <= HandlingTuning.HairpinGripMaxSpeedKmh
-		&& FMath::Abs(CachedSteering) >= HandlingTuning.HairpinGripSteerThreshold
-		&& !bHandbrakeActive
-		&& DriftHoldTimer <= 0.0f
-		&& CachedThrottle < HandlingTuning.MinThrottleForWheelSpin;
-
-	const bool bSlidingEnoughToEnter = bEnoughSpeed
-		&& AbsSlip >= HandlingTuning.DriftEntrySlipAngle
-		&& !bHighGearGripMode
-		&& !bHairpinGripMode;
-
-	const bool bSlidingEnoughToSustain = bEnoughSpeed
-		&& AbsSlip >= HandlingTuning.DriftSustainSlipAngle;
-
-	const bool bPowerDriftBySlip = bEnoughSpeed
-		&& AbsSlip >= HandlingTuning.PowerDriftMinSlipAngle
-		&& CachedThrottle >= HandlingTuning.PowerDriftMinThrottle
-		&& Telemetry.CurrentGear > 0
-		&& Telemetry.CurrentGear <= HandlingTuning.PowerOversteerMaxGear;
-
-	if (!bDriftActive)
-	{
-		const bool bHandbrakeDrift = bHandbrakeActive && bEnoughSpeed && (bHasSteering || AbsSlip > HandlingTuning.DriftExitAngle);
-		const bool bPowerOversteer = bRpmWheelSpin && bHasSteering && bEnoughSpeed;
-		const bool bHoldFromHandbrake = DriftHoldTimer > 0.0f && bSlidingEnoughToSustain;
-
-		bDriftActive = bHandbrakeDrift
-			|| bPowerOversteer
-			|| bSlidingEnoughToEnter
-			|| bPowerDriftBySlip
-			|| bHoldFromHandbrake;
-	}
-	else
-	{
-		const bool bTooSlow = Telemetry.SpeedKmh < (HandlingTuning.MinDriftSpeedKmh * 0.75f);
-		const bool bCanStillSustain = bSlidingEnoughToSustain
-			|| bHandbrakeActive
-			|| bRpmWheelSpin
-			|| bPowerDriftBySlip
-			|| (DriftHoldTimer > 0.0f && AbsSlip >= HandlingTuning.DriftExitAngle);
-
-		if (bTooSlow || !bCanStillSustain)
-		{
-			bDriftActive = false;
-		}
-	}
-
-	const float TargetAssistAlpha = bDriftActive ? 1.0f : 0.0f;
-	const float AssistInterpSpeed = bDriftActive ? HandlingTuning.DriftAssistBuildSpeed : HandlingTuning.DriftAssistReleaseSpeed;
-	CurrentDriftAssistAlpha = FMath::FInterpTo(CurrentDriftAssistAlpha, TargetAssistAlpha, DeltaTime, AssistInterpSpeed);
-
-	TelemetryComponent->SetDriftState(bDriftActive);
-}
-
-void UDriftHandlingComponent::ApplyWheelSpinForce(float DeltaTime)
-{
-	if (!VehiclePawn || !VehicleMesh || !TelemetryComponent)
-	{
-		CurrentPowerOversteerAlpha = FMath::FInterpTo(CurrentPowerOversteerAlpha, 0.0f, DeltaTime, HandlingTuning.PowerAssistReleaseSpeed);
-		return;
-	}
-
-	const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
-	float TargetPowerAlpha = 0.0f;
-	float SteeringSign = 0.0f;
-	float SpinAlpha = 0.0f;
-
-	const int32 GearIdx = FMath::Clamp(Telemetry.CurrentGear, 0, HandlingTuning.WheelSpinRpmThreshold.Num() - 1);
-	const bool bCanPowerOversteer = Telemetry.SpeedKmh >= 10.0f
-		&& Telemetry.CurrentGear > 0
-		&& GearIdx <= HandlingTuning.PowerOversteerMaxGear
-		&& HandlingTuning.WheelSpinRpmThreshold.IsValidIndex(GearIdx)
-		&& CachedThrottle >= HandlingTuning.MinThrottleForWheelSpin
-		&& FMath::Abs(CachedSteering) > 0.05f;
-
-	if (bCanPowerOversteer)
-	{
-		const float Threshold = HandlingTuning.WheelSpinRpmThreshold[GearIdx];
-		const float MaxRpm = 7000.0f;
-		SpinAlpha = FMath::Clamp((Telemetry.EngineRpm - Threshold) / FMath::Max(MaxRpm - Threshold, 1.0f), 0.0f, 1.0f);
-		const float SteerAlpha = FMath::GetMappedRangeValueClamped(FVector2D(0.05f, 0.75f), FVector2D(0.0f, 1.0f), FMath::Abs(CachedSteering));
-		TargetPowerAlpha = SpinAlpha * SteerAlpha;
-		SteeringSign = FMath::Sign(CachedSteering);
-	}
-
-	CurrentPowerOversteerAlpha = FMath::FInterpTo(
-		CurrentPowerOversteerAlpha,
-		TargetPowerAlpha,
-		DeltaTime,
-		TargetPowerAlpha > CurrentPowerOversteerAlpha ? HandlingTuning.PowerAssistBuildSpeed : HandlingTuning.PowerAssistReleaseSpeed
-	);
-
-	if (CurrentPowerOversteerAlpha <= KINDA_SMALL_NUMBER || FMath::IsNearlyZero(SteeringSign))
-	{
-		return;
-	}
-
-	const FVector Right = VehiclePawn->GetActorRightVector();
-	const FVector Forward = VehiclePawn->GetActorForwardVector();
-	const FVector RearAxle = VehiclePawn->GetActorLocation() - Forward * 130.0f;
-	const float SpeedAlpha = GetSpeedAssistAlpha(Telemetry.SpeedKmh);
-
-	const float SideStrength = HandlingTuning.WheelSpinForceMultiplier * FMath::Lerp(22.0f, 36.0f, SpeedAlpha);
-	const FVector LateralImpulse = Right * SteeringSign * SideStrength * CurrentPowerOversteerAlpha * DeltaTime;
-	VehicleMesh->AddImpulseAtLocation(LateralImpulse, RearAxle, NAME_None);
-
-	// Provisional power-oversteer assist; validate handling in PIE.
-	const float YawImpulse = SteeringSign * SideStrength * CurrentPowerOversteerAlpha * DeltaTime;
-	VehicleMesh->AddAngularImpulseInDegrees(FVector(0.0f, 0.0f, YawImpulse), NAME_None, true);
-}
-
-void UDriftHandlingComponent::ApplyDriftSustainForce(float DeltaTime)
-{
-	if (!VehiclePawn || !VehicleMesh || !TelemetryComponent || CurrentDriftAssistAlpha <= KINDA_SMALL_NUMBER)
-	{
-		return;
-	}
-
-	const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
-
-	if (bCachedHandbrake || Telemetry.bHandbrakeActive)
-	{
-		return;
-	}
-
-	if (CachedThrottle < HandlingTuning.DriftSustainMinThrottle || Telemetry.CurrentGear <= 0)
-	{
-		return;
-	}
-
-	if (Telemetry.SpeedKmh < HandlingTuning.MinDriftSpeedKmh || Telemetry.SpeedKmh > HandlingTuning.DriftSustainMaxSpeedKmh)
-	{
-		return;
-	}
-
-	const float AbsSlip = FMath::Abs(Telemetry.SlipAngleDeg);
-	const float SlipAlpha = FMath::Clamp(AbsSlip / FMath::Max(HandlingTuning.MaxDriftAngle, 1.0f), 0.0f, 1.0f);
-	const float ThrottleAlpha = FMath::GetMappedRangeValueClamped(
-		FVector2D(HandlingTuning.DriftSustainMinThrottle, 1.0f),
-		FVector2D(0.0f, 1.0f),
-		CachedThrottle
-	);
-
-	const float SpeedFade = 1.0f - FMath::GetMappedRangeValueClamped(
-		FVector2D(HandlingTuning.DriftSustainMaxSpeedKmh * 0.78f, HandlingTuning.DriftSustainMaxSpeedKmh),
-		FVector2D(0.0f, 1.0f),
-		Telemetry.SpeedKmh
-	);
-
-	const float GearScale = Telemetry.CurrentGear <= 2 ? 1.0f : FMath::Clamp(1.15f - (Telemetry.CurrentGear * 0.13f), 0.55f, 0.9f);
-
-	const FVector Forward = VehiclePawn->GetActorForwardVector();
-	const FVector Right = VehiclePawn->GetActorRightVector();
-	const FVector Velocity = VehicleMesh->GetPhysicsLinearVelocity();
-	const float SideVelocity = FVector::DotProduct(Velocity, Right);
-
-	const float SustainStrength = HandlingTuning.DriftSustainForceMultiplier
-		* SlipAlpha * ThrottleAlpha * SpeedFade * GearScale * CurrentDriftAssistAlpha;
-
-	VehicleMesh->AddForce(Forward * SustainStrength, NAME_None, true);
-
-	const FVector SideDampingForce = -Right * SideVelocity
-		* HandlingTuning.DriftSustainSideDamping * CurrentDriftAssistAlpha;
-	VehicleMesh->AddForce(SideDampingForce, NAME_None, true);
-}
-
-void UDriftHandlingComponent::ApplyHandbrakeAssist(float DeltaTime)
-{
-	if (!VehiclePawn || !VehicleMesh || !TelemetryComponent)
-	{
-		return;
-	}
-
-	const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
-	const bool bEnoughSpeed = Telemetry.SpeedKmh >= HandlingTuning.MinDriftSpeedKmh;
-	const bool bHasSteeringDirection = FMath::Abs(CachedSteering) >= HandlingTuning.MinSteeringForHandbrakeAssist;
-	const bool bHasExistingSlipDirection = FMath::Abs(Telemetry.SlipAngleDeg) >= HandlingTuning.DriftExitAngle;
-	const bool bShouldAssist = bCachedHandbrake && bEnoughSpeed && (bHasSteeringDirection || bHasExistingSlipDirection);
-
-	const float TargetAlpha = bShouldAssist ? 1.0f : 0.0f;
-	const float InterpSpeed = bShouldAssist ? HandlingTuning.HandbrakeAssistBuildSpeed : HandlingTuning.HandbrakeAssistReleaseSpeed;
-	CurrentHandbrakeAssistAlpha = FMath::FInterpTo(CurrentHandbrakeAssistAlpha, TargetAlpha, DeltaTime, InterpSpeed);
-
-	if (CurrentHandbrakeAssistAlpha <= KINDA_SMALL_NUMBER)
-	{
-		return;
-	}
-
-	float SteeringSign = 0.0f;
-	float DirectionAlpha = 0.0f;
-
-	if (bHasSteeringDirection)
-	{
-		SteeringSign = FMath::Sign(CachedSteering);
-		DirectionAlpha = FMath::Clamp(FMath::Abs(CachedSteering) / 0.85f, 0.25f, 1.0f);
-	}
-	else if (bHasExistingSlipDirection)
-	{
-		SteeringSign = FMath::Sign(Telemetry.SlipAngleDeg);
-		DirectionAlpha = 0.35f;
-	}
-
-	if (FMath::IsNearlyZero(SteeringSign))
-	{
-		return;
-	}
-
-	const float SpeedAlpha = GetSpeedAssistAlpha(Telemetry.SpeedKmh);
-	const float YawBoost = FMath::Lerp(HandlingTuning.HandbrakeYawBoostLowSpeed, HandlingTuning.HandbrakeYawBoostHighSpeed, SpeedAlpha);
-	const float SideImpulseStrength = FMath::Lerp(HandlingTuning.HandbrakeSideImpulseLowSpeed, HandlingTuning.HandbrakeSideImpulseHighSpeed, SpeedAlpha);
-	const float FinalAlpha = CurrentHandbrakeAssistAlpha * DirectionAlpha;
-
-	const float YawImpulse = SteeringSign * YawBoost * FinalAlpha * DeltaTime;
-	VehicleMesh->AddAngularImpulseInDegrees(FVector(0.0f, 0.0f, YawImpulse), NAME_None, true);
-
-	const FVector Forward = VehiclePawn->GetActorForwardVector();
-	const FVector Right = VehiclePawn->GetActorRightVector();
-	const FVector RearLocation = VehiclePawn->GetActorLocation() - Forward * 120.0f;
-	const FVector SideImpulse = Right * SteeringSign * SideImpulseStrength * FinalAlpha * DeltaTime;
-	VehicleMesh->AddImpulseAtLocation(SideImpulse, RearLocation, NAME_None);
+    const float Rate = bDriftActive ? HandlingTuning.DriftAssistBuildSpeed : HandlingTuning.DriftAssistReleaseSpeed;
+    CurrentDriftAssistAlpha = FMath::FInterpTo(CurrentDriftAssistAlpha, bDriftActive ? 1.0f : 0.0f, DeltaTime, Rate);
+    TelemetryComponent->SetDriftState(bDriftActive);
 }
 
 void UDriftHandlingComponent::ApplyCounterSteerAssist(float DeltaTime)
 {
-	if (!TelemetryComponent || !VehiclePawn)
-	{
-		CurrentSteeringAssistOffset = FMath::FInterpTo(CurrentSteeringAssistOffset, 0.0f, DeltaTime, HandlingTuning.SteeringResponse);
-		return;
-	}
-
-	const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
-	const bool bShouldAssist = bDriftActive && CurrentDriftAssistAlpha > KINDA_SMALL_NUMBER;
-
-	float TargetOffset = 0.0f;
-	if (bShouldAssist)
-	{
-		const float SpeedAlpha = GetSpeedAssistAlpha(Telemetry.SpeedKmh);
-		const float AssistStrength = FMath::Lerp(HandlingTuning.CounterSteerAssistLowSpeed, HandlingTuning.CounterSteerAssistHighSpeed, SpeedAlpha);
-		const float SlipRatio = FMath::Clamp(Telemetry.SlipAngleDeg / FMath::Max(HandlingTuning.MaxDriftAngle, 1.0f), -1.0f, 1.0f);
-		const float PlayerAuthority = 1.0f - FMath::Clamp(FMath::Abs(CachedSteering) * 0.35f, 0.0f, 0.35f);
-
-		TargetOffset = -SlipRatio * AssistStrength * CurrentDriftAssistAlpha * PlayerAuthority;
-		TargetOffset = FMath::Clamp(TargetOffset, -HandlingTuning.MaxCounterSteerAssistOffset, HandlingTuning.MaxCounterSteerAssistOffset);
-	}
-
-	CurrentSteeringAssistOffset = FMath::FInterpTo(
-		CurrentSteeringAssistOffset,
-		TargetOffset,
-		DeltaTime,
-		HandlingTuning.SteeringResponse
-	);
+    const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
+    float TargetOffset = 0.0f;
+    if (bDriftActive && Telemetry.SpeedKmh <= HandlingTuning.MaxAssistSpeedKmh)
+    {
+        const float Strength = FMath::Lerp(HandlingTuning.CounterSteerAssistLowSpeed,
+            HandlingTuning.CounterSteerAssistHighSpeed, GetSpeedAssistAlpha(Telemetry.SpeedKmh));
+        const float YawRate = FVector::DotProduct(VehicleMesh->GetPhysicsAngularVelocityInDegrees(), VehiclePawn->GetActorUpVector());
+        TargetOffset = DriftSteering::PredictiveCounterSteer(Telemetry.SlipAngleDeg, YawRate, CachedSteering,
+            Strength * CurrentDriftAssistAlpha, HandlingTuning.MaxDriftAngle, HandlingTuning.MaxCounterSteerAssistOffset);
+    }
+    CurrentSteeringAssistOffset = FMath::Lerp(CurrentSteeringAssistOffset, TargetOffset,
+        1.f - FMath::Exp(-FMath::Max(0.f, DeltaTime) * HandlingTuning.SteeringResponse));
 }
 
 void UDriftHandlingComponent::ApplyGripRecoveryAssist(float DeltaTime)
 {
-	if (!VehiclePawn || !VehicleMesh || !TelemetryComponent)
-	{
-		return;
-	}
+    const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
+    if (bDriftActive || bCachedHandbrake || CachedBrake > 0.2f || FMath::Abs(CachedSteering) > 0.1f
+        || Telemetry.SpeedKmh < 15.0f || FMath::Abs(Telemetry.SlipAngleDeg) > HandlingTuning.DriftExitAngle) return;
 
-	const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
-
-	if (bCachedHandbrake || Telemetry.bHandbrakeActive || Telemetry.CurrentGear <= 0)
-	{
-		return;
-	}
-
-	const bool bLowGearPowerDriftIntent = Telemetry.CurrentGear <= HandlingTuning.PowerOversteerMaxGear
-		&& CachedThrottle >= HandlingTuning.MinThrottleForWheelSpin;
-
-	if (bLowGearPowerDriftIntent && bDriftActive)
-	{
-		return;
-	}
-
-	const float HighGearAlpha = (Telemetry.CurrentGear >= HandlingTuning.GripAssistHighGearStart)
-		? FMath::GetMappedRangeValueClamped(
-			FVector2D(HandlingTuning.GripAssistSpeedStartKmh, HandlingTuning.GripAssistSpeedFullKmh),
-			FVector2D(0.0f, 1.0f),
-			Telemetry.SpeedKmh)
-		: 0.0f;
-
-	const float HairpinSpeedAlpha = 1.0f - FMath::GetMappedRangeValueClamped(
-		FVector2D(HandlingTuning.HairpinGripMaxSpeedKmh * 0.45f, HandlingTuning.HairpinGripMaxSpeedKmh),
-		FVector2D(0.0f, 1.0f),
-		Telemetry.SpeedKmh
-	);
-
-	const float HairpinSteerAlpha = FMath::GetMappedRangeValueClamped(
-		FVector2D(HandlingTuning.HairpinGripSteerThreshold, 1.0f),
-		FVector2D(0.0f, 1.0f),
-		FMath::Abs(CachedSteering)
-	);
-
-	const float ThrottleGripAlpha = 1.0f - FMath::Clamp(CachedThrottle, 0.0f, 1.0f);
-	const float HairpinAlpha = HairpinSpeedAlpha * HairpinSteerAlpha * FMath::Lerp(0.35f, 1.0f, ThrottleGripAlpha);
-
-	const float AssistAlpha = FMath::Clamp(FMath::Max(HighGearAlpha, HairpinAlpha), 0.0f, 1.0f);
-	if (AssistAlpha <= KINDA_SMALL_NUMBER)
-	{
-		return;
-	}
-
-	const FVector AngularVelocityDeg = VehicleMesh->GetPhysicsAngularVelocityInDegrees();
-	const FVector Right = VehiclePawn->GetActorRightVector();
-	const FVector Velocity = VehicleMesh->GetPhysicsLinearVelocity();
-	const float SideVelocity = FVector::DotProduct(Velocity, Right);
-
-	const float YawDamping = FMath::Max(HandlingTuning.GripAssistYawDamping * HighGearAlpha, HandlingTuning.HairpinGripYawDamping * HairpinAlpha);
-	const float SideDamping = FMath::Max(HandlingTuning.GripAssistSideDamping * HighGearAlpha, HandlingTuning.HairpinGripSideDamping * HairpinAlpha);
-
-	const float CounterYawImpulse = -AngularVelocityDeg.Z * YawDamping * AssistAlpha * DeltaTime;
-	VehicleMesh->AddAngularImpulseInDegrees(FVector(0.0f, 0.0f, CounterYawImpulse), NAME_None, true);
-
-	const FVector SideDampingForce = -Right * SideVelocity * SideDamping * AssistAlpha;
-	VehicleMesh->AddForce(SideDampingForce, NAME_None, true);
+    const FVector Right = VehiclePawn->GetActorRightVector();
+    const float SideSpeed = FVector::DotProduct(VehicleMesh->GetPhysicsLinearVelocity(), Right);
+    const float Acceleration = FMath::Clamp(-SideSpeed * HandlingTuning.GripAssistSideDamping, -100.0f, 100.0f);
+    VehicleMesh->AddForce(Right * Acceleration, NAME_None, true);
 }
 
 void UDriftHandlingComponent::ApplyYawStabilization(float DeltaTime)
 {
-	if (!VehicleMesh || !TelemetryComponent)
-	{
-		return;
-	}
-
-	const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
-	const float SpeedAlpha = GetSpeedAssistAlpha(Telemetry.SpeedKmh);
-	const float YawStrength = FMath::Lerp(HandlingTuning.YawControlLowSpeed, HandlingTuning.YawControlHighSpeed, SpeedAlpha);
-	const FVector AngularVelocityDeg = VehicleMesh->GetPhysicsAngularVelocityInDegrees();
-
-	float SlipAlpha = 0.0f;
-	if (bDriftActive)
-	{
-		SlipAlpha = FMath::Clamp(FMath::Abs(Telemetry.SlipAngleDeg) / FMath::Max(HandlingTuning.MaxDriftAngle, 1.0f), 0.0f, 1.0f);
-	}
-
-	const float DriftRelaxFactor = bDriftActive ? FMath::Lerp(0.85f, 0.35f, SlipAlpha) : 1.0f;
-	const float FinalYawStrength = YawStrength * DriftRelaxFactor;
-
-	const float LowSpeedScale = FMath::GetMappedRangeValueClamped(
-		FVector2D(20.0f, 50.0f),
-		FVector2D(0.1f, 1.0f),
-		Telemetry.SpeedKmh
-	);
-
-	const float CounterYawImpulse = -AngularVelocityDeg.Z * FinalYawStrength * LowSpeedScale * DeltaTime;
-	VehicleMesh->AddAngularImpulseInDegrees(FVector(0.0f, 0.0f, CounterYawImpulse), NAME_None, true);
+    const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
+    const FVector Up = VehiclePawn->GetActorUpVector();
+    const float YawRate = FVector::DotProduct(VehicleMesh->GetPhysicsAngularVelocityInDegrees(), Up);
+    // Predict growing over-rotation early enough for keyboard counter-steer to catch it.
+    // This only removes yaw momentum going away from the direction of travel.
+    if (Telemetry.SlipAngleDeg * YawRate >= 0.0f) return;
+    const float Limit = FMath::Max(20.f, HandlingTuning.MaxDriftAngle);
+    const float PredictedAngle = FMath::Abs(Telemetry.SlipAngleDeg) + FMath::Abs(YawRate) * .18f;
+    const float Envelope = FMath::GetMappedRangeValueClamped(
+        FVector2D(Limit * .65f, Limit), FVector2D(0.f, 1.f), PredictedAngle);
+    const float Strength = FMath::Lerp(HandlingTuning.YawControlLowSpeed, HandlingTuning.YawControlHighSpeed,
+        GetSpeedAssistAlpha(Telemetry.SpeedKmh));
+    const float Acceleration = FMath::Clamp(-YawRate * Strength * Envelope, -180.0f, 180.0f);
+    VehicleMesh->AddAngularImpulseInDegrees(Up * Acceleration * DeltaTime, NAME_None, true);
 }
 
 FDriftState UDriftHandlingComponent::CalculateDriftState() const
 {
-	FDriftState State;
-
-	if (!TelemetryComponent)
-	{
-		State.bIsDrifting = bDriftActive;
-		State.bIsOversteering = bDriftActive;
-		State.SlideIntensity = bDriftActive ? 1.0f : 0.0f;
-		return State;
-	}
-
-	const FDriftTelemetryData& Telemetry = TelemetryComponent->GetTelemetry();
-	const float AbsSlip = FMath::Abs(Telemetry.SlipAngleDeg);
-
-	State.bIsDrifting = bDriftActive;
-	State.bIsOversteering = AbsSlip >= HandlingTuning.MinDriftAngle || bDriftActive;
-	State.SlipAngleDeg = Telemetry.SlipAngleDeg;
-	State.SlideIntensity = FMath::Clamp(AbsSlip / FMath::Max(HandlingTuning.MaxDriftAngle, 1.0f), 0.0f, 1.0f);
-
-	return State;
+    FDriftState State;
+    if (!TelemetryComponent) return State;
+    const float Slip = TelemetryComponent->GetTelemetry().SlipAngleDeg;
+    State.bIsDrifting = bDriftActive;
+    State.bIsOversteering = bDriftActive;
+    State.SlipAngleDeg = Slip;
+    State.SlideIntensity = bDriftActive ? FMath::Clamp(FMath::Abs(Slip) / FMath::Max(HandlingTuning.MaxDriftAngle, 1.0f), 0.0f, 1.0f) : 0.0f;
+    return State;
 }
-

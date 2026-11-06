@@ -8,6 +8,7 @@
 class AWheeledVehiclePawn;
 class UDriftTelemetryComponent;
 class USkeletalMeshComponent;
+class UChaosWheeledVehicleMovementComponent;
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class MATURITA_API UDriftHandlingComponent : public UActorComponent
@@ -42,9 +43,8 @@ public:
 
 protected:
 	void UpdateDriftState(float DeltaTime);
-	void ApplyWheelSpinForce(float DeltaTime);
-	void ApplyDriftSustainForce(float DeltaTime);
-	void ApplyHandbrakeAssist(float DeltaTime);
+    void UpdateRearTyreGrip(bool bGroundedForward, bool bRearWheelSpin, float DeltaTime);
+    void UpdateDriftSteeringLock(bool bGroundedForward, float DeltaTime);
 	void ApplyCounterSteerAssist(float DeltaTime);
 	void ApplyGripRecoveryAssist(float DeltaTime);
 	void ApplyYawStabilization(float DeltaTime);
@@ -67,12 +67,18 @@ protected:
 	UPROPERTY()
 	USkeletalMeshComponent* VehicleMesh = nullptr;
 
+	UPROPERTY()
+	TObjectPtr<UChaosWheeledVehicleMovementComponent> VehicleMovement = nullptr;
+
+    UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly, Category="Handling")
+    float CurrentRearGripScale = 1.0f;
+
 	float CurrentDriftAssistAlpha = 0.0f;
-	float CurrentPowerOversteerAlpha = 0.0f;
-	float CurrentHandbrakeAssistAlpha = 0.0f;
 	float CurrentSteeringAssistOffset = 0.0f;
 
 	float DriftHoldTimer = 0.0f;
+    float SlideTransitionTimer = 0.0f;
+    float CurrentSteeringLockBlend = 0.0f;
 	float CachedThrottle = 0.0f;
 	float CachedSteering = 0.0f;
 	float CachedBrake = 0.0f;

@@ -22,13 +22,29 @@ public:
     void InitializeTransmission(UChaosVehicleMovementComponent* InVehicleMovement);
 
     UFUNCTION(BlueprintCallable, Category="Drift|Transmission")
-    void UpdateTransmission(float DeltaTime, float SpeedKmh, float ThrottleInput);
+    void UpdateTransmission(float DeltaTime, float SpeedKmh, float ThrottleInput, float BrakeInput = 0.0f);
 
     UFUNCTION(BlueprintCallable, Category="Drift|Transmission")
     void ShiftUp();
 
     UFUNCTION(BlueprintCallable, Category="Drift|Transmission")
     void ShiftDown();
+
+    UFUNCTION(BlueprintCallable, Category="Drift|Transmission")
+    void ToggleAutomaticMode();
+
+    float GetShiftThrottleScale() const { return ShiftTimer > 0.0f ? 0.85f : 1.0f; }
+    UFUNCTION(BlueprintPure, Category="Drift|Transmission")
+    bool IsAutomaticMode() const { return bUseAutomaticTransmission && ManualOverrideTimer<=0; }
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Transmission|Dual Clutch")
+    float ShiftDuration = 0.12f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Transmission|Dual Clutch")
+    float ShiftCooldown = 0.65f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Transmission|Dual Clutch")
+    float ManualOverrideDuration = 6.0f;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Drift|Transmission|Dual Clutch")
+    bool bIsShifting = false;
 
     UFUNCTION(BlueprintCallable, Category="Drift|Transmission")
     int32 GetCurrentGear() const;
@@ -218,6 +234,11 @@ protected:
     bool bChaosTransmissionConfigured = false;
 
 private:
+    void RequestGear(int32 Gear, bool bManual = false);
+    float RoadRpmForGear(float SpeedKmh, int32 Gear) const;
+    float ShiftTimer = 0.0f;
+    float CooldownTimer = 0.0f;
+    float ManualOverrideTimer = 0.0f;
     int32 LastGear = 1;
     void FindVehicleMovementIfNeeded();
     void ApplyTransmissionMode();

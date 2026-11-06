@@ -17,6 +17,8 @@ public:
     UFUNCTION(BlueprintCallable, Category="Drift UI|RPM Blocks")
     void UpdateRPMBlocks(float CurrentRPM, float MaxRPM, float DeltaTime);
 
+    void SetReducedMotion(bool bEnabled) { bReducedMotion = bEnabled; }
+
 protected:
     UPROPERTY(meta=(BindWidgetOptional), BlueprintReadOnly, Category="Drift UI|RPM Blocks")
     TObjectPtr<UImage> RPMBlock_00;
@@ -104,6 +106,7 @@ private:
     TArray<TObjectPtr<UImage>> RPMBlocks;
 
     float DisplayedRPM = 0.0f;
+    bool bReducedMotion = false;
 
     void RebuildRPMBlockArray();
     FLinearColor GetLitColorForBlock(int32 BlockIndex) const;

@@ -1,16 +1,20 @@
 ﻿#include "Components/DriftEffectsComponent.h"
 
 #include "ChaosWheeledVehicleMovementComponent.h"
+#include "ChaosVehicleWheel.h"
 #include "Components/DriftTelemetryComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "WheeledVehiclePawn.h"
+#include "Handling/TireSmokeModel.h"
+#include "PhysicalMaterials/PhysicalMaterial.h"
 
 UDriftEffectsComponent::UDriftEffectsComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
+    PrimaryComponentTick.TickGroup = TG_PostPhysics;
 }
 
 void UDriftEffectsComponent::BeginPlay()
@@ -57,54 +61,59 @@ void UDriftEffectsComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 	for (int32 WheelIndex = 0; WheelIndex < WheelCount; ++WheelIndex)
 	{
 		const FWheelStatus& WheelStatus = VehicleMovement->GetWheelState(WheelIndex);
-		const bool bRearWheel = WheelIndex >= FMath::Max(0, WheelCount - 2);
+		const UChaosVehicleWheel* Wheel = VehicleMovement->Wheels.IsValidIndex(WheelIndex) ? VehicleMovement->Wheels[WheelIndex] : nullptr;
+        const bool bRearWheel = Wheel && Wheel->AxleType == EAxleType::Rear;
 
-		const bool bSlipping = WheelStatus.bIsSlipping || WheelStatus.SlipMagnitude >= SlipMagnitudeThreshold;
-		const bool bSkidding = WheelStatus.bIsSkidding || WheelStatus.SkidMagnitude >= SkidMagnitudeThreshold;
+        const float LongSlip = FMath::Abs(WheelStatus.SlipMagnitude);
+        const float SideSlip = FMath::Abs(WheelStatus.SkidMagnitude);
+        // Recover longitudinal ground speed from wheel speed minus signed slip.
+        // GetWheelAngularVelocity is rad/s; WheelRadius is cm in this engine.
+        const float WheelSpeed = Wheel && VehicleMovement->PhysicsVehicleOutput()
+            ? Wheel->GetWheelAngularVelocity() * Wheel->WheelRadius : 0.f;
+        const float RoadSpeed = FMath::Abs(WheelSpeed - WheelStatus.SlipMagnitude);
+        const float EffectIntensity = TireSmoke::Intensity(LongSlip, SideSlip, WheelStatus.SlipAngle, RoadSpeed);
+        const bool bSlipping = LongSlip > 150.f && EffectIntensity > .05f;
+        const bool bSkidding = SideSlip > 150.f && FMath::Abs(WheelStatus.SlipAngle) > FMath::DegreesToRadians(6.f);
+        const float WheelSpinIntensity = bSlipping ? EffectIntensity : 0.f;
+        const bool bWheelAllowed = !bSmokeOnlyRearWheels || bRearWheel;
 
-		const float SlipIntensity = FMath::GetMappedRangeValueClamped(
-			FVector2D(SlipMagnitudeThreshold, SlipMagnitudeThreshold * 3.0f),
-			FVector2D(0.0f, 1.0f),
-			WheelStatus.SlipMagnitude
-		);
-
-		const float SkidIntensity = FMath::GetMappedRangeValueClamped(
-			FVector2D(SkidMagnitudeThreshold, SkidMagnitudeThreshold * 3.0f),
-			FVector2D(0.0f, 1.0f),
-			WheelStatus.SkidMagnitude
-		);
-
-		const float DriftIntensity = Telemetry.bIsDrifting ? FMath::Clamp(FMath::Abs(Telemetry.SlipAngleDeg) / 35.0f, 0.25f, 1.0f) : 0.0f;
-		const float WheelSpinIntensity = Telemetry.bWheelSpin ? FMath::Max(SlipIntensity, SkidIntensity) : 0.0f;
-		const float EffectIntensity = FMath::Max3(SlipIntensity, SkidIntensity, DriftIntensity);
-
-		const bool bWheelAllowed = !bSmokeOnlyRearWheels || bRearWheel;
-		const bool bShouldSmoke = bWheelAllowed
-			&& WheelStatus.bInContact
-			&& Telemetry.SpeedKmh >= MinEffectSpeedKmh
-			&& (bSlipping || bSkidding || Telemetry.bWheelSpin || Telemetry.bIsDrifting);
-
-		const float TargetSmokeAmount = bShouldSmoke ? EffectIntensity * MaxSmokeAmount : 0.0f;
-		WheelSmokeAmounts[WheelIndex] = FMath::FInterpTo(WheelSmokeAmounts[WheelIndex], TargetSmokeAmount, DeltaTime, SmokeInterpSpeed);
+        float SurfaceScale = 1.f;
+        if (const UPhysicalMaterial* Material = WheelStatus.PhysMaterial.Get())
+        {
+            if (const float* Scale = SurfaceSmokeMultipliers.Find(Material->SurfaceType))
+                SurfaceScale = FMath::Clamp(*Scale, 0.f, 1.f);
+        }
+        const float ContactIntensity = bWheelAllowed && WheelStatus.bInContact ? EffectIntensity : 0.f;
+        WheelTemperatures[WheelIndex] = FMath::Clamp(WheelTemperatures[WheelIndex]
+            + (18.f * ContactIntensity - .05f * (WheelTemperatures[WheelIndex] - AmbientTemperatureC)) * DeltaTime,
+            AmbientTemperatureC, FMath::Max(140.f, AmbientTemperatureC));
+        WheelWear[WheelIndex] = FMath::Clamp(WheelWear[WheelIndex] + ContactIntensity * DeltaTime * .00002f, 0.f, 1.f);
+        const float TemperatureScale = FMath::Lerp(.65f, 1.1f,
+            FMath::Clamp((WheelTemperatures[WheelIndex] - 25.f) / 115.f, 0.f, 1.f));
+        const float TargetSmokeAmount = MaxSmokeAmount * FMath::Pow(ContactIntensity, 1.25f)
+            * SurfaceScale * TemperatureScale * (1.f - .15f * WheelWear[WheelIndex]);
+        WheelSmokeAmounts[WheelIndex] = WheelStatus.bInContact
+            ? TireSmoke::Filter(WheelSmokeAmounts[WheelIndex], TargetSmokeAmount, DeltaTime) : 0.f;
+        if (WheelSmokeAmounts[WheelIndex] < .05f) WheelSmokeAmounts[WheelIndex] = 0.f;
 
 		UNiagaraComponent* SmokeComp = WheelSmokeComponents[WheelIndex];
 		if (SmokeComp)
 		{
-			if (!SmokeComp->IsActive())
-			{
-				SmokeComp->Activate(true);
-			}
-
-			SmokeComp->SetVisibility(true);
+			// Set the spawn rate before activation to avoid a default-rate puff on the first frame.
 			SmokeComp->SetVariableFloat(SmokeAmountParameterName, WheelSmokeAmounts[WheelIndex]);
-			SmokeComp->SetVariableFloat(WheelSpinParameterName, FMath::Max(WheelSpinIntensity, DriftIntensity));
+			SmokeComp->SetVariableFloat(WheelSpinParameterName, WheelSpinIntensity);
 			SmokeComp->SetVariableVec3(CarVelocityParameterName, CarVelocity);
+            SmokeComp->SetVariableFloat(TEXT("User.Sprite Size"), FMath::Lerp(40.f,65.f,EffectIntensity));
+            SmokeComp->SetVariableVec3(TEXT("User.WindVelocity"), SmokeWindVelocity);
+            SmokeComp->SetVariableFloat(TEXT("User.SlipIntensity"), ContactIntensity);
+            SmokeComp->SetVariableFloat(TEXT("User.TireTemperature"), WheelTemperatures[WheelIndex]);
+            SmokeComp->SetVariableLinearColor(TEXT("User.Smoke Color"),FLinearColor(.55f,.56f,.58f,.55f));
 
 			FVector WheelLoc;
 			FVector WheelNormal;
 			if (GetWheelEffectLocation(WheelIndex, WheelLoc, WheelNormal))
 			{
-				SmokeComp->SetWorldLocation(WheelLoc);
+				SmokeComp->SetWorldLocation(WheelLoc + WheelNormal * 8.0f);
 
 				if (VehiclePawn)
 				{
@@ -112,6 +121,7 @@ void UDriftEffectsComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 					SmokeComp->SetWorldRotation(SmokeDirection.Rotation());
 				}
 			}
+            if (!SmokeComp->IsActive() && WheelSmokeAmounts[WheelIndex] > 0.5f) SmokeComp->Activate(false);
 		}
 
 		const bool bShouldSpawnDecal = bCanSpawnDecal
@@ -178,12 +188,16 @@ void UDriftEffectsComponent::FindReferencesIfNeeded()
 		WheelSmokeActive.SetNum(WheelCount);
 		WheelSmokeDeactivateTimer.SetNum(WheelCount);
 		WheelSmokeAmounts.SetNum(WheelCount);
+        WheelTemperatures.Init(AmbientTemperatureC, WheelCount);
+        WheelWear.Init(0.f, WheelCount);
 
 		for (int32 i = 0; i < WheelCount; ++i)
 		{
 			WheelSmokeActive[i] = false;
 			WheelSmokeDeactivateTimer[i] = 0.0f;
 			WheelSmokeAmounts[i] = 0.0f;
+            const UChaosVehicleWheel* Wheel = VehicleMovement->Wheels.IsValidIndex(i) ? VehicleMovement->Wheels[i] : nullptr;
+            if (bSmokeOnlyRearWheels && (!Wheel || Wheel->AxleType != EAxleType::Rear)) continue;
 
 			UNiagaraComponent* SmokeComp = UNiagaraFunctionLibrary::SpawnSystemAttached(
 				TireSmokeSystem,
@@ -199,10 +213,9 @@ void UDriftEffectsComponent::FindReferencesIfNeeded()
 
 			if (SmokeComp)
 			{
-				SmokeComp->Activate(true);
-				SmokeComp->SetVisibility(true);
 				SmokeComp->SetVariableFloat(SmokeAmountParameterName, 0.0f);
 				SmokeComp->SetVariableFloat(WheelSpinParameterName, 0.0f);
+				SmokeComp->SetVisibility(true);
 			}
 
 			WheelSmokeComponents[i] = SmokeComp;
@@ -218,8 +231,15 @@ bool UDriftEffectsComponent::GetWheelEffectLocation(int32 WheelIndex, FVector& O
 	}
 
 	const FWheelStatus& WheelStatus = VehicleMovement->GetWheelState(WheelIndex);
-	OutNormal = WheelStatus.SkidNormal.IsNearlyZero() ? FVector::UpVector : WheelStatus.SkidNormal;
+    // SkidNormal is the skid direction along the surface, not the surface's up vector.
+    OutNormal = VehiclePawn ? VehiclePawn->GetActorUpVector() : FVector::UpVector;
 
+    // Contact position follows suspension and slopes; a wheel bone is at the hub above the road.
+    if (WheelStatus.bInContact)
+    {
+        OutLocation = WheelStatus.ContactPoint;
+        return true;
+    }
 	if (bUseWheelBoneLocations && VehicleMesh)
 	{
 		const FName WheelBoneName = GetWheelBoneName(WheelIndex);

@@ -81,7 +81,7 @@ void UDriftCarUIWidget::UpdateRPMBlocks(float CurrentRPM, float MaxRPM, float De
     const bool bLimiterVisualActive = NormalizedRPM >= LimiterVisualStartNormalized;
     bool bLimiterPulseOn = true;
 
-    if (bLimiterVisualActive && GetWorld())
+    if (bLimiterVisualActive && !bReducedMotion && GetWorld())
     {
         const float Phase = FMath::Fmod(GetWorld()->GetTimeSeconds() * LimiterBlinkHz, 1.0f);
         bLimiterPulseOn = Phase <= LimiterBlinkDuty;

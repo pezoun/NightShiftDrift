@@ -37,7 +37,7 @@ protected:
 	float SmokeSpawnInterval = 0.08f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Effects|Smoke")
-	FName SmokeAmountParameterName = TEXT("User.SmokeAmount");
+	FName SmokeAmountParameterName = TEXT("User.SpawnRate");
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Effects|Smoke")
 	FName WheelSpinParameterName = TEXT("User.WheelSpin");
@@ -46,7 +46,17 @@ protected:
 	FName CarVelocityParameterName = TEXT("User.CarVelocity");
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Effects|Smoke", meta=(ClampMin="0.0"))
-	float MaxSmokeAmount = 160.0f;
+	float MaxSmokeAmount = 110.0f;
+
+    // Indexed by Physical Surface ID. Unlisted surfaces use dry-asphalt smoke.
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Effects|Smoke")
+    TMap<TEnumAsByte<EPhysicalSurface>, float> SurfaceSmokeMultipliers;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Effects|Smoke")
+    FVector SmokeWindVelocity = FVector(100.f, 30.f, 0.f);
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Effects|Smoke")
+    float AmbientTemperatureC = 25.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Effects|Smoke", meta=(ClampMin="0.1"))
 	float SmokeInterpSpeed = 7.0f;
@@ -67,7 +77,7 @@ protected:
 	float SkidDecalLifeSeconds = 8.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Effects")
-	float MinEffectSpeedKmh = 8.0f;
+	float MinEffectSpeedKmh = 3.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Drift|Effects")
 	float SlipMagnitudeThreshold = 8.0f;
@@ -102,6 +112,8 @@ private:
 	TArray<float> WheelSmokeDeactivateTimer;
 
 	TArray<float> WheelSmokeAmounts;
+    TArray<float> WheelTemperatures;
+    TArray<float> WheelWear;
 
 	float DecalAccumulator = 0.0f;
 
