@@ -21,6 +21,7 @@ public class Maturita : ModuleRules
             "Niagara",
             "PhysicsCore"
         });
+        PrivateDependencyModuleNames.AddRange(new[] { "Json", "JsonUtilities" });
     }
 }
 
