@@ -21,6 +21,8 @@ struct FNightshiftRaceData
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float ElapsedSeconds = 0;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float BestLapSeconds = -1;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float DeltaSeconds = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Checkpoint = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 TotalCheckpoints = 0;
 };
 
 USTRUCT(BlueprintType)
@@ -95,6 +97,8 @@ private:
     UPROPERTY(Transient) TObjectPtr<UTextBlock> ComboText;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> AngleText;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> BankText;
+    UPROPERTY(Transient) TObjectPtr<UCanvasPanel> RacePanel;
+    UPROPERTY(Transient) TObjectPtr<UTextBlock> MoneyText;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> RaceText;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> RaceTime;
     UPROPERTY(Transient) TObjectPtr<UTextBlock> DeltaText;

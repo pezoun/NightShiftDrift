@@ -41,6 +41,7 @@ protected:
 
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
     void ToggleHUDUnits();
+    void OpenPauseMenu();
 
     UFUNCTION(BlueprintCallable, BlueprintPure, Category="HUD")
     float GetCurrentRpm() const;

@@ -25,6 +25,8 @@
 #include "Materials/MaterialInstanceDynamic.h"
 #include "UI/DriftCarUIWidget.h"
 #include "UI/NightshiftHUDWidget.h"
+#include "UI/NightshiftMenu.h"
+#include "Kismet/GameplayStatics.h"
 #include "UI/DriftScoreComponent.h"
 
 ADriftCarPawn::ADriftCarPawn()
@@ -360,6 +362,8 @@ void ADriftCarPawn::InitializeVehicleSystems()
 
 void ADriftCarPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
+    PlayerInputComponent->BindKey(EKeys::Escape, IE_Pressed, this, &ADriftCarPawn::OpenPauseMenu);
+    PlayerInputComponent->BindKey(EKeys::Gamepad_Special_Right, IE_Pressed, this, &ADriftCarPawn::OpenPauseMenu);
     PlayerInputComponent->BindKey(EKeys::U, IE_Pressed, this, &ADriftCarPawn::ToggleHUDUnits);
     Super::SetupPlayerInputComponent(PlayerInputComponent);
     if (DriftCameraComponent)
@@ -447,6 +451,25 @@ void ADriftCarPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     if (ResetVehicleAction)
     {
         EnhancedInput->BindAction(ResetVehicleAction, ETriggerEvent::Started, this, &ADriftCarPawn::Input_ResetVehicle);
+    }
+}
+
+void ADriftCarPawn::OpenPauseMenu()
+{
+    auto* Player = Cast<APlayerController>(GetController());
+    if (!Player || !Player->IsLocalController() || UGameplayStatics::IsGamePaused(this) ||
+        UGameplayStatics::GetCurrentLevelName(this) == TEXT("L_MainMenu"))
+    {
+        return;
+    }
+
+    auto* Menu = CreateWidget<UNightshiftMenu>(Player);
+    if (Menu && UGameplayStatics::SetGamePaused(this, true))
+    {
+        CachedThrottleInput = CachedSteeringInput = CachedBrakeInput = 0.f;
+        bCachedHandbrake = false;
+        Player->FlushPressedKeys();
+        Menu->Open(false);
     }
 }
 
